@@ -1,0 +1,24 @@
+@api = http://localhost:5000 
+
+GET {{api}}/users
+###
+GET {{api}}/users/608df4c1788d990580c2a463
+
+### Create a video
+POST {{api}}/users
+Content-Type: application/json
+
+{
+    "username": "Joel",
+    "password": "44"
+} 
+
+###
+DELETE {{api}}/users/604bcdd6c347ea2e2cf08fc3
+
+###
+PUT {{api}}/users/604bd4160d6cdb2f20549011 
+Content-Type: application/json
+{
+    "username": "Milagros"
+}
