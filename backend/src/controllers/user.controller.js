@@ -1,4 +1,28 @@
 const User = require("../models/users");
+const jwt = require("jsonwebtoken");
+const config = require("../config");
+
+const login = async (req, res) => {
+  const userFound = await User.findOne({
+    username: req.body.username,
+    password: req.body.password,
+  });
+
+  if (!userFound) {
+    return res.status(404).send({ message: "Usuario no encontrado." });
+  }
+  console.log(userFound.id);
+  var token = jwt.sign({ id: userFound.id }, config.SECRET, {
+    expiresIn: 86400, // 24 hours
+  });
+
+  res.status(200).send({
+    id: userFound._id,
+    username: userFound.username,
+    password: userFound.password,
+    accessToken: token,
+  });
+};
 
 const createUser = async (req, res) => {
   const userFound = await User.findOne({ username: req.body.username });
@@ -39,4 +63,11 @@ const updateUser = async (req, res) => {
   return res.json(userUpdated);
 };
 
-module.exports = { createUser, getUsers, getUser, deleteUser, updateUser };
+module.exports = {
+  login,
+  createUser,
+  getUsers,
+  getUser,
+  deleteUser,
+  updateUser,
+};
