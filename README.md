@@ -8,3 +8,4 @@ Integrantes:
 * Jordi Joel Bardales Rojas
 * Jesus Andres Torrejon Leon
 
+$\int_a^b f(x) dx$
