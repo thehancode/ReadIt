@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from "react";
-import * as userService from "./LoginService";
+import React, { useState } from "react";
+import * as userService from "../services/LoginService";
+import { useHistory } from "react-router-dom";
 
 export const LoginForm = () => {
+  const history = useHistory();
+
   const initialState = {
     username: "",
     password: "",
@@ -16,10 +19,10 @@ export const LoginForm = () => {
     e.preventDefault();
     userService.login(user).then(
       () => {
-        console.log("HELLO OK");
+        history.push("/home");
       },
       (error) => {
-        console.log("WORLD ERROR");
+        alert("Usuario incorrecto");
       }
     );
   };

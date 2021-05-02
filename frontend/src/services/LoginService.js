@@ -10,3 +10,6 @@ export const login = async (user) => {
     return response.data;
   });
 };
+export const getCurrentUser = () => {
+  return JSON.parse(localStorage.getItem("user"));
+};
