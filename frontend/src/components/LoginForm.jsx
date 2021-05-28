@@ -2,7 +2,25 @@ import React, { useState } from "react";
 import * as userService from "../services/LoginService";
 import { useHistory } from "react-router-dom";
 
+import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
+import { Button } from "@material-ui/core"
+
+// Importamos los estilos de color del boton
+import theme from "../ThemeConfig"
+
 export const LoginForm = () => {
+
+  // Sección para personalizar el boton a usar
+
+  const useStyles = makeStyles((theme) => ({
+    botonPersonalizado: {
+      margin: theme.spacing(1),      
+      textTransform: 'none',
+    },
+  }));
+  
+  const classes = useStyles();
+
   const history = useHistory();
 
   const initialState = {
@@ -30,7 +48,7 @@ export const LoginForm = () => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <h2>Login</h2>
+        <h2>Ingrese a ReadIt</h2>
         Usuario
         <br />
         <input
@@ -49,7 +67,11 @@ export const LoginForm = () => {
           placeholder="Contraseña"
         />
         <br />
-        <input type="submit" value="Ingresar" />
+        <ThemeProvider theme={theme}>
+          <Button variant="contained" color="primary" type="submit" className={classes.botonPersonalizado}>
+          Iniciar Sesión
+          </Button>
+        </ThemeProvider>
       </form>
     </>
   );
