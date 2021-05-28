@@ -2,31 +2,22 @@ import React, { useState } from "react";
 import * as userService from "../services/LoginService";
 import { useHistory } from "react-router-dom";
 
-import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
+import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import { Button } from "@material-ui/core"
+
+// Importamos los estilos de color del boton
+import theme from "../ThemeConfig"
 
 export const LoginForm = () => {
 
   // Sección para personalizar el boton a usar
 
   const useStyles = makeStyles((theme) => ({
-    margin: {
+    botonPersonalizado: {
       margin: theme.spacing(1),      
       textTransform: 'none',
-      fontSize: '16px',
     },
   }));
-
-  const theme = createMuiTheme({
-    palette: {
-      primary: {
-        light: '#e76b79',
-        main: '#22252C',
-        dark: '#E14658',
-        contrastText: '#fff',
-      },
-    },
-  });
   
   const classes = useStyles();
 
@@ -57,7 +48,7 @@ export const LoginForm = () => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <h2>Login</h2>
+        <h2>Ingrese a ReadIt</h2>
         Usuario
         <br />
         <input
@@ -77,7 +68,7 @@ export const LoginForm = () => {
         />
         <br />
         <ThemeProvider theme={theme}>
-          <Button variant="contained" color="primary" type="submit" className={classes.margin}>
+          <Button variant="contained" color="primary" type="submit" className={classes.botonPersonalizado}>
           Iniciar Sesión
           </Button>
         </ThemeProvider>
