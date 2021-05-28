@@ -2,7 +2,34 @@ import React, { useState } from "react";
 import * as userService from "../services/LoginService";
 import { useHistory } from "react-router-dom";
 
+import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
+import { Button } from "@material-ui/core"
+
 export const LoginForm = () => {
+
+  // Sección para personalizar el boton a usar
+
+  const useStyles = makeStyles((theme) => ({
+    margin: {
+      margin: theme.spacing(1),      
+      textTransform: 'none',
+      fontSize: '16px',
+    },
+  }));
+
+  const theme = createMuiTheme({
+    palette: {
+      primary: {
+        light: '#e76b79',
+        main: '#22252C',
+        dark: '#E14658',
+        contrastText: '#fff',
+      },
+    },
+  });
+  
+  const classes = useStyles();
+
   const history = useHistory();
 
   const initialState = {
@@ -49,7 +76,11 @@ export const LoginForm = () => {
           placeholder="Contraseña"
         />
         <br />
-        <input type="submit" value="Ingresar" />
+        <ThemeProvider theme={theme}>
+          <Button variant="contained" color="primary" type="submit" className={classes.margin}>
+          Iniciar Sesión
+          </Button>
+        </ThemeProvider>
       </form>
     </>
   );
