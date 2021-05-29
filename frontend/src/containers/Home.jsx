@@ -10,7 +10,7 @@ const Home = () => {
 
   return (
     <div>
-      <h1>Welcome</h1>
+      <h1>Bienvenido Sr@.</h1>
       <p>{currentUser.username}</p>
       <p>{currentUser.accessToken.substring(0, 36)}</p>
     </div>

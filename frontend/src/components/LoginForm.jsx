@@ -3,14 +3,14 @@ import * as userService from "../services/LoginService";
 import { useHistory } from "react-router-dom";
 
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
-import { Button } from "@material-ui/core"
+import { Container, FormControl, FormControlLabel, Button, Checkbox, InputLabel, Input } from "@material-ui/core"
 
 // Importamos los estilos de color del boton
 import theme from "../ThemeConfig"
 
 export const LoginForm = () => {
 
-  // Sección para personalizar el boton a usar
+  // Sección para personalizar componentes UI
 
   const useStyles = makeStyles((theme) => ({
     botonPersonalizado: {
@@ -47,32 +47,43 @@ export const LoginForm = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <h2>Ingrese a ReadIt</h2>
-        Usuario
-        <br />
-        <input
-          type="text"
-          name="username"
-          onChange={handleInputChange}
-          placeholder="Usuario"
-        />
-        <br />
-        Contraseña
-        <br />
-        <input
-          type="text"
-          name="password"
-          onChange={handleInputChange}
-          placeholder="Contraseña"
-        />
-        <br />
-        <ThemeProvider theme={theme}>
-          <Button variant="contained" color="primary" type="submit" className={classes.botonPersonalizado}>
-          Iniciar Sesión
-          </Button>
-        </ThemeProvider>
-      </form>
+      <Container maxWidth="xl" component="div" className='backgroundYellow'>
+        <form onSubmit={handleSubmit} className='formLogin'>
+          Ingrese a ReadIt
+          <FormControl>
+            <InputLabel htmlFor='username'>Usuario</InputLabel>
+            <Input
+              type="text"
+              id='username'
+              name="username"
+              onChange={handleInputChange}
+              placeholder="Usuario"
+            />          
+          </FormControl>
+          <FormControl>
+            <InputLabel htmlFor='password'>Contraseña</InputLabel>
+            <Input
+              type="text"
+              id='password'
+              name="password"
+              onChange={handleInputChange}
+              placeholder="Contraseña"
+            />
+          </FormControl>
+          <FormControlLabel
+            control={
+              <ThemeProvider theme={theme}>
+                <Checkbox value="Recuerdame" color="primary"/>
+              </ThemeProvider>}
+            label="Recuerdame"
+          />
+          <ThemeProvider theme={theme}>
+            <Button variant="contained" color="primary" type="submit" className={classes.botonPersonalizado}>
+            Iniciar Sesión
+            </Button>
+          </ThemeProvider>
+        </form>
+      </Container>
     </>
   );
 };

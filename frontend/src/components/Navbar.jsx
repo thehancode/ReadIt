@@ -1,6 +1,6 @@
 import React from "react";
 import Link from '@material-ui/core/Link';
-import { AppBar, makeStyles, Toolbar, Typography} from "@material-ui/core"
+import { AppBar, makeStyles, Toolbar} from "@material-ui/core"
 
 const useStyles = makeStyles((theme)=>({
   offset: theme.mixins.toolbar,
@@ -38,14 +38,15 @@ const Navbar = () => {
     <div>
       <AppBar>
         <Toolbar className={classes.navbar}>
-          <Typography variant="p" color="inherit" className={classes.navLogo}>Read<b>It</b></Typography>
-          <Typography variant="p" color="inherit" className={classes.navMenu}>
-            <Link href="/home" color="inherit" underline="none" className={classes.submenu}>Inicio</Link>
+          <div className={classes.navLogo}>Read<b>It</b></div>
+          <div className={classes.navMenu}>
+            <Link href="/" color="inherit" underline="none" className={classes.submenu}>Inicio</Link>
+            <Link href="/home" color="inherit" underline="none" className={classes.submenu}>Home</Link>
             <Link href="/" color="inherit"  underline="none" className={classes.submenu}>¿Qué es readIt?</Link> 
             <Link href="/" color="inherit"  underline="none" className={classes.submenu}>Servicios</Link>        
             <Link href="/read" color="inherit"  underline="none" className={classes.submenu}>Leer libro</Link>            
-            <Link href="/" color="inherit"  underline="none" className={classes.submenu}>Ingresar</Link>   
-          </Typography>
+            <Link href="/login" color="inherit"  underline="none" className={classes.submenu}>Ingresar</Link>   
+          </div>
         </Toolbar>
       </AppBar>
       <div className={classes.offset}></div>
