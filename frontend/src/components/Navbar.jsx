@@ -8,7 +8,8 @@ const useStyles = makeStyles((theme)=>({
     backgroundColor: '#22252C',
     display:'flex',
     flexDirection:'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    alignItems: 'center'
   },
   navLogo:{
     flexGrow: 1,
@@ -19,7 +20,8 @@ const useStyles = makeStyles((theme)=>({
     display: 'flex',
     flexDirection: 'row',
     flexGrow: 4,
-    justifyContent: 'flex-end',    
+    justifyContent: 'flex-end',  
+    height: '24px',  
   },
   submenu:{
     margin: '0 1.5em',
