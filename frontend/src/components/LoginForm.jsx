@@ -3,7 +3,7 @@ import * as userService from "../services/LoginService";
 import { useHistory } from "react-router-dom";
 
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
-import { Container, FormControl, FormControlLabel, Button, Checkbox, InputLabel, Input } from "@material-ui/core"
+import { Container, FormControl, Typography, FormControlLabel, Button, Checkbox, InputLabel, Input } from "@material-ui/core"
 
 // Importamos los estilos de color del boton
 import theme from "../ThemeConfig"
@@ -17,6 +17,10 @@ export const LoginForm = () => {
       margin: theme.spacing(1),      
       textTransform: 'none',
     },
+    tituloForm: {
+      fontSize: '48px',
+      fontWeight: 400,
+    }
   }));
   
   const classes = useStyles();
@@ -49,7 +53,7 @@ export const LoginForm = () => {
     <>
       <Container maxWidth="xl" component="div" className='backgroundYellow'>
         <form onSubmit={handleSubmit} className='formLogin'>
-          Ingrese a ReadIt
+          <Typography variant="h1" color="initial" className={classes.tituloForm}>Ingrese a ReadIt</Typography>
           <FormControl>
             <InputLabel htmlFor='username'>Usuario</InputLabel>
             <Input
