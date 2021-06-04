@@ -55,7 +55,7 @@ a:hover, a:focus {
   flex-direction: column;
   width: 50%;
   text-align: left;
-  padding: 10%;
+  padding: 10% 8%;
 }
 
 .slider-welcome--title{
