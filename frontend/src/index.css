@@ -8,8 +8,7 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 a {
@@ -26,7 +25,7 @@ a:hover, a:focus {
 }
 
 .backgroundYellow{
-  background-color: #fff8e1;
+  background-color: hsl(50, 70%, 96%);
   width: 100vw;
   padding: 1em;
   text-align: center;
@@ -41,4 +40,44 @@ a:hover, a:focus {
   background-color: #fff;
   border-radius: 20px;
   box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.2);
+}
+
+.slider{
+  background-color: #22252C;
+  width: 100vw;
+  height: calc(100vh - 64px);
+  display: flex;
+  flex-direction: row;
+}
+
+.slider-welcome{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  text-align: left;
+  padding: 10%;
+}
+
+.slider-welcome--title{
+  font-size: 56px;
+  color: #C0B3A0;
+  line-height: 0%;
+}
+
+.slider-welcome--phrase{
+  font-size: 32px;
+  color:#fff;
+}
+
+.slider-welcome--button{
+  padding: 30px 0;
+}
+
+.slider-image{
+  width: 50%;
+  display: flex;
+}
+
+.slider-image img{
+  width: 80%;
 }
