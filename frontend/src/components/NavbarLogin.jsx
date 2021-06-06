@@ -1,5 +1,4 @@
 import React from "react";
-import { Link as LinkS} from "react-scroll";
 
 import Link from '@material-ui/core/Link';
 import { AppBar, makeStyles, Toolbar} from "@material-ui/core"
@@ -37,7 +36,7 @@ const useStyles = makeStyles((theme)=>({
   }
 }));
 
-const Navbar = () => {
+const NavbarLogin = () => {
 
   const classes = useStyles();
 
@@ -45,29 +44,9 @@ const Navbar = () => {
     <div>
       <AppBar>
         <Toolbar className={classes.navbar}>
-          <div className={classes.navLogo}><span>Read<b>It</b></span></div>
-          <div className={classes.navMenu}>
-            <LinkS className={classes.submenu}
-                  to="home-slider"
-                  spy= {true}
-                  smooth={true}
-                  offset={-74}
-                  duration={1000}>
-            Inicio</LinkS>
-            <LinkS className={classes.submenu}
-                  to="home-what-is-readit"
-                  spy= {true}
-                  smooth={true}
-                  offset={-74}
-                  duration={1000}>
-            ¿Qué es readIt?</LinkS> 
-            <LinkS className={classes.submenu}
-                  to="home-services"
-                  spy= {true}
-                  smooth={true}
-                  offset={-74}
-                  duration={1000}>
-            Servicios</LinkS>                   
+            <div className={classes.navLogo}><span>Read<b>It</b></span></div>
+            <div className={classes.navMenu}>
+            <Link href="/" color="inherit"  underline="none" className={classes.submenu}>Inicio</Link>          
             <Link href="/login" color="inherit"  underline="none" className={classes.submenu}>Ingresar</Link>   
           </div>
         </Toolbar>
@@ -77,6 +56,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
-
-
+export default NavbarLogin;

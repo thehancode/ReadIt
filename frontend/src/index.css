@@ -42,7 +42,7 @@ a:hover, a:focus {
   box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.2);
 }
 
-.slider{
+.home-slider{
   background-color: #22252C;
   width: 100vw;
   height: calc(100vh - 64px);
@@ -50,7 +50,7 @@ a:hover, a:focus {
   flex-direction: row;
 }
 
-.slider-welcome{
+.home-slider-welcome{
   display: flex;
   flex-direction: column;
   width: 50%;
@@ -58,26 +58,35 @@ a:hover, a:focus {
   padding: 10% 8%;
 }
 
-.slider-welcome--title{
-  font-size: 56px;
+.home-slider-welcome--title{
+  font-size: 64px;
   color: #C0B3A0;
   line-height: 0%;
 }
 
-.slider-welcome--phrase{
+.home-slider-welcome--phrase{
   font-size: 32px;
   color:#fff;
+  margin: 0px;
 }
 
-.slider-welcome--button{
+.home-slider-welcome--button{
   padding: 30px 0;
 }
 
-.slider-image{
+.home-slider-image{
   width: 50%;
   display: flex;
 }
 
-.slider-image img{
+.home-slider-image img{
   width: 80%;
+}
+
+.home-what-is-readit{
+  height: 100vh;
+}
+
+.home-services{
+  height: 100vh;
 }
