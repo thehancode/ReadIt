@@ -70,7 +70,7 @@ export const LoginForm = () => {
           <FormControl>
             <InputLabel htmlFor='password'>Contraseña</InputLabel>
             <Input
-              type="text"
+              type="password"
               id='password'
               name="password"
               onChange={handleInputChange}

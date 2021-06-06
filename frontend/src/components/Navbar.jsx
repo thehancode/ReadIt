@@ -14,6 +14,8 @@ const useStyles = makeStyles((theme)=>({
     alignItems: 'center'
   },
   navLogo:{
+    display: 'flex',
+    marginLeft: '1em',
     justifyContent: 'flex-start',
     flexDirection: 'row',
     flexGrow: 1,
@@ -51,21 +53,21 @@ const Navbar = () => {
                   to="home-slider"
                   spy= {true}
                   smooth={true}
-                  offset={-74}
+                  offset={-64}
                   duration={1000}>
             Inicio</LinkS>
             <LinkS className={classes.submenu}
                   to="home-what-is-readit"
                   spy= {true}
                   smooth={true}
-                  offset={-74}
+                  offset={-64}
                   duration={1000}>
             ¿Qué es readIt?</LinkS> 
             <LinkS className={classes.submenu}
                   to="home-services"
                   spy= {true}
                   smooth={true}
-                  offset={-74}
+                  offset={-64}
                   duration={1000}>
             Servicios</LinkS>                   
             <Link href="/login" color="inherit"  underline="none" className={classes.submenu}>Ingresar</Link>   

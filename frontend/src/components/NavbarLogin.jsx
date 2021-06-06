@@ -13,9 +13,11 @@ const useStyles = makeStyles((theme)=>({
     alignItems: 'center'
   },
   navLogo:{
-    justifyContent: 'flex-start',
+    display: 'flex',
+    marginLeft: '1em',
     flexDirection: 'row',
     flexGrow: 1,
+    justifyContent: 'flex-start',
     fontSize: '30px',
   },
   navMenu:{    

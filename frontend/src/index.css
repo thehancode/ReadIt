@@ -7,6 +7,40 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body::-webkit-scrollbar{
+  width: 12px;     /* Tamaño del scroll en vertical */
+  height: 12px;    /* Tamaño del scroll en horizontal */
+}
+
+/* Ponemos un color de fondo y redondeamos las esquinas del thumb */
+body::-webkit-scrollbar-thumb {
+  background: hsl(222, 13%, 55%);
+  border-radius: 4px;
+}
+
+/* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
+body::-webkit-scrollbar-thumb:hover {
+  background: hsl(222, 13%, 45%);
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Cambiamos el fondo cuando esté en active */
+body::-webkit-scrollbar-thumb:active {
+  background-color: hsl(222, 13%, 35%);
+}
+
+/* Ponemos un color de fondo y redondeamos las esquinas del track */
+body::-webkit-scrollbar-track {
+  background: hsl(222, 13%, 75%);
+  border-radius: 4px;
+}
+
+/* Cambiamos el fondo cuando esté en active o hover */
+body::-webkit-scrollbar-track:hover,
+body::-webkit-scrollbar-track:active {
+background: hsl(222, 13%, 65%);
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
@@ -43,7 +77,7 @@ a:hover, a:focus {
 }
 
 .home-slider{
-  background-color: #22252C;
+  background-color: #21242b;
   width: 100vw;
   height: calc(100vh - 64px);
   display: flex;
@@ -55,7 +89,8 @@ a:hover, a:focus {
   flex-direction: column;
   width: 50%;
   text-align: left;
-  padding: 10% 8%;
+  padding: 0 8%;
+  justify-content: center;
 }
 
 .home-slider-welcome--title{
@@ -84,9 +119,51 @@ a:hover, a:focus {
 }
 
 .home-what-is-readit{
-  height: 100vh;
+  padding: 20px;
+  height: calc(100vh - 64px);
+  display: flex;
+  flex-direction: row;
+}
+
+.home-what-is-readit-text{
+  width: 60%;
+  height: 60%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  justify-content: center;
+}
+
+.home-what-is-readit-text h2{
+  font-size: 32px;
+  color: #3F3250;
+}
+
+.home-what-is-readit-text p{
+  font-size: 24px;
+}
+
+.home-what-is-readit-image{
+  height: 80%;
+  width: 40%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+	justify-content: center;
+}
+
+.home-what-is-readit-image__img{
+  width: 90%;
+  display: block;
+  box-shadow: 0 0 10px hsl(34, 43%, 10%);
+  transition:all .5s ease-in-out;
+}
+.home-what-is-readit-image__img:hover {
+  -webkit-transform:scale(1.1);
+  transform:scale(1.1);
 }
 
 .home-services{
-  height: 100vh;
+  height: calc(100vh - 64px);
 }

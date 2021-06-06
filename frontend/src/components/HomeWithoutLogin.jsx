@@ -3,6 +3,7 @@ import React from "react";
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import { Button, Container } from "@material-ui/core"
 import personBook from "../assets/ILoveBooks.svg"
+import lector from "../assets/lectorWhatIs.webp"
 
 import Navbar from "./Navbar";
 
@@ -30,11 +31,11 @@ export const HomeWithoutLogin = () => {
           <h1 className='home-slider-welcome--title animate__animated animate__fadeIn animate__slower'>
             ReadIt
           </h1>
-          <p className='home-slider-welcome--phrase animate__animated animate__backInLeft animate__slow'>Tu biblioteca al alcanze de tus manos</p>
+          <p className='home-slider-welcome--phrase animate__animated animate__backInLeft animate__slow'>Tu biblioteca al alcance de tus manos</p>
           <div className='home-slider-welcome--button animate__animated animate__fadeInDown animate__slow'>
             <ThemeProvider theme={theme}>
                   <Button variant="contained" color="secondary" type="submit" size="large" className={classes.botonPersonalizado}>
-                  Registrate
+                  REGISTRATE
                   </Button>
             </ThemeProvider>
           </div>
@@ -43,27 +44,29 @@ export const HomeWithoutLogin = () => {
           <img className='animate__animated animate__fadeIn animate__slower' src={personBook} alt="Persona leyendo un libro"/>
         </div>
       </div>
-      <Container maxWidth='xl' component='section' className='home-what-is-readit' id='home-what-is-readit'>
-        <div>
-          <h2>¿Qué es ReadIt?</h2>
-          <p>
-          ReadIt es un aplicativo web que tiene la finalidad de mejorar tu experiencia a la hora de realizar 
-          lecturas mediantes las diferentes herramientas que disponibles que ofrecemos.  
-          </p>
-        </div>
-        <div>
-
+      <Container maxWidth='xl' component='section' id='home-what-is-readit'>
+        <div className='home-what-is-readit'>
+          <div className='home-what-is-readit-text'>
+            <h2>¿Qué es ReadIt?</h2>
+            <p>
+            ReadIt es un aplicativo web que tiene la finalidad de mejorar tu experiencia a la hora de realizar 
+            lecturas mediantes las diferentes herramientas que disponibles que ofrecemos.  
+            </p>
+          </div>
+          <div className='home-what-is-readit-image'>
+            <img className='home-what-is-readit-image__img' src={lector} alt="Tablet"/>
+          </div>
         </div>
       </Container>
       <Container maxWidth='xl' component='section' className='home-services' id='home-services'>
-        <div>
+        <div className='home-services-text'>
           <h2>¿Qué es ReadIt?</h2>
           <p>
-          ReadIt es un aplicativo web que tiene la finalidad de mejorar tu experiencia a la hora de realizar 
-          lecturas mediantes las diferentes herramientas que disponibles que ofrecemos.  
+          ReadIt es un aplicativo web que tiene la finalidad de mejorar tu experiencia a la hora de leer
+          mediante las diferentes herramientas a su disposición que ofrecemos.  
           </p>
         </div>
-        <div>
+        <div className='home-services-image'>
 
         </div>
       </Container>
