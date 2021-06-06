@@ -5,6 +5,8 @@ import { useHistory } from "react-router-dom";
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import { Container, FormControl, Typography, FormControlLabel, Button, Checkbox, InputLabel, Input } from "@material-ui/core"
 
+import NavbarLogin from "./NavbarLogin";
+
 // Importamos los estilos de color del boton
 import theme from "../ThemeConfig"
 
@@ -51,6 +53,7 @@ export const LoginForm = () => {
 
   return (
     <>
+      <NavbarLogin/>
       <Container maxWidth="xl" component="div" className='backgroundYellow'>
         <form onSubmit={handleSubmit} className='formLogin'>
           <Typography variant="h1" color="initial" className={classes.tituloForm}>Ingrese a ReadIt</Typography>
@@ -67,7 +70,7 @@ export const LoginForm = () => {
           <FormControl>
             <InputLabel htmlFor='password'>Contraseña</InputLabel>
             <Input
-              type="text"
+              type="password"
               id='password'
               name="password"
               onChange={handleInputChange}

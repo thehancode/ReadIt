@@ -1,6 +1,5 @@
 import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Navbar from "./components/Navbar";
 
 import { LoginForm } from "./components/LoginForm";
 import { HomeWithoutLogin } from "./components/HomeWithoutLogin";
@@ -13,7 +12,6 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar />
         <div className="container p-4">
           <Switch>
             <Route exact path="/" component={HomeWithoutLogin} />
