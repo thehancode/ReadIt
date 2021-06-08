@@ -137,7 +137,8 @@ a:hover, a:focus {
 
 .home-what-is-readit-text h2{
   font-size: 32px;
-  color: #3F3250;
+  line-height: 0.5em;
+  color: hsl(266, 23%, 25%);
 }
 
 .home-what-is-readit-text p{
@@ -171,4 +172,15 @@ a:hover, a:focus {
   flex-direction: column;
   background-color: #fff;
 }
+
+.home-services-text h2{
+  font-size: 32px;
+  color: #3F3250;
+  line-height: 0.5em;
+}
+
+.home-services-text p{
+  font-size: 24px;
+}
+
 
