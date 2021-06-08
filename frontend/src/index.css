@@ -165,5 +165,10 @@ a:hover, a:focus {
 }
 
 .home-services{
+  padding: 20px;
   height: calc(100vh - 64px);
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
 }
+
