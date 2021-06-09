@@ -61,6 +61,7 @@ a:hover, a:focus {
 .backgroundYellow{
   background-color: hsl(50, 70%, 96%);
   width: 100vw;
+  height:calc(100vh - 64px);
   padding: 1em;
   text-align: center;
 }
@@ -183,4 +184,23 @@ a:hover, a:focus {
   font-size: 24px;
 }
 
+.footer{
+  display: flex;
+  flex-direction: column;
+  color: #FFF;
+  background-color: #21242b;
+}
+
+.footer-social-icons{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  column-gap: 1em;
+  transition:all .5s ease-in-out;
+}
+
+.footer-social-icons__icon:hover{
+  color: #C0B3A0;
+  transform: scale(1.2);
+}
 
