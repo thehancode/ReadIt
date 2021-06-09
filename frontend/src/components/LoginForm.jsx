@@ -5,6 +5,8 @@ import { useHistory } from "react-router-dom";
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import { Container, FormControl, Typography, FormControlLabel, Button, Checkbox, InputLabel, Input } from "@material-ui/core"
 
+// Importamos los principales componentes
+import Footer from "./Footer"
 import NavbarLogin from "./NavbarLogin";
 
 // Importamos los estilos de color del boton
@@ -15,6 +17,15 @@ export const LoginForm = () => {
   // Sección para personalizar componentes UI
 
   const useStyles = makeStyles((theme) => ({
+    root:{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: 'hsl(50, 70%, 96%)',
+      width: '100vw',
+      height: 'calc(100vh - 64px)',
+      padding: '1em',
+    },
     botonPersonalizado: {
       margin: theme.spacing(1),      
       textTransform: 'none',
@@ -22,6 +33,9 @@ export const LoginForm = () => {
     tituloForm: {
       fontSize: '48px',
       fontWeight: 400,
+    },
+    labelForm: {
+      borderBottom: '2px solid #3f51b5',
     }
   }));
   
@@ -53,44 +67,43 @@ export const LoginForm = () => {
 
   return (
     <>
-      <NavbarLogin/>
-      <Container maxWidth="xl" component="div" className='backgroundYellow'>
-        <form onSubmit={handleSubmit} className='formLogin'>
-          <Typography variant="h1" color="initial" className={classes.tituloForm}>Ingrese a ReadIt</Typography>
-          <FormControl>
-            <InputLabel htmlFor='username'>Usuario</InputLabel>
-            <Input
-              type="text"
-              id='username'
-              name="username"
-              onChange={handleInputChange}
-              placeholder="Usuario"
-            />          
-          </FormControl>
-          <FormControl>
-            <InputLabel htmlFor='password'>Contraseña</InputLabel>
-            <Input
-              type="password"
-              id='password'
-              name="password"
-              onChange={handleInputChange}
-              placeholder="Contraseña"
+      <NavbarLogin/>      
+      <ThemeProvider theme={theme}>
+        <div className={classes.offset}></div>
+        <Container maxWidth="xl" component="div" className={classes.root}>
+          <form onSubmit={handleSubmit} className='formLogin'>
+            <Typography variant="h1" color="initial" className={classes.tituloForm}>Ingrese a ReadIt</Typography>
+            <FormControl>
+              <InputLabel htmlFor='username'>Usuario</InputLabel>
+              <Input
+                type="text"
+                id='username'
+                name="username"
+                onChange={handleInputChange}
+                placeholder="Usuario"
+              />          
+            </FormControl>
+            <FormControl>
+              <InputLabel htmlFor='password'>Contraseña</InputLabel>
+              <Input
+                type="password"
+                id='password'
+                name="password"
+                onChange={handleInputChange}
+                placeholder="Contraseña"
+              />
+            </FormControl>
+            <FormControlLabel
+              control={<Checkbox value="Recuerdame" color="primary"/>}
+              label="Recuerdame"
             />
-          </FormControl>
-          <FormControlLabel
-            control={
-              <ThemeProvider theme={theme}>
-                <Checkbox value="Recuerdame" color="primary"/>
-              </ThemeProvider>}
-            label="Recuerdame"
-          />
-          <ThemeProvider theme={theme}>
             <Button variant="contained" color="primary" type="submit" className={classes.botonPersonalizado}>
-            Iniciar Sesión
+              Iniciar Sesión
             </Button>
-          </ThemeProvider>
-        </form>
-      </Container>
+          </form>
+        </Container>
+      </ThemeProvider>
+      <Footer/>
     </>
   );
 };

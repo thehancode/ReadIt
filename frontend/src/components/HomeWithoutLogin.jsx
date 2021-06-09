@@ -7,7 +7,9 @@ import Fade from 'react-reveal/Fade';
 import personBook from "../assets/ILoveBooks.svg"
 import lector from "../assets/lectorWhatIs.webp"
 
+// Importamos los principales componentes
 import Navbar from "./Navbar";
+import Footer from "./Footer"
 
 // Importamos los estilos de color del boton
 import theme from "../ThemeConfig"
@@ -122,32 +124,33 @@ export const HomeWithoutLogin = () => {
                 </p>
             </div>
             <Grid container direction='row' justify='space-around'>              
-              <Grid xs='12' sm='6' lg='4'>
+              <Grid item xs={12} sm={6} lg={4}>
                 <Fade cascade>
-                  <Box bgcolor='#3F3250' borderRadius='30px' width='200px' height='250px' color='#FFF' padding='20px' margin='1em auto' boxShadow='0 0 6px hsl(266, 23%, 12%)'>
+                  <Box bgcolor='#3F3250' borderRadius='30px' width='200px' height='250px' color='#FFF' padding='20px' margin='2em auto' boxShadow='0 0 6px hsl(266, 23%, 12%)'>
                     <h3>Biblioteca Virtual</h3>
                     <p>Presentamos un catalogo de diferentes libros mediante app de Proyecto Gutenberg, los cuales están a libre disposición para su posterior lectura. </p>
                   </Box>
                 </Fade>
               </Grid>
-              <Grid xs='12' sm='6' lg='4'>
+              <Grid item xs={12} sm={6} lg={4}>
                 <Fade cascade>
-                  <Box bgcolor='#3F3250' borderRadius='30px' width='200px' height='250px' color='#FFF' padding='20px' margin='1em auto' boxShadow='0 0 6px hsl(266, 23%, 12%)'>
+                  <Box bgcolor='#3F3250' borderRadius='30px' width='200px' height='250px' color='#FFF' padding='20px' margin='2em auto' boxShadow='0 0 6px hsl(266, 23%, 12%)'>
                     <h3>Visualizador de Libros</h3>
                     <p>Tenemos nuestro propio visualizador, mediante el cual ofrecemos diferentes herramientas para mejorar la experiencia al leer. </p>
                   </Box>
                 </Fade>
               </Grid>
-              <Grid xs='12' sm='6' lg='4'>
+              <Grid item xs={12} sm={6} lg={4}>
                 <Fade cascade>
-                  <Box bgcolor='#3F3250' borderRadius='30px' width='200px' height='250px' color='#FFF' padding='20px' margin='1em auto' boxShadow='0 0 6px hsl(266, 23%, 12%)'>
+                  <Box bgcolor='#3F3250' borderRadius='30px' width='200px' height='250px' color='#FFF' padding='20px' margin='2em auto' boxShadow='0 0 6px hsl(266, 23%, 12%)'>
                     <h3>Almacenamiento</h3>
                     <p>Contamos con un almacenamiento mediante el cual podrás almacenar libros, notas de voz, apuntes, etc y luego organizarlo para el gusto de nuetros usuarios. </p>
                   </Box>
                 </Fade>
               </Grid>
             </Grid>
-          </Container>            
+          </Container>          
+          <Footer/>
         </main>
       </div>  
     </>
