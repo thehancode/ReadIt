@@ -3,7 +3,7 @@ import * as userService from "../services/LoginService";
 import { useHistory } from "react-router-dom";
 
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
-import { Container, FormControl, Typography, FormControlLabel, Button, Checkbox, InputLabel, Input } from "@material-ui/core"
+import { Container, FormControl, Typography, FormControlLabel, Button, Checkbox, InputLabel, Input, Link } from "@material-ui/core"
 
 // Importamos los principales componentes
 import Footer from "./Footer"
@@ -31,11 +31,19 @@ export const LoginForm = () => {
       textTransform: 'none',
     },
     tituloForm: {
-      fontSize: '48px',
+      fontSize: '42px',
       fontWeight: 400,
+    },
+    formLogin__element: {
+      margin: '.5em 0'
     },
     labelForm: {
       borderBottom: '2px solid #3f51b5',
+    },
+    register:{
+      '&:hover': {
+        color:'#E14658',
+      }
     }
   }));
   
@@ -73,7 +81,7 @@ export const LoginForm = () => {
         <Container maxWidth="xl" component="div" className={classes.root}>
           <form onSubmit={handleSubmit} className='formLogin'>
             <Typography variant="h1" color="initial" className={classes.tituloForm}>Ingrese a ReadIt</Typography>
-            <FormControl>
+            <FormControl className={classes.formLogin__element}>
               <InputLabel htmlFor='username'>Usuario</InputLabel>
               <Input
                 type="text"
@@ -83,7 +91,7 @@ export const LoginForm = () => {
                 placeholder="Usuario"
               />          
             </FormControl>
-            <FormControl>
+            <FormControl className={classes.formLogin__element}>
               <InputLabel htmlFor='password'>Contraseña</InputLabel>
               <Input
                 type="password"
@@ -94,12 +102,16 @@ export const LoginForm = () => {
               />
             </FormControl>
             <FormControlLabel
+              className={classes.formLogin__element}
               control={<Checkbox value="Recuerdame" color="primary"/>}
               label="Recuerdame"
             />
             <Button variant="contained" color="primary" type="submit" className={classes.botonPersonalizado}>
               Iniciar Sesión
             </Button>
+            <p>
+               ¿Aún no tienes cuenta? <Link href="/login" color="inherit" className={classes.register}>Regístrate aquí</Link>
+            </p>
           </form>
         </Container>
       </ThemeProvider>

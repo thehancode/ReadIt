@@ -1,8 +1,7 @@
 import React from "react";
-import { Link as LinkS} from "react-scroll";
+import { Link as LinkS } from "react-scroll";
 
-import Link from '@material-ui/core/Link';
-import { AppBar, makeStyles, Toolbar,Hidden, IconButton} from "@material-ui/core"
+import { AppBar, makeStyles, Toolbar,Hidden, IconButton, Link } from "@material-ui/core"
 import MenuIcon from '@material-ui/icons/Menu';
 
 const useStyles = makeStyles((theme)=>({

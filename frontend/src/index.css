@@ -58,6 +58,10 @@ a:hover, a:focus {
   background-size: 100% 2px;
 }
 
+.white-space{
+  white-space: pre-wrap;
+}
+
 .backgroundYellow{
   background-color: hsl(50, 70%, 96%);
   width: 100vw;
@@ -73,7 +77,6 @@ a:hover, a:focus {
   margin: 1em auto;
   padding: 2em;
   background-color: #fff;
-  border-radius: 20px;
   box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.2);
 }
 
