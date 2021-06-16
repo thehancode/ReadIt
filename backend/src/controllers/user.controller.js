@@ -27,7 +27,7 @@ const login = async (req, res) => {
 const createUser = async (req, res) => {
   const userFound = await User.findOne({ username: req.body.username });
   if (userFound)
-    return res.status(301).json({ message: "El usuario ya existe" });
+    return res.status(404).json({ message: "El usuario ya existe" });
 
   const user = new User(req.body);
   const savedUser = await user.save();
