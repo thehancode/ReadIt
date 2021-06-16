@@ -110,7 +110,7 @@ export const LoginForm = () => {
               Iniciar Sesión
             </Button>
             <p>
-               ¿Aún no tienes cuenta? <Link href="/login" color="inherit" className={classes.register}>Regístrate aquí</Link>
+               ¿Aún no tienes cuenta? <Link href="/registro" color="inherit" className={classes.register}>Regístrate aquí</Link>
             </p>
           </form>
         </Container>
