@@ -1,18 +1,15 @@
 import React, { useState } from "react";
 import * as userService from "../services/RegistroService";
+
 import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
-import { useHistory } from "react-router-dom";
 
 import {
   Container,
   FormControl,
   Typography,
-  FormControlLabel,
   Button,
-  Checkbox,
   InputLabel,
   Input,
-  Link,
 } from "@material-ui/core";
 
 // Importamos los principales componentes
@@ -34,7 +31,8 @@ export const RegistroForm = () => {
       padding: "1em",
     },
     botonPersonalizado: {
-      margin: theme.spacing(1),
+      margin: '1em 2em 0em 2em', 
+      backgroundImage: "none",
       textTransform: "none",
     },
     tituloForm: {
@@ -56,14 +54,13 @@ export const RegistroForm = () => {
 
   const classes = useStyles();
 
-  const history = useHistory();
-
   const initialState = {
     nombre: "",
     apellido: "",
     correo: "",
     username: "",
     password: "",
+    passwordValidate: "",
   };
 
   const [user, setUser] = useState(initialState);
@@ -108,35 +105,30 @@ export const RegistroForm = () => {
                 name="nombre"
                 onChange={handleInputChange}
                 value={user.nombre}
-                placeholder="Nombre"
               />
             </FormControl>
 
             <FormControl className={classes.formLogin__element}>
-              <InputLabel htmlFor="username">Apellido</InputLabel>
+              <InputLabel htmlFor="username">Apellidos</InputLabel>
               <Input
                 type="text"
                 id="apellido"
                 name="apellido"
                 onChange={handleInputChange}
                 value={user.apellido}
-                placeholder="Apellido"
               />
             </FormControl>
 
             <FormControl className={classes.formLogin__element}>
               <InputLabel htmlFor="username">Correo Electrónico</InputLabel>
               <Input
-                type="text"
+                type="email"
                 id="correo"
                 name="correo"
                 onChange={handleInputChange}
-                type="email"
                 value={user.correo}
-                placeholder="Correo Electrónico"
               />
             </FormControl>
-
             <FormControl className={classes.formLogin__element}>
               <InputLabel htmlFor="username">Usuario</InputLabel>
               <Input
@@ -145,10 +137,8 @@ export const RegistroForm = () => {
                 name="username"
                 onChange={handleInputChange}
                 value={user.username}
-                placeholder="Usuario"
               />
             </FormControl>
-
             <FormControl className={classes.formLogin__element}>
               <InputLabel htmlFor="password">Contraseña</InputLabel>
               <Input
@@ -157,16 +147,26 @@ export const RegistroForm = () => {
                 name="password"
                 onChange={handleInputChange}
                 value={user.password}
-                placeholder="Contraseña"
+              />
+            </FormControl>
+            <FormControl className={classes.formLogin__element}>
+              <InputLabel htmlFor="password-validate">Confirmar Contraseña</InputLabel>
+              <Input
+                type="password"
+                id="passwordValidate"
+                name="passwordValidate"
+                onChange={handleInputChange}
+                value={user.passwordValidate}
               />
             </FormControl>
             <Button
               variant="contained"
               color="primary"
+              href="/login"
               type="submit"
               className={classes.botonPersonalizado}
             >
-              Regístrate
+              Registrarte
             </Button>
           </form>
         </Container>

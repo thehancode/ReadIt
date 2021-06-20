@@ -3,7 +3,7 @@ import * as userService from "../services/LoginService";
 import { useHistory } from "react-router-dom";
 
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
-import { Container, FormControl, Typography, FormControlLabel, Button, Checkbox, InputLabel, Input, Link } from "@material-ui/core"
+import { Container, FormControl, Typography, FormControlLabel, Button, Checkbox, InputLabel, Input, Link, Divider } from "@material-ui/core"
 
 // Importamos los principales componentes
 import Footer from "./Footer"
@@ -27,7 +27,8 @@ export const LoginForm = () => {
       padding: '1em',
     },
     botonPersonalizado: {
-      margin: theme.spacing(1),      
+      margin: '0 2em 1.5em 2em',  
+      backgroundImage: "none",    
       textTransform: 'none',
     },
     tituloForm: {
@@ -106,9 +107,10 @@ export const LoginForm = () => {
               control={<Checkbox value="Recuerdame" color="primary"/>}
               label="Recuerdame"
             />
-            <Button variant="contained" color="primary" type="submit" className={classes.botonPersonalizado}>
+            <Button variant="contained" color="primary" type="submit" href="/home" className={classes.botonPersonalizado}>
               Iniciar Sesión
             </Button>
+            <Divider></Divider>
             <p>
                ¿Aún no tienes cuenta? <Link href="/registro" color="inherit" className={classes.register}>Regístrate aquí</Link>
             </p>
