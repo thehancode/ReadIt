@@ -32,7 +32,7 @@ export const LoginForm = () => {
       textTransform: 'none',
     },
     tituloForm: {
-      fontSize: '42px',
+      fontSize: '36px',
       fontWeight: 400,
     },
     formLogin__element: {

@@ -31,12 +31,12 @@ export const RegistroForm = () => {
       padding: "1em",
     },
     botonPersonalizado: {
-      margin: '1em 2em 0em 2em', 
+      margin: '2em 2em 1em 2em', 
       backgroundImage: "none",
       textTransform: "none",
     },
     tituloForm: {
-      fontSize: "42px",
+      fontSize: "36px",
       fontWeight: 400,
     },
     formLogin__element: {

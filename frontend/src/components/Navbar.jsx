@@ -1,7 +1,7 @@
 import React from "react";
 import { Link as LinkS } from "react-scroll";
 
-import { AppBar, makeStyles, Toolbar,Hidden, IconButton, Link } from "@material-ui/core"
+import { AppBar, makeStyles, Toolbar, Hidden, IconButton, Link } from "@material-ui/core"
 import MenuIcon from '@material-ui/icons/Menu';
 
 const useStyles = makeStyles((theme)=>({
@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme)=>({
     display:'flex',
     flexDirection:'row',
     justifyContent: 'space-between',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   navLogo:{
     display: 'flex',
