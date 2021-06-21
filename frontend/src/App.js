@@ -4,8 +4,9 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { LoginForm } from "./components/LoginForm";
 import { RegistroForm } from "./components/RegistroForm";
 import { HomeWithoutLogin } from "./components/HomeWithoutLogin";
+import { Home } from "./components/Home";
 
-import Home from "./containers/Home";
+//import Home from "./containers/Home";
 import NotFound from "./containers/NotFound";
 
 

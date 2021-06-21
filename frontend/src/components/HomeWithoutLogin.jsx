@@ -38,6 +38,7 @@ export const HomeWithoutLogin = () => {
     },
     botonPersonalizado: {
       margin: theme.spacing(1),
+      backgroundImage: "none",
       textTransform: "none",
     },
     drawer: {
@@ -148,6 +149,7 @@ export const HomeWithoutLogin = () => {
             </List>
           </Drawer>
         </Hidden>
+        {/* Cuerpo de la página */}
         <main className={classes.content}>
           <div className={classes.offset}></div>
           <div className="home-slider" id="home-slider">
@@ -165,8 +167,8 @@ export const HomeWithoutLogin = () => {
                 <ThemeProvider theme={theme}>
                   <Button
                     variant="contained"
-                    href="/registro"
                     color="secondary"
+                    href="/registro"
                     type="submit"
                     size="large"
                     className={classes.botonPersonalizado}
@@ -191,9 +193,9 @@ export const HomeWithoutLogin = () => {
                   <h2>¿Qué es ReadIt?</h2>
                   <p>
                     ReadIt es un aplicativo web que tiene la finalidad de
-                    mejorar tu experiencia a la hora de realizar lecturas
-                    mediantes las diferentes herramientas que disponibles que
-                    ofrecemos.
+                    mejorar tu experiencia a la hora de sumergiste en el 
+                    mundo de la lectura mediante las diferentes herramientas 
+                    disponibles que ofrecemos.
                   </p>
                 </div>
               </Fade>
