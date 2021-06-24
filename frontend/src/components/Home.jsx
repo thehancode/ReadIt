@@ -110,7 +110,7 @@ export const Home = () => {
                     offset={-56}
                     duration={1000}
                   >
-                    Inicio
+                    Biblioteca
                   </LinkS>
                 </ListItemText>
               </ListItem>
@@ -124,7 +124,7 @@ export const Home = () => {
                     offset={-56}
                     duration={1000}
                   >
-                    ¿Qué es readIt?
+                    Mis Libros
                   </LinkS>
                 </ListItemText>
               </ListItem>
@@ -138,7 +138,7 @@ export const Home = () => {
                     offset={-64}
                     duration={1000}
                   >
-                    Servicios
+                    Mis notas
                   </LinkS>
                 </ListItemText>
               </ListItem>
@@ -150,7 +150,7 @@ export const Home = () => {
                     underline="none"
                     className={classes.submenu}
                   >
-                    Ingresar
+                    Mi Cuenta
                   </Link>
                 </ListItemText>
               </ListItem>
@@ -161,7 +161,7 @@ export const Home = () => {
         <main className={classes.content}>
             <div className={classes.offset}></div>
             <Typography variant="h2" component="h1" className={classes.title}>Biblioteca</Typography>
-            <Typography variant="h3" component="h2" className={classes.subtitle}>Catalogo</Typography>
+            <Typography variant="h3" component="h2" className={classes.subtitle}>Catálogo</Typography>
             <CarouselBooks/>
             <Typography variant="h3" component="h2" className={classes.subtitle}>Buscador</Typography>
             <Footer />
