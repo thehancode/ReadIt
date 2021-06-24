@@ -1,53 +1,69 @@
 import React, { useState } from "react";
 import * as userService from "../services/LoginService";
 import { useHistory } from "react-router-dom";
-
-import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
-import { Container, FormControl, Typography, FormControlLabel, Button, Checkbox, InputLabel, Input, Link, Divider } from "@material-ui/core"
+import { getCurrentUser } from "../services/LoginService";
+import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
+import {
+  Container,
+  FormControl,
+  Typography,
+  FormControlLabel,
+  Button,
+  Checkbox,
+  InputLabel,
+  Input,
+  Link,
+  Divider,
+} from "@material-ui/core";
 
 // Importamos los principales componentes
-import Footer from "./Footer"
+import Footer from "./Footer";
 import NavbarLogin from "./NavbarLogin";
 
 // Importamos los estilos de color del boton
-import theme from "../ThemeConfig"
+import theme from "../ThemeConfig";
 
 export const LoginForm = () => {
-
   // Sección para personalizar componentes UI
 
   const useStyles = makeStyles((theme) => ({
-    root:{
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: 'hsl(50, 70%, 96%)',
-      width: '100vw',
-      height: 'calc(100vh - 64px)',
-      padding: '1em',
+    root: {
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      backgroundColor: "hsl(50, 70%, 96%)",
+      width: "100vw",
+      height: "calc(100vh - 64px)",
+      padding: "1em",
     },
     botonPersonalizado: {
-      margin: '0 2em 1.5em 2em',  
-      backgroundImage: "none",    
-      textTransform: 'none',
+      margin: "0 2em 1.5em 2em",
+      backgroundImage: "none",
+      textTransform: "none",
     },
     tituloForm: {
-      fontSize: '36px',
+      fontSize: "36px",
       fontWeight: 400,
     },
     formLogin__element: {
-      margin: '.5em 0'
+      margin: ".5em 0",
     },
     labelForm: {
-      borderBottom: '2px solid #3f51b5',
+      borderBottom: "2px solid #3f51b5",
     },
-    register:{
-      '&:hover': {
-        color:'#E14658',
-      }
-    }
+    register: {
+      "&:hover": {
+        color: "#E14658",
+      },
+    },
   }));
-  
+
+  const state = {
+    currentUser: getCurrentUser(),
+  };
+
+  const { currentUser } = state;
+
   const classes = useStyles();
 
   const history = useHistory();
@@ -76,48 +92,74 @@ export const LoginForm = () => {
 
   return (
     <>
-      <NavbarLogin/>      
-      <ThemeProvider theme={theme}>
-        <div className={classes.offset}></div>
-        <Container maxWidth="xl" component="div" className={classes.root}>
-          <form onSubmit={handleSubmit} className='formLogin'>
-            <Typography variant="h1" color="initial" className={classes.tituloForm}>Ingrese a ReadIt</Typography>
-            <FormControl className={classes.formLogin__element}>
-              <InputLabel htmlFor='username'>Usuario</InputLabel>
-              <Input
-                type="text"
-                id='username'
-                name="username"
-                onChange={handleInputChange}
-                placeholder="Usuario"
-              />          
-            </FormControl>
-            <FormControl className={classes.formLogin__element}>
-              <InputLabel htmlFor='password'>Contraseña</InputLabel>
-              <Input
-                type="password"
-                id='password'
-                name="password"
-                onChange={handleInputChange}
-                placeholder="Contraseña"
-              />
-            </FormControl>
-            <FormControlLabel
-              className={classes.formLogin__element}
-              control={<Checkbox value="Recuerdame" color="primary"/>}
-              label="Recuerdame"
-            />
-            <Button variant="contained" color="primary" type="submit" href="/home" className={classes.botonPersonalizado}>
-              Iniciar Sesión
-            </Button>
-            <Divider></Divider>
-            <p>
-               ¿Aún no tienes cuenta? <Link href="/registro" color="inherit" className={classes.register}>Regístrate aquí</Link>
-            </p>
-          </form>
-        </Container>
-      </ThemeProvider>
-      <Footer/>
+      {!currentUser ? (
+        <>
+          (<NavbarLogin />
+          <ThemeProvider theme={theme}>
+            <div className={classes.offset}></div>
+            <Container maxWidth="xl" component="div" className={classes.root}>
+              <form onSubmit={handleSubmit} className="formLogin">
+                <Typography
+                  variant="h1"
+                  color="initial"
+                  className={classes.tituloForm}
+                >
+                  Ingrese a ReadIt
+                </Typography>
+                <FormControl className={classes.formLogin__element}>
+                  <InputLabel htmlFor="username">Usuario</InputLabel>
+                  <Input
+                    type="text"
+                    required={true}
+                    id="username"
+                    name="username"
+                    onChange={handleInputChange}
+                    placeholder="Usuario"
+                  />
+                </FormControl>
+                <FormControl className={classes.formLogin__element}>
+                  <InputLabel htmlFor="password">Contraseña</InputLabel>
+                  <Input
+                    required={true}
+                    type="password"
+                    id="password"
+                    name="password"
+                    onChange={handleInputChange}
+                    placeholder="Contraseña"
+                  />
+                </FormControl>
+                <FormControlLabel
+                  className={classes.formLogin__element}
+                  control={<Checkbox value="Recuerdame" color="primary" />}
+                  label="Recuerdame"
+                />
+                <Button
+                  variant="contained"
+                  color="primary"
+                  type="submit"
+                  className={classes.botonPersonalizado}
+                >
+                  Iniciar Sesión
+                </Button>
+                <Divider></Divider>
+                <p>
+                  ¿Aún no tienes cuenta?{" "}
+                  <Link
+                    href="/registro"
+                    color="inherit"
+                    className={classes.register}
+                  >
+                    Regístrate aquí
+                  </Link>
+                </p>
+              </form>
+            </Container>
+          </ThemeProvider>
+          <Footer />)
+        </>
+      ) : (
+        history.push("/home")
+      )}
     </>
   );
 };
