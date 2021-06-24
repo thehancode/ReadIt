@@ -9,14 +9,17 @@ import {
   Divider,
   ListItemText,
   Link,
+  Typography,
 } from "@material-ui/core";
 
 import { Link as LinkS } from "react-scroll";
 //import Fade from "react-reveal/Fade";
 
+
 // Importamos los principales componentes
 import NavbarHome from "./NavbarHome";
 import Footer from "./Footer";
+import CarouselBooks from "./CarouselBooks";
 
 // Importamos los estilos de color del boton
 // import theme from "../ThemeConfig"; 
@@ -57,6 +60,18 @@ export const Home = () => {
         color: "#C0B3A0",
       },
     },
+    title: {
+      color: '#3F3250',
+      fontWeight: '400',
+      margin: '20px',
+    },    
+    subtitle: {
+      textAlign: 'left',
+      color: '#3F3250',
+      paddingLeft: '1em',
+      fontWeight: '300',
+      margin: '10px',
+    }
   }));
 
   const classes = useStyles();
@@ -145,6 +160,10 @@ export const Home = () => {
         {/* Cuerpo de la página */}
         <main className={classes.content}>
             <div className={classes.offset}></div>
+            <Typography variant="h2" component="h1" className={classes.title}>Biblioteca</Typography>
+            <Typography variant="h3" component="h2" className={classes.subtitle}>Catalogo</Typography>
+            <CarouselBooks/>
+            <Typography variant="h3" component="h2" className={classes.subtitle}>Buscador</Typography>
             <Footer />
         </main>
       </div>

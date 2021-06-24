@@ -63,14 +63,14 @@ const useStyles = makeStyles((theme)=>({
         cursor:'pointer',
         }
     },
-    submenu__image:{
-        margin: '0 0.5em 0 0',
-        background: 'none',
-        '&:hover': {
-        color:'#C0B3A0',
-        cursor:'pointer',
-        }
+    submenu__text: {
+        position: 'relative',        
+        bottom: '6px',
     },
+    submenu__icon: {
+        position: 'relative',        
+        right: '3px',
+    }
 }));
 
 const NavbarHome = (props) => {
@@ -102,7 +102,7 @@ const NavbarHome = (props) => {
                 </div>
                 <div className={classes.navMenuRight}>
                     <Link href="#" color="inherit"  underline="none" className={classes.submenu}>
-                        Mi Cuenta
+                        <AccountCircleOutlinedIcon className={classes.submenu__icon}/><span className={classes.submenu__text}>Mi Cuenta</span> 
                     </Link>
                 </div>
             </div>
