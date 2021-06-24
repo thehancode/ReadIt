@@ -9,6 +9,9 @@ POST {{api}}/users
 Content-Type: application/json
 
 {
+    "nombre":  "Jordi Joel",
+    "apellido": "Bardales Rojas",
+    "correo": "jbardalesr@uni.pe",
     "username": "jordi",
     "password": "123"
 } 
