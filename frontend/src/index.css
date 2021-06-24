@@ -207,3 +207,30 @@ a:hover, a:focus {
   transform: scale(1.2);
 }
 
+.carousel{
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.carousel__card{
+  height: 250px;
+  min-width: 200px;
+  max-width: 250px;
+  margin: 15px;
+  box-shadow: 0px 2px 4px 2.5px hsla(266, 23%, 20%, 0.3);;
+}
+
+/* Estilos por defecto del propio carousel */
+
+.rec.rec-arrow {
+  cursor:'pointer';
+}
+/* round buttons on hover */
+.rec.rec-arrow:hover {
+  cursor:'pointer';
+}
+/* hide disabled buttons */
+.rec.rec-arrow:disabled {
+  visibility: hidden;
+}
