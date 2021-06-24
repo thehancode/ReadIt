@@ -79,15 +79,19 @@ export const RegistroForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    userService.createUser(user).then(
-      (value) => {
-        setUser(initialState);
-        alert("Usuario registrado");
-      },
-      (error) => {
-        alert("El usuario ya existe");
-      }
-    );
+    if (user.password === user.passwordValidate) {
+      userService.createUser(user).then(
+        (value) => {
+          setUser(initialState);
+          alert("Usuario registrado");
+        },
+        (error) => {
+          alert("El usuario ya existe");
+        }
+      );
+    } else {
+      alert("Las contraseñas no coinciden");
+    }
   };
 
   return (
