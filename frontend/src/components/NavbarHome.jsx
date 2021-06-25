@@ -95,7 +95,7 @@ const NavbarHome = (props) => {
   };
 
   return (
-      <AppBar className={classes.appBar}>
+      <AppBar className={classes.appBar} style={{paddingRight: 0 + "px"}}>
         <Toolbar className={classes.navbar}>
           <Hidden smUp>
             <IconButton
