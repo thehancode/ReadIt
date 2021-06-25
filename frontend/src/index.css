@@ -175,16 +175,20 @@ a:hover, a:focus {
   display: flex;
   flex-direction: column;
   background-color: #fff;
+  justify-content: center;
 }
 
-.home-services-text h2{
+.home-services__text h2{
   font-size: 32px;
   color: #3F3250;
-  line-height: 0.5em;
 }
 
-.home-services-text p{
+.home-services__text p{
   font-size: 24px;
+}
+
+.home-services__containers{
+  margin: 0 0 20px 0;
 }
 
 .footer{
