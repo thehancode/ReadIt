@@ -2,9 +2,7 @@ import React from "react";
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 
 import { AppBar, makeStyles, Toolbar, Hidden, IconButton, Link, Menu, MenuItem, Button } from "@material-ui/core"
-
 import MenuIcon from '@material-ui/icons/Menu';
-
 
 const useStyles = makeStyles((theme)=>({
     offset: theme.mixins.toolbar,
@@ -95,7 +93,7 @@ const NavbarHome = (props) => {
   };
 
   return (
-      <AppBar className={classes.appBar}>
+      <AppBar className={classes.appBar} style={{paddingRight: 0 + "px"}}>
         <Toolbar className={classes.navbar}>
           <Hidden smUp>
             <IconButton
