@@ -14,6 +14,7 @@ import {
   Grid,
   Link,
 } from "@material-ui/core";
+
 import { Link as LinkS } from "react-scroll";
 import Fade from "react-reveal/Fade";
 
@@ -127,7 +128,7 @@ export const HomeWithoutLogin = () => {
                     to="home-services"
                     spy={true}
                     smooth={true}
-                    offset={-64}
+                    offset={-56}
                     duration={1000}
                   >
                     Servicios
@@ -210,88 +211,87 @@ export const HomeWithoutLogin = () => {
               </Fade>
             </div>
           </Container>
-          <Container
-            maxWidth="xl"
-            component="section"
-            className="home-services"
-            id="home-services"
-          >
-            <div className="home-services-text">
-              <h2>
-                <Fade cascade>Servicios</Fade>
-              </h2>
-              <p>
-                <Fade>
-                  ReadIt cuenta con diferentes servicio entre los principales
-                  tenemos:
-                </Fade>
-              </p>
+          <Container maxWidth="xl" component="section" id="home-services" >
+            <div className="home-services">
+              <div className="home-services__text">
+                <h2>
+                  <Fade cascade>Servicios</Fade>
+                </h2>
+                <p>
+                  <Fade cascade>
+                    ReadIt cuenta con diferentes servicios, entre los principales
+                    tenemos:
+                  </Fade>
+                </p>
+              </div>
+              <div className="home-services__containers">
+                <Grid container direction="row" justify="space-around">
+                  <Grid item xs={12} sm={6} lg={4}>
+                    <Fade cascade>
+                      <Box
+                        bgcolor="#3F3250"
+                        borderRadius="30px"
+                        width="200px"
+                        height="250px"
+                        color="#FFF"
+                        padding="20px"
+                        margin="2em auto"
+                        boxShadow="0 0 6px hsl(266, 23%, 12%)"
+                      >
+                        <h3>Biblioteca Virtual</h3>
+                        <p>
+                          Presentamos un catalogo de diferentes libros mediante app
+                          de Proyecto Gutenberg, los cuales están a libre
+                          disposición para su posterior lectura.{" "}
+                        </p>
+                      </Box>
+                    </Fade>
+                  </Grid>
+                  <Grid item xs={12} sm={6} lg={4}>
+                    <Fade cascade>
+                      <Box
+                        bgcolor="#3F3250"
+                        borderRadius="30px"
+                        width="200px"
+                        height="250px"
+                        color="#FFF"
+                        padding="20px"
+                        margin="2em auto"
+                        boxShadow="0 0 6px hsl(266, 23%, 12%)"
+                      >
+                        <h3>Visualizador de Libros</h3>
+                        <p>
+                          Tenemos nuestro propio visualizador, mediante el cual
+                          ofrecemos diferentes herramientas para mejorar la
+                          experiencia al leer.{" "}
+                        </p>
+                      </Box>
+                    </Fade>
+                  </Grid>
+                  <Grid item xs={12} sm={6} lg={4}>
+                    <Fade cascade>
+                      <Box
+                        bgcolor="#3F3250"
+                        borderRadius="30px"
+                        width="200px"
+                        height="250px"
+                        color="#FFF"
+                        padding="20px"
+                        margin="2em auto"
+                        boxShadow="0 0 6px hsl(266, 23%, 12%)"
+                      >
+                        <h3>Almacenamiento</h3>
+                        <p>
+                          Contamos con un almacenamiento mediante el cual podrás
+                          almacenar libros, notas de voz, apuntes, etc y luego
+                          organizarlo para el gusto de nuetros usuarios.{" "}
+                        </p>
+                      </Box>
+                    </Fade>
+                  </Grid>
+                </Grid>
+              </div>
             </div>
-            <Grid container direction="row" justify="space-around">
-              <Grid item xs={12} sm={6} lg={4}>
-                <Fade cascade>
-                  <Box
-                    bgcolor="#3F3250"
-                    borderRadius="30px"
-                    width="200px"
-                    height="250px"
-                    color="#FFF"
-                    padding="20px"
-                    margin="2em auto"
-                    boxShadow="0 0 6px hsl(266, 23%, 12%)"
-                  >
-                    <h3>Biblioteca Virtual</h3>
-                    <p>
-                      Presentamos un catalogo de diferentes libros mediante app
-                      de Proyecto Gutenberg, los cuales están a libre
-                      disposición para su posterior lectura.{" "}
-                    </p>
-                  </Box>
-                </Fade>
-              </Grid>
-              <Grid item xs={12} sm={6} lg={4}>
-                <Fade cascade>
-                  <Box
-                    bgcolor="#3F3250"
-                    borderRadius="30px"
-                    width="200px"
-                    height="250px"
-                    color="#FFF"
-                    padding="20px"
-                    margin="2em auto"
-                    boxShadow="0 0 6px hsl(266, 23%, 12%)"
-                  >
-                    <h3>Visualizador de Libros</h3>
-                    <p>
-                      Tenemos nuestro propio visualizador, mediante el cual
-                      ofrecemos diferentes herramientas para mejorar la
-                      experiencia al leer.{" "}
-                    </p>
-                  </Box>
-                </Fade>
-              </Grid>
-              <Grid item xs={12} sm={6} lg={4}>
-                <Fade cascade>
-                  <Box
-                    bgcolor="#3F3250"
-                    borderRadius="30px"
-                    width="200px"
-                    height="250px"
-                    color="#FFF"
-                    padding="20px"
-                    margin="2em auto"
-                    boxShadow="0 0 6px hsl(266, 23%, 12%)"
-                  >
-                    <h3>Almacenamiento</h3>
-                    <p>
-                      Contamos con un almacenamiento mediante el cual podrás
-                      almacenar libros, notas de voz, apuntes, etc y luego
-                      organizarlo para el gusto de nuetros usuarios.{" "}
-                    </p>
-                  </Box>
-                </Fade>
-              </Grid>
-            </Grid>
           </Container>
           <Footer />
         </main>

@@ -1,7 +1,9 @@
 import React from "react";
+
 import { getCurrentUser } from "../services/LoginService";
 import { makeStyles } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
+import SearchBooks from "./SearchBooks";
 
 import {
   Hidden,
@@ -12,11 +14,11 @@ import {
   ListItemText,
   Link,
   Typography,
+  Container
 } from "@material-ui/core";
 
 import { Link as LinkS } from "react-scroll";
 //import Fade from "react-reveal/Fade";
-
 
 // Importamos los principales componentes
 import NavbarHome from "./NavbarHome";
@@ -29,7 +31,7 @@ import CarouselBooks from "./CarouselBooks";
 export const Home = () => {
   const history = useHistory();
 
-  // el usuario que se logea que da guardado aqui
+  // El usuario que se logea que da guardado aqui
   const state = {
     currentUser: getCurrentUser(),
   };
@@ -94,7 +96,8 @@ export const Home = () => {
   };
 
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  // en caso currentUser sea nulo quiere decir que no hay usuario logaedo por lo tanto no debe mostrar home sino redireccionar a login
+
+  // En caso currentUser sea nulo quiere decir que no hay usuario logaedo por lo tanto no debe mostrar home sino redireccionar a login
   return (
     <>
       {currentUser ? (
@@ -147,7 +150,7 @@ export const Home = () => {
                       to="home-services"
                       spy={true}
                       smooth={true}
-                      offset={-64}
+                      offset={-56}
                       duration={1000}
                     >
                       Servicios
@@ -174,8 +177,11 @@ export const Home = () => {
             <div className={classes.offset}></div>
             <Typography variant="h2" component="h1" className={classes.title}>Biblioteca</Typography>
             <Typography variant="h3" component="h2" className={classes.subtitle}>Catálogo</Typography>
-            <CarouselBooks/>
+            <Container maxWidth='xl' component="section">
+              <CarouselBooks/>
+            </Container>
             <Typography variant="h3" component="h2" className={classes.subtitle}>Buscador</Typography>
+            <SearchBooks/>
             <Footer />
           </main>
         </div>
