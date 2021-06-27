@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import GoogleLogin from 'react-google-login';
 import * as userService from "../services/LoginService";
 import { useHistory } from "react-router-dom";
 import { getCurrentUser } from "../services/LoginService";
+
 import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
 import {
   Container,
@@ -35,18 +37,40 @@ export const LoginForm = () => {
       width: "100vw",
       height: "calc(100vh - 64px)",
       padding: "1em",
+      [theme.breakpoints.down("xs")]: {
+        padding: "0",
+      },
     },
     botonPersonalizado: {
       margin: "0 2em 1.5em 2em",
       backgroundImage: "none",
       textTransform: "none",
+      [theme.breakpoints.down("xs")]: {
+        margin: "10px",
+      },
+    },
+    botonPersonalizadoGoogle: {
+      margin: "0 2.2em 1.5em 2.2em",
+      backgroundImage: "none",
+      textTransform: "none",
+      justifyContent: "center",
+      [theme.breakpoints.down("xs")]: {
+        margin: "10px",
+      },
     },
     tituloForm: {
       fontSize: "36px",
       fontWeight: 400,
+      [theme.breakpoints.down("xs")]: {
+        fontSize: "28px",
+        fontWeight: 400,
+      },
     },
     formLogin__element: {
       margin: ".5em 0",
+      [theme.breakpoints.down("xs")]: {
+        margin: "0.2em",
+      },
     },
     labelForm: {
       borderBottom: "2px solid #3f51b5",
@@ -56,6 +80,12 @@ export const LoginForm = () => {
         color: "#E14658",
       },
     },
+    linkRegister: {
+      margin: "1em 0 0 0",
+      [theme.breakpoints.down("xs")]: {
+        margin: "10px",
+      },
+    }
   }));
 
   const state = {
@@ -90,11 +120,15 @@ export const LoginForm = () => {
     );
   };
 
+  const responseGoogle = (response) => {
+    console.log(response);
+  }
+
   return (
     <>
       {!currentUser ? (
-        <>
-          (<NavbarLogin />
+        <div>
+          <NavbarLogin />
           <ThemeProvider theme={theme}>
             <div className={classes.offset}></div>
             <Container maxWidth="xl" component="div" className={classes.root}>
@@ -137,12 +171,21 @@ export const LoginForm = () => {
                   variant="contained"
                   color="primary"
                   type="submit"
+                  size="large"
                   className={classes.botonPersonalizado}
                 >
                   Iniciar Sesión
                 </Button>
+                <GoogleLogin
+                  clientId="134332300009-d6n1b6e4fu7r20gkahroqd426vsebmqi.apps.googleusercontent.com"
+                  buttonText="Login"
+                  onSuccess={responseGoogle}
+                  onFailure={responseGoogle}
+                  cookiePolicy={'single_host_origin'}
+                  className={classes.botonPersonalizadoGoogle}
+                >Ingresar mediante Google</GoogleLogin>
                 <Divider></Divider>
-                <p>
+                <p className={classes.linkRegister}>
                   ¿Aún no tienes cuenta?{" "}
                   <Link
                     href="/registro"
@@ -155,8 +198,8 @@ export const LoginForm = () => {
               </form>
             </Container>
           </ThemeProvider>
-          <Footer />)
-        </>
+          <Footer />
+        </div>
       ) : (
         history.push("/home")
       )}

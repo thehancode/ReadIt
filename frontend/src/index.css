@@ -80,6 +80,30 @@ a:hover, a:focus {
   box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.2);
 }
 
+@media screen and (max-width: 1024px)  {
+  .formLogin{
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 750px)  {
+  .formLogin{
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 430px)  {
+  .formLogin{
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 380px)  {
+  .formLogin{
+    width: 65%;   
+  }
+}
+
 .home-slider{
   background-color: #21242b;
   width: 100vw;
