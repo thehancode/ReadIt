@@ -13,11 +13,15 @@ const libroSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    url: {
+    urlLibro: {
       type: String,
       required: true,
     },
-    imagen: {
+    libro: {
+      type: String,
+      required: true,
+    },
+    urlImagen: {
       type: String,
       required: true,
     },
