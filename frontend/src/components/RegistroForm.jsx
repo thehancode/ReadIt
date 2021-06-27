@@ -31,6 +31,10 @@ export const RegistroForm = () => {
       width: "100vw",
       height: "calc(100vh - 64px)",
       padding: "1em",
+      [theme.breakpoints.down("xs")]: {
+        padding: "0.8em",        
+        height: "auto",
+      },
     },
     botonPersonalizado: {
       margin: "2em 2em 1em 2em",
@@ -40,9 +44,16 @@ export const RegistroForm = () => {
     tituloForm: {
       fontSize: "36px",
       fontWeight: 400,
+      [theme.breakpoints.down("xs")]: {
+        fontSize: "26px",
+        fontWeight: 400,
+      },
     },
     formLogin__element: {
       margin: ".5em 0",
+      [theme.breakpoints.down("xs")]: {
+        margin: "0.2em",
+      },
     },
     labelForm: {
       borderBottom: "2px solid #3f51b5",
@@ -108,7 +119,7 @@ export const RegistroForm = () => {
                   color="initial"
                   className={classes.tituloForm}
                 >
-                  Registro de usuario
+                  Registro de Usuario
                 </Typography>
                 <FormControl className={classes.formLogin__element}>
                   <InputLabel htmlFor="nombre">Nombre</InputLabel>

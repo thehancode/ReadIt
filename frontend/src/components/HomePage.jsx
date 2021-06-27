@@ -11,8 +11,6 @@ import {
   Divider,
   ListItemText,
   Link,
-  Typography,
-  Container
 } from "@material-ui/core";
 
 import { Link as LinkS } from "react-scroll";
