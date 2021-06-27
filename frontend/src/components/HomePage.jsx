@@ -3,8 +3,6 @@ import React from "react";
 import { getCurrentUser } from "../services/LoginService";
 import { makeStyles } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
-import SearchBooks from "./SearchBooks";
-
 import {
   Hidden,
   List,
@@ -18,17 +16,19 @@ import {
 } from "@material-ui/core";
 
 import { Link as LinkS } from "react-scroll";
+import  HomeContent from "./HomeContent";
+import  BookContent from "./BookContent";
+
 //import Fade from "react-reveal/Fade";
 
 // Importamos los principales componentes
 import NavbarHome from "./NavbarHome";
 import Footer from "./Footer";
-import CarouselBooks from "./CarouselBooks";
 
 // Importamos los estilos de color del boton
 // import theme from "../ThemeConfig";
 
-export const Home = () => {
+export const HomePage = () => {
   const history = useHistory();
 
   // El usuario que se logea que da guardado aqui
@@ -174,14 +174,11 @@ export const Home = () => {
           </Hidden>
           {/* Cuerpo de la página */}
           <main className={classes.content}>
-            <div className={classes.offset}></div>
-            <Typography variant="h2" component="h1" className={classes.title}>Biblioteca</Typography>
-            <Typography variant="h3" component="h2" className={classes.subtitle}>Catálogo</Typography>
-            <Container maxWidth='xl' component="section">
-              <CarouselBooks/>
-            </Container>
-            <Typography variant="h3" component="h2" className={classes.subtitle}>Buscador</Typography>
-            <SearchBooks/>
+            {
+              (true)?
+              <HomeContent/>
+              :<BookContent/>
+            }
             <Footer />
           </main>
         </div>
