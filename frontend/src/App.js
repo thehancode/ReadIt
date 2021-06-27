@@ -19,7 +19,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={HomeWithoutLogin} />
             <Route exact path="/login" component={LoginForm} />
-            <Route exact path="/registro" component={RegistroForm} />
+            <Route exact path="/register" component={RegistroForm} />
             <Route exact path="/home" component={HomePage} />
             <Route component={NotFound}></Route>
           </Switch>

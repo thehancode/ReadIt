@@ -169,7 +169,7 @@ export const HomeWithoutLogin = () => {
                   <Button
                     variant="contained"
                     color="secondary"
-                    href="/registro"
+                    href="/register"
                     type="submit"
                     size="large"
                     className={classes.botonPersonalizado}
@@ -179,13 +179,15 @@ export const HomeWithoutLogin = () => {
                 </ThemeProvider>
               </div>
             </div>
-            <div className="home-slider-image">
-              <img
-                className="animate__animated animate__fadeIn animate__slower"
-                src={personBook}
-                alt="Persona leyendo un libro"
-              />
-            </div>
+            <Hidden xsDown>
+              <div className="home-slider-image">
+                <img
+                  className="animate__animated animate__fadeIn animate__slower"
+                  src={personBook}
+                  alt="Persona leyendo un libro"
+                />
+              </div>
+            </Hidden>
           </div>
           <Container maxWidth="xl" component="section" id="home-what-is-readit">
             <div className="home-what-is-readit">
@@ -211,6 +213,7 @@ export const HomeWithoutLogin = () => {
               </Fade>
             </div>
           </Container>
+          <Hidden mdDown>
           <Container maxWidth="xl" component="section" id="home-services" >
             <div className="home-services">
               <div className="home-services__text">
@@ -293,6 +296,7 @@ export const HomeWithoutLogin = () => {
               </div>
             </div>
           </Container>
+          </Hidden>
           <Footer />
         </main>
       </div>

@@ -188,7 +188,7 @@ export const LoginForm = () => {
                 <p className={classes.linkRegister}>
                   ¿Aún no tienes cuenta?{" "}
                   <Link
-                    href="/registro"
+                    href="/register"
                     color="inherit"
                     className={classes.register}
                   >
