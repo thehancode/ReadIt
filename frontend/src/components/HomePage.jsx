@@ -18,7 +18,7 @@ import {
 import { Link as LinkS } from "react-scroll";
 import  HomeContent from "./HomeContent";
 import  BookContent from "./BookContent";
-
+import  Account from "./Account";
 //import Fade from "react-reveal/Fade";
 
 // Importamos los principales componentes
@@ -176,7 +176,7 @@ export const HomePage = () => {
           <main className={classes.content}>
             {
               (true)?
-              <HomeContent/>
+              <Account/>
               :<BookContent/>
             }
             <Footer />
