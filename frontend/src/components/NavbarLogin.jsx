@@ -19,6 +19,10 @@ const useStyles = makeStyles((theme)=>({
     flexGrow: 1,
     justifyContent: 'flex-start',
     fontSize: '30px',
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "26px",
+      marginLeft: '0.5em',
+    },
   },
   navMenu:{    
     fontSize: '18px',
@@ -33,8 +37,10 @@ const useStyles = makeStyles((theme)=>({
     '&:hover': {
       color:'#C0B3A0',
       cursor:'pointer',
-    }
-
+    },
+    [theme.breakpoints.down("xs")]: {
+      margin: '0 0.5em',
+    },
   }
 }));
 

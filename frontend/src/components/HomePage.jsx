@@ -11,8 +11,6 @@ import {
   Divider,
   ListItemText,
   Link,
-  Typography,
-  Container
 } from "@material-ui/core";
 
 import { Link as LinkS } from "react-scroll";
@@ -24,11 +22,12 @@ import  Account from "./Account";
 // Importamos los principales componentes
 import NavbarHome from "./NavbarHome";
 import Footer from "./Footer";
+import BookReader from "./BookReader";
 
 // Importamos los estilos de color del boton
 // import theme from "../ThemeConfig";
 
-export const HomePage = () => {
+export const HomePage = (props) => {
   const history = useHistory();
 
   // El usuario que se logea que da guardado aqui
@@ -175,9 +174,10 @@ export const HomePage = () => {
           {/* Cuerpo de la página */}
           <main className={classes.content}>
             {
-              (true)?
-              <Account/>
-              :<BookContent/>
+              (props.component=="HOME")?<HomeContent/>
+              :((props.component=="BOOK")? <BookContent name="La odisea"/>
+              :(((props.component=="ACCOUNT")? <Account/>:(<BookReader></BookReader>)))
+              )
             }
             <Footer />
           </main>
