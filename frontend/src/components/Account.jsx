@@ -92,19 +92,19 @@ const Account = () => {
   const [user, setUser] = useState(initialState);
   const [userTimer, setUserTimer] = useState({segundos:0});
   const handleInputChange = (e) => {
-    console.log("handle Input")
-    console.log(userTimer)
+    //console.log("handle Input")
+    //console.log(userTimer)
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("handle submit");
-    console.log(user);
+    //console.log("handle submit");
+    //console.log(user);
     update.updateUser({...user,timer:1200}).then(
       (response) => {
         //history.push("/home");
-        console.log(response)
+        //console.log(response)
         alert("usuario actualizado");
       },
       (error) => {
@@ -118,7 +118,7 @@ const Account = () => {
     let userID = JSON.parse(localStorage.getItem('user')).id;
     getUserInfo.getUserInfo(userID).then(
       (response) => {
-        console.log("user ",response)
+        //console.log("user ",response)
         setUser({...response});
         setUserTimer({...userTimer,segundos:response.timer})
       },

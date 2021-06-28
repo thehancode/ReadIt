@@ -72,9 +72,9 @@ const Clock = (props)=>{
         segundos: time.segundos - 60,
       })
     }
-    useEffect(()=>{
+    /* useEffect(()=>{
       console.log(props.timer);
-    },[])
+    },[]) */
     return (
       <div className={classes.times}>
         <label className={classes['timer-label']}>{"Recordatorio de descanso"}</label>
