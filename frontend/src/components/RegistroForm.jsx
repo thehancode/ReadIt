@@ -91,7 +91,7 @@ export const RegistroForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (user.password === user.passwordValidate) {
-      userService.createUser(user).then(
+      userService.createUser({...user,timer:1500}).then(
         (value) => {
           setUser(initialState);
           alert("Usuario registrado");

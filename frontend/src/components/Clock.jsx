@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import IconButton from '@material-ui/core/IconButton';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 import SaveIcon from '@material-ui/icons/Save';
-import { useHistory } from "react-router-dom";
 
 const Clock = (props)=>{
     const useStyles = makeStyles(() => ({
@@ -18,8 +17,8 @@ const Clock = (props)=>{
         'times-content': {
             display: "inline-block",
             margin: "0 auto",
-            width: "280px",
-            height: "280px",
+            width: "300px",
+            height: "300px",
             "margin-top": "25px",
             display: "flex",
             display: "-webkit-flex",
@@ -28,13 +27,15 @@ const Clock = (props)=>{
             "justify-content": "center",
             border: "5px solid #22252C",
             "border-radius": "50%",
+            "background-image": 'url(https://i.pinimg.com/originals/c1/d5/70/c1d5703f39eeddbdf4757404d01c713d.png)',
+            "background-size": "cover",
           },
           'timer-label': {
-            "font-size": "1.5rem",
+            "font-size": "2rem",
             "font-weight": "700"
           },
           'time-left': {
-            "font-size": "5rem",
+            "font-size": "4rem",
             "font-weight": "700"
           },
           panelControl:{
@@ -55,25 +56,30 @@ const Clock = (props)=>{
       return `${minute}:${second}`;
     }
     const classes = useStyles();
-    const [time, setTime] = useState({segundos: 1200});
+    const time = props.timer;
+    const setTimer = props.function;
     
-    const handleSaveTimer = (event)=>{
+    /* const handleSaveTimer = (event)=>{
       alert(`Save time ${time.segundos}`)
-    }
+    } */
     const handleAddTime = (event)=>{
-        setTime({
+        setTimer({
           segundos: time.segundos + 60,
         })
     }
     const handleSubTime = (event)=>{
-      setTime({
+      setTimer({
         segundos: time.segundos - 60,
       })
     }
+    useEffect(()=>{
+      console.log(props.timer);
+    },[])
     return (
       <div className={classes.times}>
+        <label className={classes['timer-label']}>{"Recordatorio de descanso"}</label>
         <div className={classes['times-content']}>
-          <label className={classes['timer-label']}>{"Recordatorio"}</label>
+          
           <span className={classes['time-left']}>{formatTime(time.segundos)}</span>
           <label className={classes['timer-label']}>{"minutos"}</label>
         </div>
@@ -81,13 +87,15 @@ const Clock = (props)=>{
           <IconButton onClick={handleSubTime} className={classes.clockButton} color="primary" aria-label="upload picture" component="span">
             <RemoveIcon fontSize="large" />
           </IconButton>
-          <IconButton onClick={handleSaveTimer} className={classes.clockButton} color="primary" aria-label="upload picture" component="span">
-          <SaveIcon fontSize="large" />
-        </IconButton>
           <IconButton onClick={handleAddTime} className={classes.clockButton} color="primary" aria-label="upload picture" component="span">
             <AddIcon fontSize="large" />
           </IconButton>
         </div>
+        {/* <div className={classes.panelControl}>
+        <IconButton onClick={handleSaveTimer} className={classes.clockButton} color="primary" aria-label="upload picture" component="span">
+            <SaveIcon fontSize="large" />
+          </IconButton>
+        </div> */}
       </div>
     )
 }

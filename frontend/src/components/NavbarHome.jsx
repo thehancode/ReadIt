@@ -3,7 +3,7 @@ import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined'
 
 import { AppBar, makeStyles, Toolbar, Hidden, IconButton, Link, Menu, MenuItem, Button } from "@material-ui/core"
 import MenuIcon from '@material-ui/icons/Menu';
-
+import { useHistory } from "react-router-dom";
 const useStyles = makeStyles((theme)=>({
     offset: theme.mixins.toolbar,
     navbar:{
@@ -83,13 +83,20 @@ const NavbarHome = (props) => {
   const [auth] = React.useState(true);
 
   const open = Boolean(anchorEl);
+  const history = useHistory();
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleClose = () => {
+  const handleClose = (event) => {
     setAnchorEl(null);
+    if(event.target.textContent === "Temporizador" || event.target.textContent === "Configuración"){
+        history.push("/account");
+    }else if(event.target.textContent === "Salir"){
+        localStorage.removeItem('user');
+        history.push("/");
+    } 
   };
 
   return (

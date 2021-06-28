@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import * as getUserInfo from "../services/InfoUserService";
-import { useHistory } from "react-router-dom";
+import * as update from "../services/UserUpdateService";
+//import { useHistory } from "react-router-dom";
 import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
 import Clock from "./Clock";
 
@@ -8,12 +9,9 @@ import {
   Container,
   FormControl,
   Typography,
-  FormControlLabel,
   Button,
-  Checkbox,
   InputLabel,
   Input,
-  Link,
   Divider,
 } from "@material-ui/core";
 
@@ -30,9 +28,9 @@ const Account = () => {
       justifyContent: "center",
       alignItems: "center",
       backgroundColor: "hsl(50, 70%, 96%)",
-      width: "100vw",
+      //width: "100vw",
       padding: "1em",
-      [theme.breakpoints.down("xs")]: {
+      [theme.breakpoints.down("md")]: {
         'flex-direction':'column',
       },
     },
@@ -65,6 +63,7 @@ const Account = () => {
       'flexGrow':"2",
     },
     formLogin: {
+      "border-radius": "5%",
       'padding':"5%",
       'marginLeft':"10%",
       "display" : "flex",
@@ -72,12 +71,17 @@ const Account = () => {
       " width": "30%",
       "background-color": "#fff",
       "box-shadow": "0px 2px 5px 1px rgba(0, 0, 0, 0.2)",
+      [theme.breakpoints.down("md")]: {
+        'flex-direction':'column',
+        " width": "70%",
+        'marginRight':"10%",
+      },
     }
   }));
 
   const classes = useStyles();
 
-  const history = useHistory();
+  //const history = useHistory();
 
   const initialState = {
     username: "",
@@ -86,21 +90,25 @@ const Account = () => {
   };
 
   const [user, setUser] = useState(initialState);
+  const [userTimer, setUserTimer] = useState({segundos:0});
   const handleInputChange = (e) => {
     console.log("handle Input")
-    console.log(user)
+    console.log(userTimer)
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("handle submit")
+    console.log("handle submit");
     console.log(user);
-    getUserInfo.getUserInfo(user).then(
-      () => {
-        history.push("/home");
+    update.updateUser({...user,timer:1200}).then(
+      (response) => {
+        //history.push("/home");
+        console.log(response)
+        alert("usuario actualizado");
       },
       (error) => {
+        console.log("error al actualizar",error)
         alert("Usuario incorrecto");
       }
     );
@@ -108,10 +116,11 @@ const Account = () => {
 
   useEffect(()=>{
     let userID = JSON.parse(localStorage.getItem('user')).id;
-    console.log("userID",userID);
     getUserInfo.getUserInfo(userID).then(
       (response) => {
+        console.log("user ",response)
         setUser({...response});
+        setUserTimer({...userTimer,segundos:response.timer})
       },
       (error) => {
         console.log(error)
@@ -131,6 +140,7 @@ const Account = () => {
           >
             Editar Cuenta
           </Typography>
+          <Divider></Divider>
           <FormControl className={classes.formLogin__element}>
             <InputLabel htmlFor="nombre" shrink>Nombre</InputLabel>
             <Input
@@ -139,7 +149,7 @@ const Account = () => {
               name="nombre"
               required={true}
               onChange={handleInputChange}
-              value={user.username}
+              value={user.nombre}
             />
           </FormControl>
 
@@ -210,7 +220,7 @@ const Account = () => {
             Guardar Cambios
           </Button>
         </form>
-        <Clock className={classes.clock}></Clock>
+        <Clock className={classes.clock} function={setUserTimer} timer={userTimer} submit={handleSubmit}></Clock>
       </Container>
     </ThemeProvider>
   );

@@ -174,9 +174,9 @@ export const HomePage = (props) => {
           {/* Cuerpo de la página */}
           <main className={classes.content}>
             {
-              (props.component=="HOME")?<HomeContent/>
-              :((props.component=="BOOK")? <BookContent name="La odisea"/>
-              :(((props.component=="ACCOUNT")? <Account/>:(<BookReader></BookReader>)))
+              (props.component==="HOME")?<HomeContent/>
+              :((props.component==="BOOK")? <BookContent name="La odisea"/>
+              :(((props.component==="ACCOUNT")? <Account/>:(<BookReader></BookReader>)))
               )
             }
             <Footer />
