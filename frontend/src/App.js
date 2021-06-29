@@ -21,8 +21,8 @@ function App() {
             <Route exact path="/login" component={LoginForm} />
             <Route exact path="/register" component={RegistroForm} />
             <Route exact path="/home" component={() => <HomePage component="HOME" />} />
-            <Route path="/books/:id" children={<HomePage component="BOOK" />} />
-            <Route path="/book/:id" children={<HomePage component="READ" />} />
+            <Route path="/books/:bookID" children={<HomePage component="BOOK" />} />
+            <Route path="/read/:bookID" children={<HomePage component="READ" />} />
             <Route exact path="/account" component={() => <HomePage component="ACCOUNT" />} />
             <Route component={NotFound}></Route>
           </Switch>
