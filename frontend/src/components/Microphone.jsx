@@ -14,12 +14,12 @@ function Microphone(props) {
     container: {
       fontFamily: "Prata,serif",
       color: "#3F3250",
-      marginLeft: "10%",
-      marginRight: "10%"
+      marginLeft: "10px",
+      marginRight: "10px"
     },
     button: {
-      width: "100px",
-      height: "100px",
+      width: "40px",
+      height: "40px",
       borderRadius: "50%",
       backgroundImage:
         "url(https://cdn.pixabay.com/photo/2018/05/16/19/07/microphone-3406764_640.png)",
@@ -52,18 +52,18 @@ function Microphone(props) {
     const { transcript } = results[0][0];
     setTranscription(transcript);
     if (props.setResult != undefined) {
-      props.setResult(transcript);
+      props.setResult(transcript.toLowerCase());
     }
   };
   useEffect(() => {
     speechRecognition.onresult = handleResult;
   }, []);
-
+  
   return (
     <div className={classes.container}>
-      <br></br>
+      {/* <br></br>
       <span className={classes.transciption}>{transciption}</span>
-      <br></br>
+      <br></br> */}
       <button
         className={classes.button}
         onTouchStart={speechRecognition.start}

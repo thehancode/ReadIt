@@ -11,6 +11,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import MicIcon from "@material-ui/icons/Mic";
 import MediaCard from "./CardsForBooks.jsx";
 
+import Microphone from "./Microphone";
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: "2px 4px",
@@ -33,36 +34,34 @@ const useStyles = makeStyles((theme) => ({
 
 const SearchBooks = () => {
   const classes = useStyles();
-
+  const [result, setResult]=useState("");
+  const handleSubmit = (event)=>{
+    event.prevenDefault();
+  }
   return (
     <div>
       {/* <FormControl style={{ width: 100 + "%" }}> */}
-      <FormControl>
+      <FormControl onSubmit={handleSubmit}>
         <Paper
           component="form"
           className={classes.root}
           //   style={{ width: 80 + "%", margin: "auto" }}
         >
-          <InputBase
+          < InputBase
             className={classes.input}
             placeholder="Ingrese libro o presione en el microfono y diga buscar"
             inputProps={{ "aria-label": "search google maps" }}
+            value = {result}
           />
-          <IconButton
-            type="submit"
-            className={classes.iconButton}
-            aria-label="search"
-          >
-            <SearchIcon />
-          </IconButton>
           <Divider className={classes.divider} orientation="vertical" />
-          <IconButton
+          <Microphone setResult={setResult}></Microphone>
+          {/* <IconButton
             color="primary"
             className={classes.iconButton}
             aria-label="directions"
           >
             <MicIcon />
-          </IconButton>
+          </IconButton> */}
         </Paper>
       </FormControl>
       <div style={{ marginLeft: 120 + "px", marginRight: 120 + "px" }}>
