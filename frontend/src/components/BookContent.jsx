@@ -269,7 +269,7 @@ const BookContent = (props) => {
               <button className={classes.buttons}  onClick={onOpenModal}>
                 Compartir
                 <Modal open={openModal} onClose={onCloseModal} center>
-                  <h2> { "Comptarte "+ bookItem.title}</h2>
+                  <h2> { "Comparte "+ bookItem.title}</h2>
                   <div className={classes.containerShare}>
                   <button className={classes.buttonsShare}> <TwitterIcon size={64} round={true} /></button>
                   <button className={classes.buttonsShare}> <FacebookIcon size={64} round={true} /></button>
