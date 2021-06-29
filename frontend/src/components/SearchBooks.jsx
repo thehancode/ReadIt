@@ -1,10 +1,12 @@
 import React from 'react'
+import Quote from './Quote'
 
 const SearchBooks = () => {
 
     return (
         <div>
-            Hola Bebe
+            <p>Buscar Libro</p>
+            <Quote></Quote>
         </div>
     )
 }

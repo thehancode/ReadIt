@@ -3,8 +3,6 @@ import React from "react";
 import { getCurrentUser } from "../services/LoginService";
 import { makeStyles } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
-import SearchBooks from "./SearchBooks";
-
 import {
   Hidden,
   List,
@@ -13,22 +11,23 @@ import {
   Divider,
   ListItemText,
   Link,
-  Typography,
-  Container
 } from "@material-ui/core";
 
 import { Link as LinkS } from "react-scroll";
+import HomeContent from "./HomeContent";
+import BookContent from "./BookContent";
+import Account from "./Account";
 //import Fade from "react-reveal/Fade";
 
 // Importamos los principales componentes
 import NavbarHome from "./NavbarHome";
 import Footer from "./Footer";
-import CarouselBooks from "./CarouselBooks";
+import BookReader from "./BookReader";
 
 // Importamos los estilos de color del boton
 // import theme from "../ThemeConfig";
 
-export const Home = () => {
+export const MyNotes = (props) => {
   const history = useHistory();
 
   // El usuario que se logea que da guardado aqui
@@ -74,17 +73,17 @@ export const Home = () => {
       },
     },
     title: {
-      color: '#3F3250',
-      fontWeight: '400',
-      margin: '20px',
-    },    
+      color: "#3F3250",
+      fontWeight: "400",
+      margin: "20px",
+    },
     subtitle: {
-      textAlign: 'left',
-      color: '#3F3250',
-      paddingLeft: '1em',
-      fontWeight: '300',
-      margin: '10px',
-    }
+      textAlign: "left",
+      color: "#3F3250",
+      paddingLeft: "1em",
+      fontWeight: "300",
+      margin: "10px",
+    },
   }));
 
   const classes = useStyles();
@@ -174,21 +173,14 @@ export const Home = () => {
           </Hidden>
           {/* Cuerpo de la página */}
           <main className={classes.content}>
-            <div className={classes.offset}></div>
-            <Typography variant="h2" component="h1" className={classes.title}>Biblioteca</Typography>
-            <Typography variant="h3" component="h2" className={classes.subtitle}>Catálogo</Typography>
-            <Container maxWidth='xl' component="section">
-              <CarouselBooks/>
-            </Container>
-            <Typography variant="h3" component="h2" className={classes.subtitle}>Buscador</Typography>
-            <SearchBooks/>
+            <h1>Cuerpo de My Notes</h1>
+            <h1>Cuerpo de My Notes</h1>
             <Footer />
           </main>
         </div>
       ) : (
         history.push("/login")
       )}
-      
     </>
   );
 };

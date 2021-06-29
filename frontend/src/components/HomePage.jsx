@@ -16,7 +16,7 @@ import {
 import { Link as LinkS } from "react-scroll";
 import  HomeContent from "./HomeContent";
 import  BookContent from "./BookContent";
-
+import  Account from "./Account";
 //import Fade from "react-reveal/Fade";
 
 // Importamos los principales componentes
@@ -174,9 +174,9 @@ export const HomePage = (props) => {
           {/* Cuerpo de la página */}
           <main className={classes.content}>
             {
-              (props.component=="HOME")?<HomeContent/>
-              :((props.component=="BOOK")? <BookContent name="La odisea"/>
-              :<BookReader></BookReader>
+              (props.component==="HOME")?<HomeContent/>
+              :((props.component==="BOOK")? <BookContent name="La odisea"/>
+              :(((props.component==="ACCOUNT")? <Account/>:(<BookReader></BookReader>)))
               )
             }
             <Footer />

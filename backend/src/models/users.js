@@ -21,6 +21,9 @@ const userSchema = new mongoose.Schema(
     password: {
       type: String,
     },
+    timer: {
+      type: Number, 
+    },
   },
   {
     versionKey: false,
