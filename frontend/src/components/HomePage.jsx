@@ -188,12 +188,11 @@ export const HomePage = (props) => {
           </Hidden>
           {/* Cuerpo de la página */}
           <main className={classes.content}>
-            {
-              (props.component==="HOME")?<HomeContent/>
-              :((props.component==="BOOK")? <BookContent name="La odisea"/>
-              :(((props.component==="ACCOUNT")? <Account/>:(<BookReader></BookReader>)))
-              )
-            }
+            {(props.component==="HOME")?<HomeContent/> : <div></div>}
+            {(props.component==="BOOK")? <BookContent name="La odisea"/>:<div></div>}
+              {(props.component==="ACCOUNT")? <Account/>:<div></div>}
+              {(props.component==="READ")? <BookReader/>:<div></div>}
+              
             <Footer />
           </main>
         </div>

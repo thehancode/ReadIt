@@ -90,7 +90,7 @@ const Account = () => {
   };
 
   const [user, setUser] = useState(initialState);
-  const [userTimer, setUserTimer] = useState({segundos:0});
+  const [userTimer, setUserTimer] = useState({segundos:0 });
   const handleInputChange = (e) => {
     //console.log("handle Input")
     //console.log(userTimer)
