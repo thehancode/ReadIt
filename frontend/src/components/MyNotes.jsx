@@ -13,17 +13,23 @@ import {
   Link,
 } from "@material-ui/core";
 
+import SettingsIcon from '@material-ui/icons/Settings';
+import CreateIcon from '@material-ui/icons/Create';
+import CollectionsBookmarkIcon from '@material-ui/icons/CollectionsBookmark';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import MenuBookIcon from '@material-ui/icons/MenuBook';
+
 import { Link as LinkS } from "react-scroll";
 import HomeContent from "./HomeContent";
 import BookContent from "./BookContent";
 import Account from "./Account";
 import NotesPage from "./NotesPage";
+
 //import Fade from "react-reveal/Fade";
 
 // Importamos los principales componentes
 import NavbarHome from "./NavbarHome";
 import Footer from "./Footer";
-import BookReader from "./BookReader";
 
 // Importamos los estilos de color del boton
 // import theme from "../ThemeConfig";
@@ -73,6 +79,10 @@ export const MyNotes = (props) => {
         color: "#C0B3A0",
       },
     },
+    submenu_text: {
+      position: 'relative',
+      bottom: '6px',
+    },
     title: {
       color: "#3F3250",
       fontWeight: "400",
@@ -100,78 +110,84 @@ export const MyNotes = (props) => {
   // En caso currentUser sea nulo quiere decir que no hay usuario logaedo por lo tanto no debe mostrar home sino redireccionar a login
   return (
     <>
-      {currentUser ? (
-        <div className={classes.root}>
-          <NavbarHome openDrawer={handleDrawerToggle} />
-          {/* Esta parte es del menu responsive */}
-          <Hidden smUp>
-            <Drawer
-              className={classes.drawer}
-              variant="temporary"
-              classes={{ paper: classes.drawerPaper }}
-              open={mobileOpen}
-              onClose={handleDrawerToggle}
-            >
-              <div className={classes.offset}></div>
-              <Divider></Divider>
-              <List component="nav">
-                <ListItem button>
-                  <ListItemText>
-                    <LinkS
-                      className={classes.submenu}
-                      to="home-slider"
-                      spy={true}
-                      smooth={true}
-                      offset={-56}
-                      duration={1000}
-                    >
-                      Inicio
-                    </LinkS>
-                  </ListItemText>
-                </ListItem>
-                <ListItem button>
-                  <ListItemText>
-                    <LinkS
-                      className={classes.submenu}
-                      to="home-what-is-readit"
-                      spy={true}
-                      smooth={true}
-                      offset={-56}
-                      duration={1000}
-                    >
-                      ¿Qué es readIt?
-                    </LinkS>
-                  </ListItemText>
-                </ListItem>
-                <ListItem button>
-                  <ListItemText>
-                    <LinkS
-                      className={classes.submenu}
-                      to="home-services"
-                      spy={true}
-                      smooth={true}
-                      offset={-56}
-                      duration={1000}
-                    >
-                      Servicios
-                    </LinkS>
-                  </ListItemText>
-                </ListItem>
-                <ListItem button>
-                  <ListItemText>
-                    <Link
-                      href="/login"
-                      color="inherit"
-                      underline="none"
-                      className={classes.submenu}
-                    >
-                      Ingresar
-                    </Link>
-                  </ListItemText>
-                </ListItem>
-              </List>
-            </Drawer>
-          </Hidden>
+    {currentUser ? (
+      <div className={classes.root}>
+        <NavbarHome openDrawer={handleDrawerToggle} />
+        {/* Esta parte es del menu responsive */}
+        <Hidden smUp>
+          <Drawer
+            className={classes.drawer}
+            variant="temporary"
+            classes={{ paper: classes.drawerPaper }}
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
+          >
+            <div className={classes.offset}></div>
+            <Divider></Divider>
+            <List component="nav">
+              <ListItem button>
+                <ListItemText>
+                  <Link
+                    href="/home"
+                    color="inherit"
+                    underline="none"
+                    className={classes.submenu}
+                  >
+                    <CollectionsBookmarkIcon/><span  className={classes.submenu_text}> Biblioteca</span>
+                  </Link>
+                </ListItemText>
+              </ListItem>
+              <ListItem button>
+                <ListItemText>
+                  <Link
+                    href="/books"
+                    color="inherit"
+                    underline="none"
+                    className={classes.submenu}
+                  >
+                    <MenuBookIcon/><span  className={classes.submenu_text}> Mis libros</span>
+                  </Link>
+                </ListItemText>
+              </ListItem>
+              <ListItem button>
+                <ListItemText>
+                  <Link
+                    href="/notes"
+                    color="inherit"
+                    underline="none"
+                    className={classes.submenu}
+                  >
+                    <CreateIcon/><span  className={classes.submenu_text}> Mis Notas</span>
+                  </Link>
+                </ListItemText>
+              </ListItem>
+              <ListItem button>
+                <ListItemText>
+                  <Link
+                    href="/account"
+                    color="inherit"
+                    underline="none"
+                    className={classes.submenu}
+                  >
+                    <SettingsIcon/><span  className={classes.submenu_text}> Configuración</span>
+                  </Link>
+                </ListItemText>
+              </ListItem>
+              <ListItem button>
+                <ListItemText>
+                  <Link
+                    href="/"
+                    color="inherit" 
+                    underline="none"
+                    className={classes.submenu}
+                  >
+                    <ExitToAppIcon/><span  className={classes.submenu_text}> Salir</span>
+                  </Link>
+                </ListItemText>
+              </ListItem>
+            </List>
+          </Drawer>
+        </Hidden>
           {/* Cuerpo de la página */}
           <main className={classes.content}>
             <NotesPage/>

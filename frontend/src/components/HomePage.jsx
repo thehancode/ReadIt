@@ -13,7 +13,12 @@ import {
   Link,
 } from "@material-ui/core";
 
-import { Link as LinkS } from "react-scroll";
+import SettingsIcon from '@material-ui/icons/Settings';
+import CreateIcon from '@material-ui/icons/Create';
+import CollectionsBookmarkIcon from '@material-ui/icons/CollectionsBookmark';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import MenuBookIcon from '@material-ui/icons/MenuBook';
+
 import  HomeContent from "./HomeContent";
 import  BookContent from "./BookContent";
 import  Account from "./Account";
@@ -72,6 +77,10 @@ export const HomePage = (props) => {
         color: "#C0B3A0",
       },
     },
+    submenu_text: {
+      position: 'relative',
+      bottom: '6px',
+    },
     title: {
       color: '#3F3250',
       fontWeight: '400',
@@ -116,55 +125,61 @@ export const HomePage = (props) => {
               <List component="nav">
                 <ListItem button>
                   <ListItemText>
-                    <LinkS
+                    <Link
+                      href="/home"
+                      color="inherit"
+                      underline="none"
                       className={classes.submenu}
-                      to="home-slider"
-                      spy={true}
-                      smooth={true}
-                      offset={-56}
-                      duration={1000}
                     >
-                      Inicio
-                    </LinkS>
-                  </ListItemText>
-                </ListItem>
-                <ListItem button>
-                  <ListItemText>
-                    <LinkS
-                      className={classes.submenu}
-                      to="home-what-is-readit"
-                      spy={true}
-                      smooth={true}
-                      offset={-56}
-                      duration={1000}
-                    >
-                      ¿Qué es readIt?
-                    </LinkS>
-                  </ListItemText>
-                </ListItem>
-                <ListItem button>
-                  <ListItemText>
-                    <LinkS
-                      className={classes.submenu}
-                      to="home-services"
-                      spy={true}
-                      smooth={true}
-                      offset={-56}
-                      duration={1000}
-                    >
-                      Servicios
-                    </LinkS>
+                      <CollectionsBookmarkIcon/><span  className={classes.submenu_text}> Biblioteca</span>
+                    </Link>
                   </ListItemText>
                 </ListItem>
                 <ListItem button>
                   <ListItemText>
                     <Link
-                      href="/login"
+                      href="/books"
                       color="inherit"
                       underline="none"
                       className={classes.submenu}
                     >
-                      Ingresar
+                      <MenuBookIcon/><span  className={classes.submenu_text}> Mis libros</span>
+                    </Link>
+                  </ListItemText>
+                </ListItem>
+                <ListItem button>
+                  <ListItemText>
+                    <Link
+                      href="/notes"
+                      color="inherit"
+                      underline="none"
+                      className={classes.submenu}
+                    >
+                      <CreateIcon/><span  className={classes.submenu_text}> Mis Notas</span>
+                    </Link>
+                  </ListItemText>
+                </ListItem>
+                <ListItem button>
+                  <ListItemText>
+                    <Link
+                      href="/account"
+                      color="inherit"
+                      underline="none"
+                      className={classes.submenu}
+                    >
+                      <SettingsIcon/><span  className={classes.submenu_text}> Configuración</span>
+                    </Link>
+                  </ListItemText>
+                </ListItem>
+                <ListItem button>
+                  <ListItemText>
+                    <Link
+                      href="/"
+                      color="inherit" 
+                      underline="none"
+                      className={classes.submenu}
+                    >
+                      <ExitToAppIcon/><span  className={classes.submenu_text}> Salir</span>
                     </Link>
                   </ListItemText>
                 </ListItem>

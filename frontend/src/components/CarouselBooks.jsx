@@ -1,12 +1,22 @@
 import React from 'react'
 import Carousel from 'react-elastic-carousel';
 import CBooks from "./CBooks";
+import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
 
 import {
     Link
   } from "react-router-dom";
 
 const CarouselBooks = () => {
+
+    const useStyles = makeStyles((theme) => ({
+        link: {
+            backgroundImage: "none",
+            textTransform: "none",
+        }
+      }));
+    
+      const classes = useStyles();
 
     // Funciones encargadas para el carrusel de libros
     const [items] = React.useState(
@@ -39,10 +49,9 @@ const CarouselBooks = () => {
         
             <Carousel breakPoints={breakPoints}>
                 {items.map((item) => (
-                    <Link style={{"display":"inherit" , "text-decoration": "none"}} to={"/books/" +item.id }>
-                    <CBooks id={item.id} url={item.img}/>
+                    <Link style={{"display":"inherit" , "text-decoration": "none"}} className={classes.link} to={"/books/" +item.id }>
+                        <CBooks id={item.id} url={item.img}/>
                     </Link>
-
                     ))}
             </Carousel>
         </div>
