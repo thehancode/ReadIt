@@ -20,7 +20,9 @@ function App() {
             <Route exact path="/" component={HomeWithoutLogin} />
             <Route exact path="/login" component={LoginForm} />
             <Route exact path="/register" component={RegistroForm} />
-            <Route exact path="/home" component={HomePage} />
+            <Route exact path="/home" component={() => <HomePage component="HOME" />} />
+            <Route path="/books/:id" children={<HomePage component="BOOK" />} />
+            <Route path="/book/:id" children={<HomePage component="READ" />} />
             <Route component={NotFound}></Route>
           </Switch>
         </div>

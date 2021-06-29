@@ -22,11 +22,12 @@ import  BookContent from "./BookContent";
 // Importamos los principales componentes
 import NavbarHome from "./NavbarHome";
 import Footer from "./Footer";
+import BookReader from "./BookReader";
 
 // Importamos los estilos de color del boton
 // import theme from "../ThemeConfig";
 
-export const HomePage = () => {
+export const HomePage = (props) => {
   const history = useHistory();
 
   // El usuario que se logea que da guardado aqui
@@ -173,9 +174,10 @@ export const HomePage = () => {
           {/* Cuerpo de la página */}
           <main className={classes.content}>
             {
-              (true)?
-              <HomeContent/>
-              :<BookContent/>
+              (props.component=="HOME")?<HomeContent/>
+              :((props.component=="BOOK")? <BookContent name="La odisea"/>
+              :<BookReader></BookReader>
+              )
             }
             <Footer />
           </main>
