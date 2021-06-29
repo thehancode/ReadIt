@@ -65,11 +65,7 @@ const SearchBooks = () => {
           </IconButton>
         </Paper>
       </FormControl>
-      <div style={{ marginLeft: 120 + "px", marginRight: 120 + "px"}}>
-      <MediaCard />
-        <MediaCard />
-        <MediaCard />
-        <MediaCard />
+      <div style={{ marginLeft: 120 + "px", marginRight: 120 + "px" }}>
         <MediaCard />
         <MediaCard />
       </div>

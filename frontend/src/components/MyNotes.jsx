@@ -191,8 +191,7 @@ export const MyNotes = (props) => {
           {/* Cuerpo de la página */}
           <main className={classes.content}>
             <NotesPage/>
-            <h1>Cuerpo de My Notes</h1>
-            <h1>Cuerpo de My Notes</h1>
+            <br/>
             <Footer />
           </main>
         </div>

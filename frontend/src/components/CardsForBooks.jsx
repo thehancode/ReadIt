@@ -49,7 +49,7 @@ export default function MediaCard() {
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">
-          Compartir
+          Ver más
         </Button>
       </CardActions>
     </Card>
