@@ -1,0 +1,170 @@
+@api = http://localhost:5000/libros 
+
+GET {{api}}
+
+###
+GET {{api}}/60db9cc27d18dc1514ffa780
+
+### Create a libro
+POST {{api}}
+Content-Type: application/json
+
+{
+    "nombreLibro":  "The Thing in the Truck",
+    "descripcion": "Joe Loftus and I were driving the big semi-trailer back from Montauk that night after delivering a load of fishing gear to one of the big resorts out there and wondering if we'd be able to pick up a truckload of anything on the way back to increase the take when Joe spotted this sign.\nIt was one of those standard hand-painted Return Load signs, so we pulled in and I climbed down from the cab while Joe remained behind the wheel, ready to roll if they had nothing for us.",
+    "autor": "Marlowe, Stephen",
+    "urlLibro": "https://www.gutenberg.org/ebooks/65676",
+    "urlImagen": "https://www.gutenberg.org/cache/epub/65676/pg65676.cover.medium.jpg",
+    "valoracion": "4"
+}
+
+### Create a libro
+POST {{api}}
+Content-Type: application/json
+
+{
+    "nombreLibro":  "Fables of Flowers for the Female Sex",
+    "descripcion": "When I survey the divine simplicity and blooming attractions, that are displayed amongst the variegated tribes of the vegetable creation, I cease to wonder, that Queens forego, for a while, the compliments of a nation, or withdraw from the glitter of a court, to be attended with the more splendid equipage of a bed of flowers; where nothing seems wanting but the power of speech, to make them become the most pleasing Monitors.",
+    "autor": "Wynne, John Huddlestone",
+    "urlLibro": "https://www.gutenberg.org/ebooks/65677",
+    "urlImagen": "https://www.gutenberg.org/cache/epub/65677/pg65677.cover.medium.jpg",
+    "valoracion": "4.5"
+} 
+
+### Create a libro
+POST {{api}}
+Content-Type: application/json
+
+{
+    "nombreLibro":  "La Montálvez",
+    "descripcion": "Pulcro y rollizo; suave y risueño, y, al mismo tiempo, solemne y espetado; vulgar obscuro de meollo; rico, huérfano y libre; sin nervios ni hieles en el cuerpo, ni señal de polvo de las aulas en la ropa; vicioso a la chita callando; enamorado de su estampa, de su talento, de su elocuencia, y especialmente de los timbres de su linaje, y dejándose correr, con todas estas ventajas, a lo largo de la vida en lo más substancioso de ella, sin otros fines que el regalo de la querida persona, con la satisfacción de todos los apetitos, pero sin prefacios de grandes desvelos, ni epílogos de incómodas harturas... eso era el caballero marqués de Montálvez (título con polillas, de puro rancio); eso era en los tiempos de su mocedad; y así fue tirando el pobre, sin visible quebranto en la salud, aunque con muchos y muy gordos en el caudal, hasta que le apuntaron la calvicie en el cogote y la pata de gallo en los ojos.",
+    "autor": "Wynne, John Huddlestone",
+    "urlLibro": "https://www.gutenberg.org/ebooks/25812",
+    "urlImagen": "https://www.gutenberg.org/cache/epub/25812/pg25812.cover.medium.jpg",
+    "valoracion": "4.4"
+} 
+
+### Create a libro
+POST {{api}}
+Content-Type: application/json
+
+{
+    "nombreLibro":  "Los Hombres",
+    "descripcion": "Nunca he acertado a leer los libros de Pereda con la impasibilidad crítica con que leo otros libros. Para mí (y pienso que lo mismo sucede a todos los que hemos nacido de peñas al mar), esos libros, antes que juzgados, son sentidos. Son algo tan de nuestra tierra y de nuestra vida, como la brisa de nuestras costas o el maíz de nuestras mieses. Pocas veces un modo de ser provincial ha llegado a traducirse con tanta energía en forma de arte. Porque Pereda, el más montañés de todos los montañeses, identificado con la tierra natal, de la cual no se aparta un punto y de cuyo contacto recibe fuerzas, como el Anteo de la fábula, apacentando sin cesar sus ojos con el espectáculo de esta naturaleza dulcemente melancólica, y descubriendo sagazmente cuanto queda de poético en nuestras costumbres rústicas, ha traído a sus libros la{viii} Montaña entera, no ya con su aspecto exterior, sino con algo más profundo e íntimo, que no se ve, y, sin embargo, penetra el alma; con eso que el autor y sus paisanos llamamos el sabor de la tierruca, encanto misterioso, producidor de eterna saudade en los numerosos hijos de este pueblo cosmopolita, separados de su patria por largo camino de montes y de mares.",
+    "autor": "José María de Pereda",
+    "urlLibro": "https://www.gutenberg.org/ebooks/14995",
+    "urlImagen": "https://www.gutenberg.org/cache/epub/14995/pg14995.cover.medium.jpg",
+    "valoracion": "4.35"
+} 
+
+### Create a libro
+POST {{api}}
+Content-Type: application/json
+
+{
+    "nombreLibro":  "Escenas Montañesas",
+    "descripcion": "Ha llegado el momento de realizar el propósito anunciado en la que se estampa en el tomo I de esta colección de mis OBRAS; y le realizo incluyendo en el presente volumen los cuadros Un marino, Los bailes campestres y El fin de una raza, desglosados, con este objeto, del libro rotulado ESBOZOS Y RASGUÑOS, en el cual aparecerán, en cambio y en su día, Las visitas y ¡Cómo se miente!, que hasta ahora han formado parte de las ESCENAS MONTAÑESAS. Por lo que toca á La primera declaración y Los pastorcillos, si algún lector tiene el mal gusto de echar de menos estos capítulos en cualquiera de los dos libros, entienda que he resuelto darles eterna sepultura en el fondo de mis cartapacios, y ¡ojalá pudiera también borrarlos de la memoria de cuantos los han conocido en las anteriores ediciones de las ESCENAS.",
+    "autor": "José María de Pereda",
+    "urlLibro": "https://www.gutenberg.org/ebooks/12627",
+    "urlImagen": "https://www.gutenberg.org/cache/epub/12627/pg12627.cover.medium.jpg",
+    "valoracion": "2.35"
+} 
+
+### Create a libro
+POST {{api}}
+Content-Type: application/json
+
+{
+    "nombreLibro":  "Riverita ",
+    "descripcion": "La primera noticia que Miguel tuvo del matrimonio de su padre se la dio el tío Bernardo, persona de extremada respetabilidad y carácter. Tomole de la mano gravemente momentos antes de comer, y le llevó a su escritorio, una pieza de aspecto sombrío, llena de cachivaches antiguos, grandes armarios de libros y cuadros al óleo que el tiempo había oscurecido hasta no percibirse siquiera las figuras. Las sillas eran de roble viejo, las cortinas de terciopelo viejo también, la alfombra más vieja todavía, la mesa de escribir un verdadero prodigio de vejez. Miguel sólo dos veces en su vida había visto este aposento sagrado y augusto para la familia. Una vez se lo había enseñado su primo Enrique desde la puerta alzando discretamente la cortina y mirando con temor hacia atrás para no ser sorprendido en flagrante profanación.",
+    "autor": "Armando Palacio Valdés",
+    "urlLibro": "https://www.gutenberg.org/ebooks/29831",
+    "urlImagen": "https://www.gutenberg.org/cache/epub/29831/pg29831.cover.medium.jpg",
+    "valoracion": "2.35"
+} 
+
+### Create a libro
+POST {{api}}
+Content-Type: application/json
+
+{
+    "nombreLibro":  "Los Puritanos, y otros cuentos.",
+    "descripcion": "El padre se murió sin ver carta de su hijo mayor, entre un sacerdote que le exhortaba y el pobre ciego que le apretaba convulso la mano, como si tratase de retenerle a la fuerza en este mundo. Cuando quisieron sacar el cadáver de casa sostuvo una lucha frenética, espantosa, con los empleados fúnebres. Al fin se quedó solo; pero ¡qué soledad la suya! Ni padre, ni madre, ni parientes, ni amigos; hasta el sol le faltaba, el amigo de todos los seres creados. Pasó dos días metido en su cuarto, recorriéndolo de una esquina a otra como un lobo enjaulado, sin probar alimento.",
+    "autor": "Armando Palacio Valdés",
+    "urlLibro": "https://www.gutenberg.org/ebooks/30053",
+    "urlImagen": "https://www.gutenberg.org/cache/epub/30053/pg30053.cover.medium.jpg",
+    "valoracion": "4.35"
+} 
+### 
+POST {{api}}
+Content-Type: application/json
+
+{
+    "nombreLibro":  "El señorito Otto Octavio",
+    "descripcion": "Hé aquí los objetos que se veían ó se vislumbraban en la estancia. Apoyado en la pared de la derecha y cercano al hueco de la ventana, un armario antiguo, que debió ser barnizado recientemente, á juzgar por la prisa con que devolvía en vivos reflejos los tenues rayos de luz que sobre él caían. Enfrente, y cerca de la otra ventana, un tocador de madera sin barnizar, al gusto modernísimo, de esos que se compran en los bazares de Madrid por poco dinero. No muy lejos del tocador, una silla forrada de reps, sobre la cual descansaban hacinadas varias prendas de vestir, masculinas. Hasta el instante de dar comienzo esta verídica historia, nada más se veía. Esperemos.",
+    "autor": "Armando Palacio Valdés",
+    "urlLibro": "https://www.gutenberg.org/ebooks/36940",
+    "urlImagen": "https://www.gutenberg.org/cache/epub/36940/pg36940.cover.medium.jpg",
+    "valoracion": "4.88"
+}
+
+### 
+POST {{api}}
+Content-Type: application/json
+
+{
+    "nombreLibro":  "Dulce Dueño",
+    "descripcion": "La claridad da de lleno en un objeto maravilloso. Es una placa cuadrilonga de unos diez centímetros de altura. En relieve, campea destacándose una figurita de mujer, ataviada con elegancia fastuosa, á la moda del siglo XV. Cara y manos son de esmalte; el ropaje, de oros cincelados y también esmaltados, se incrusta de minúsculas gemas, de pedrería refulgente y diminuta como puntas de alfiler. En la túnica, traslucen con vítreo reflejo los carmesíes;{6} en el manto, los verdes de esmaragdita. Tendido el cabello color de miel por los hombros, rodea la cabeza diadema de diamantillos, sólo visibles por la chispa de luz que lanzan.",
+    "autor": "Emilia Pardo Bazán",
+    "urlLibro": "https://www.gutenberg.org/ebooks/56044",
+    "urlImagen": "https://www.gutenberg.org/cache/epub/56044/pg56044.cover.medium.jpg",
+    "valoracion": "4.88"
+} 
+
+### 
+POST {{api}}
+Content-Type: application/json
+
+{
+    "nombreLibro":  "La Odisea",
+    "descripcion": "Así como la Ilíada presenta la Grecia heroica en su lucha con los habitantes de la Tróade, la Odisea describe la época de paz, de tranquilidad y de bienandanza que siguió á la terminación de la guerra, relatando un drama doméstico y una serie de aventuras fantásticas y maravillosas; y ambas epopeyas reunidas forman el panorama más acabado, el eco más fiel de los primeros tiempos históricos de la raza griega y contienen tales ejemplos de heroísmo, de amor patrio, de fidelidad conyugal, de respeto á los ancianos, de buen acogimiento al peregrino, de amistad, etc., que con razón ha podido decirse que toda la poesía de Homero es un elogio de la virtud, salvo lo puramente accesorio.",
+    "autor": "Homer",
+    "urlLibro": "https://www.gutenberg.org/ebooks/58221",
+    "urlImagen": "https://www.gutenberg.org/cache/epub/58221/pg58221.cover.medium.jpg",
+    "valoracion": "4.88"
+} 
+
+### 
+POST {{api}}
+Content-Type: application/json
+
+{
+    "nombreLibro":  "Cuentos de amor",
+    "descripcion": "No ignorarás que he escrito á estas fechas gran número de cuentos, pero acaso te sorprenda si digo que pasan de cuatrocientos, y á todo correr se acercan á quinientos ya. No pocos, antes de ser recogidos en volumen, andan vertidos á varias lenguas en tierras muy lejanas, á pesar del descuido de una autora que no por indiferencia ni por desdén, sino por falta de tiempo, suele no contestar á las amables cartas de sus bondadosos traductores.",
+    "autor": "Emilia Pardo Bazán",
+    "urlLibro": "https://www.gutenberg.org/ebooks/55514",
+    "urlImagen": "https://www.gutenberg.org/cache/epub/55514/pg55514.cover.medium.jpg",
+    "valoracion": "4.75"
+} 
+### 
+POST {{api}}
+Content-Type: application/json
+
+{
+    "nombreLibro":  "The Place of Animals in Human Thought",
+    "descripcion": "Some chapters refer rather to practice than to psychology, and others to myths and fancies rather than to conscious speculation, but all these subjects are so closely connected that it would be difficult to divide their treatment by a hard-and-fast line..",
+    "autor": "Martinengo-Cesaresco",
+    "urlLibro": "https://www.gutenberg.org/ebooks/65720",
+    "urlImagen": "https://www.gutenberg.org/cache/epub/65720/pg65720.cover.medium.jpg",
+    "valoracion": "4.75"
+} 
+
+###
+DELETE {{api}}/604bcdd6c347ea2e2cf08fc3
+
+###
+PUT {{api}}/604bd4160d6cdb2f20549011 
+Content-Type: application/json
+
+{
+} 

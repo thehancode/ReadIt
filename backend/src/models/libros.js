@@ -17,13 +17,12 @@ const libroSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    libro: {
-      type: String,
-      required: true,
-    },
     urlImagen: {
       type: String,
       required: true,
+    },
+    valoracion: {
+      type: Number,
     },
   },
   {

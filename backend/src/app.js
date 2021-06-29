@@ -4,7 +4,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 
 const config = require('./config');
-const userRoutes = require('./routers/user.routes');
+const usuarioRoutes = require('./routers/usuario.routes');
 const libroRoutes = require('./routers/libro.routes');
 
 const app = express();
@@ -18,7 +18,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
-app.use(userRoutes);
+app.use(usuarioRoutes);
 app.use(libroRoutes);
 
 module.exports = app;

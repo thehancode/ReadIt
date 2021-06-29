@@ -1,19 +1,18 @@
-const Libro = require("../models/libros");
+const Anotacion = require("../models/anotaciones");
 const config = require("../config");
 
-const createLibro = async (req, res) => {
-  const libro = new Libro(req.body);
-  const savedLibro = await libro.save();
-  res.json(savedLibro);
+const createAnotacion = async (req, res) => {
+  const anotacion = new Anotacion(req.body);
+  const savedAnotacion = await anotacion.save();
+  res.json(savedAnotacion);
 };
 
 const getLibros = async (req, res) => {
-  /*{
+  Libro.find({
     nombreLibro: { $regex: `.*${req.body.nombreLibro}.*` },
     descripcion: { $regex: `.*${req.body.descripcion}.*` },
-  } */
-  Libro.find()
-    .limit(10)
+  })
+    .limit(9)
     .exec((err, list_libros) => {
       res.status(200).send(list_libros);
     });
@@ -40,7 +39,7 @@ const updateLibro = async (req, res) => {
 };
 
 module.exports = {
-  createLibro,
+  createAnotacion,
   getLibros,
   getLibro,
   deleteLibro,

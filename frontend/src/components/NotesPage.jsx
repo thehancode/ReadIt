@@ -51,6 +51,7 @@ const NotesPage = (props) => {
   const useStyles = makeStyles((theme) => ({
     offset: theme.mixins.toolbar,
     root: {
+      
       display: "flex",
     },
     botonPersonalizado: {
