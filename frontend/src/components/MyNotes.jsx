@@ -17,6 +17,7 @@ import { Link as LinkS } from "react-scroll";
 import HomeContent from "./HomeContent";
 import BookContent from "./BookContent";
 import Account from "./Account";
+import NotesPage from "./NotesPage";
 //import Fade from "react-reveal/Fade";
 
 // Importamos los principales componentes
@@ -173,6 +174,7 @@ export const MyNotes = (props) => {
           </Hidden>
           {/* Cuerpo de la página */}
           <main className={classes.content}>
+            <NotesPage/>
             <h1>Cuerpo de My Notes</h1>
             <h1>Cuerpo de My Notes</h1>
             <Footer />

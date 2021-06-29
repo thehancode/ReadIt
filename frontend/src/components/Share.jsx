@@ -5,7 +5,6 @@ import {
   WhatsappShareButton,
 } from "react-share";
 
-import { useParams } from "react-router-dom";
 
 
 const Share = ({ idMessage }) => {
