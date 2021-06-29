@@ -226,7 +226,6 @@ export const HomeWithoutLogin = () => {
                 </Fade>
               </div>
             </Container>
-            <Hidden mdDown>
               <Container maxWidth="xl" component="section" id="home-services">
                 <div className="home-services">
                   <div className="home-services__text">
@@ -311,7 +310,6 @@ export const HomeWithoutLogin = () => {
                   </div>
                 </div>
               </Container>
-            </Hidden>
             <Footer />
           </main>
         </div>
