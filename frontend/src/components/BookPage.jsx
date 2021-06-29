@@ -14,7 +14,7 @@ import {
   ListItemText,
   Link,
   Typography,
-  Container
+  Container,
 } from "@material-ui/core";
 
 import { Link as LinkS } from "react-scroll";
@@ -74,17 +74,17 @@ export const Home = () => {
       },
     },
     title: {
-      color: '#3F3250',
-      fontWeight: '400',
-      margin: '20px',
-    },    
+      color: "#3F3250",
+      fontWeight: "400",
+      margin: "20px",
+    },
     subtitle: {
-      textAlign: 'left',
-      color: '#3F3250',
-      paddingLeft: '1em',
-      fontWeight: '300',
-      margin: '10px',
-    }
+      textAlign: "left",
+      color: "#3F3250",
+      paddingLeft: "1em",
+      fontWeight: "300",
+      margin: "10px",
+    },
   }));
 
   const classes = useStyles();
@@ -175,13 +175,29 @@ export const Home = () => {
           {/* Cuerpo de la página */}
           <main className={classes.content}>
             <div className={classes.offset}></div>
-            <Typography variant="h2" component="h1" className={classes.title}>Biblioteca</Typography>
-            <Typography variant="h3" component="h2" className={classes.subtitle}>Catálogo</Typography>
-            <Container maxWidth='xl' component="section">
-              <CarouselBooks/>
+            <Typography variant="h2" component="h1" className={classes.title}>
+              Biblioteca
+            </Typography>
+            <Typography
+              variant="h3"
+              component="h2"
+              className={classes.subtitle}
+            >
+              Catálogo
+            </Typography>
+            <Container maxWidth="xl" component="section">
+              <CarouselBooks />
             </Container>
-            <Typography variant="h3" component="h2" className={classes.subtitle}>Buscador</Typography>
-            <SearchBooks/>
+            <Typography
+              variant="h3"
+              component="h2"
+              className={classes.subtitle}
+            >
+              Buscador
+            </Typography>
+            <Container maxWidth="xl" component="section">
+              <SearchBooks />
+            </Container>
             <Footer />
           </main>
         </div>

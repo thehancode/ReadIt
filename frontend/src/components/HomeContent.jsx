@@ -1,18 +1,9 @@
 import React from 'react'
-import { getCurrentUser } from "../services/LoginService";
 import { makeStyles } from "@material-ui/core/styles";
-import { useHistory } from "react-router-dom";
 
 import CarouselBooks from "./CarouselBooks";
 import SearchBooks from "./SearchBooks";
 import {
-    Hidden,
-    List,
-    ListItem,
-    Drawer,
-    Divider,
-    ListItemText,
-    Link,
     Typography,
     Container
   } from "@material-ui/core";

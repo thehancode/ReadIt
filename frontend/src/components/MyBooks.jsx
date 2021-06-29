@@ -12,27 +12,29 @@ import {
   ListItemText,
   Link,
 } from "@material-ui/core";
+import {
+  Typography,
+  Container
+} from "@material-ui/core";
 
-import SettingsIcon from '@material-ui/icons/Settings';
-import CreateIcon from '@material-ui/icons/Create';
-import CollectionsBookmarkIcon from '@material-ui/icons/CollectionsBookmark';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import MenuBookIcon from '@material-ui/icons/MenuBook';
+import SettingsIcon from "@material-ui/icons/Settings";
+import CreateIcon from "@material-ui/icons/Create";
+import CollectionsBookmarkIcon from "@material-ui/icons/CollectionsBookmark";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import MenuBookIcon from "@material-ui/icons/MenuBook";
+import MediaCard from "./CardsForBooks.jsx";
 
-import  HomeContent from "./HomeContent";
-import  BookContent from "./BookContent";
-import  Account from "./Account";
+import { Link as LinkS } from "react-scroll";
 //import Fade from "react-reveal/Fade";
 
 // Importamos los principales componentes
 import NavbarHome from "./NavbarHome";
 import Footer from "./Footer";
-import BookReader from "./BookReader";
 
 // Importamos los estilos de color del boton
 // import theme from "../ThemeConfig";
 
-export const HomePage = (props) => {
+export const MyBooks = (props) => {
   const history = useHistory();
 
   // El usuario que se logea que da guardado aqui
@@ -78,21 +80,21 @@ export const HomePage = (props) => {
       },
     },
     submenu_text: {
-      position: 'relative',
-      bottom: '6px',
+      position: "relative",
+      bottom: "6px",
     },
     title: {
-      color: '#3F3250',
-      fontWeight: '400',
-      margin: '20px',
-    },    
+      color: "#3F3250",
+      fontWeight: "400",
+      margin: "20px",
+    },
     subtitle: {
-      textAlign: 'left',
-      color: '#3F3250',
-      paddingLeft: '1em',
-      fontWeight: '300',
-      margin: '10px',
-    }
+      textAlign: "left",
+      color: "#3F3250",
+      paddingLeft: "1em",
+      fontWeight: "300",
+      margin: "10px",
+    },
   }));
 
   const classes = useStyles();
@@ -131,7 +133,8 @@ export const HomePage = (props) => {
                       underline="none"
                       className={classes.submenu}
                     >
-                      <CollectionsBookmarkIcon/><span  className={classes.submenu_text}> Biblioteca</span>
+                      <CollectionsBookmarkIcon />
+                      <span className={classes.submenu_text}> Biblioteca</span>
                     </Link>
                   </ListItemText>
                 </ListItem>
@@ -143,7 +146,8 @@ export const HomePage = (props) => {
                       underline="none"
                       className={classes.submenu}
                     >
-                      <MenuBookIcon/><span  className={classes.submenu_text}> Mis libros</span>
+                      <MenuBookIcon />
+                      <span className={classes.submenu_text}> Mis libros</span>
                     </Link>
                   </ListItemText>
                 </ListItem>
@@ -155,7 +159,8 @@ export const HomePage = (props) => {
                       underline="none"
                       className={classes.submenu}
                     >
-                      <CreateIcon/><span  className={classes.submenu_text}> Mis Notas</span>
+                      <CreateIcon />
+                      <span className={classes.submenu_text}> Mis Notas</span>
                     </Link>
                   </ListItemText>
                 </ListItem>
@@ -167,7 +172,11 @@ export const HomePage = (props) => {
                       underline="none"
                       className={classes.submenu}
                     >
-                      <SettingsIcon/><span  className={classes.submenu_text}> Configuración</span>
+                      <SettingsIcon />
+                      <span className={classes.submenu_text}>
+                        {" "}
+                        Configuración
+                      </span>
                     </Link>
                   </ListItemText>
                 </ListItem>
@@ -175,11 +184,12 @@ export const HomePage = (props) => {
                   <ListItemText>
                     <Link
                       href="/"
-                      color="inherit" 
+                      color="inherit"
                       underline="none"
                       className={classes.submenu}
                     >
-                      <ExitToAppIcon/><span  className={classes.submenu_text}> Salir</span>
+                      <ExitToAppIcon />
+                      <span className={classes.submenu_text}> Salir</span>
                     </Link>
                   </ListItemText>
                 </ListItem>
@@ -188,11 +198,15 @@ export const HomePage = (props) => {
           </Hidden>
           {/* Cuerpo de la página */}
           <main className={classes.content}>
-            {(props.component==="HOME")?<HomeContent/> : <div></div>}
-            {(props.component==="BOOK")? <BookContent name="La odisea"/>:<div></div>}
-              {(props.component==="ACCOUNT")? <Account/>:<div></div>}
-              {(props.component==="READ")? <BookReader/>:<div></div>}
-              
+            <br />
+            <br />
+            <br />
+            <Typography variant="h2" component="h1" className={classes.title}>
+              Mis Libros
+            </Typography>
+
+            <MediaCard />
+            <MediaCard />
             <Footer />
           </main>
         </div>
