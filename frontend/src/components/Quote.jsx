@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { createSpeechlySpeechRecognition } from '@speechly/speech-recognition-polyfill';
 import { SpeechProvider, useSpeechContext } from "@speechly/react-client";
-import * as Poem from "../services/PoemService";
+import * as QuoteService from "../services/QuoteService";
 import { makeStyles } from "@material-ui/core/styles";
 import {
     Container,
@@ -9,11 +9,12 @@ import {
     Button,
   } from "@material-ui/core";
 
+
 const appId = "a74f6df7-a674-4b8e-93e7-e7d462a558f5";
 const SpeechlySpeechRecognition = createSpeechlySpeechRecognition(appId);
 const speechRecognition = new SpeechlySpeechRecognition();
 
-const RandomPoem = ()=>{
+const Quote = ()=>{
     const useStyles = makeStyles(()=>({
         container:{
             fontFamily: "Prata,serif",
@@ -23,19 +24,29 @@ const RandomPoem = ()=>{
         },
         title:{
             fontWeight: "900",
-            fontSize: "1.7rem",
+            fontSize: "1.8rem",
             letterSpacing: "4px",
             textDecoration: "underline black"
         },
         content:{
-            fontSize: "1rem",
+            fontSize: "1.3rem",
             fontWeight: "600",
+            fontFamily: "sans-serif",
+            lineHeight: "1.48",
+            quotes: "inherit",
+            "&:before":{
+                content: "open-quote",
+            },
+            "&:after":{
+                content: "close-quote",
+            }
         },
         author:{
+            fontSize: "1.0rem",
             fontStyle: "italic",
             lineHeight: "1.3",
             marginTop: "5%",
-            fontWeight: "200",
+            fontWeight: "300",
         },
         button:{
             color:"white",
@@ -47,10 +58,11 @@ const RandomPoem = ()=>{
               backgroundImage: "none",
               textTransform: "none",
         },
+
     }))
     const classes = useStyles();
     const [transcription, setTranscription] = useState('');
-    const [poem, setPoem] = useState({
+    const [quote, setQuote] = useState({
         content:"",
         author:"",
         title:""
@@ -59,18 +71,18 @@ const RandomPoem = ()=>{
         speechRecognition.onresult = handleResult;
     });
     useEffect(()=>{
-        Poem.randomPoem().then(
+        QuoteService.quoteOfDay().then(
             (response) => {
                 console.log(response)
-                let newPoem = {
-                    author: response.data[0].poet.name,
-                    title: response.data[0].title,
-                    content: response.data[0].content 
+                let newQuote = {
+                    title: response.title,
+                    author: response.author,
+                    content: response.quote,
                 }
-                setPoem(newPoem)
+                setQuote(newQuote)
             },
             (error) => {
-              console.log("error al obtener poema",error)
+              console.log("error al obtener Quotea",error)
             }
         );
     },[])
@@ -79,19 +91,19 @@ const RandomPoem = ()=>{
         const { transcript } = results[0][0];
         console.log("results: ",results);
         setTranscription(transcript);
-        if(transcript.indexOf("QUOTE") !== -1){
-            Poem.randomPoem().then(
+        if(transcript.indexOf("NEW QUOTE") !== -1){
+            QuoteService.randomQuote().then(
                 (response) => {
                     console.log(response)
-                    let newPoem = {
-                        author: response.data[0].poet.name,
-                        title: response.data[0].title,
-                        content: response.data[0].content 
+                    let newQuote = {
+                        author: response.author,
+                        title: response.title,
+                        content: response.quote,
                     }
-                    setPoem(newPoem)
+                    setQuote(newQuote)
                 },
                 (error) => {
-                  console.log("error al obtener poema",error)
+                  console.log("error al obtener Quotea",error)
                 }
             );
         }
@@ -101,23 +113,23 @@ const RandomPoem = ()=>{
              {/* <p>Microphone: {listening ? 'on' : 'off'}</p> */}
             <div>
                 <p> 
-                    <span className={classes.title}>{poem.title}</span>
+                    <span className={classes.title}>{quote.title}</span>
                 </p>
                 <p> 
-                    <span className={classes.content}>{poem.content}</span>
+                    <span className={classes.content}>{quote.content}</span>
                 </p>
                 <p> 
-                    <span className={classes.author}>-{poem.author}</span>
+                    <span className={classes.author}>-{quote.author}</span>
                 </p>
             </div>
-            <p>Presione el botón y diga "Quote"</p>
+            <p>Presione el botón y diga "New Quote" para obtener una nueva frase</p>
              <Button
             onTouchStart={speechRecognition.start}
             onTouchEnd={speechRecognition.stop}
             onMouseUp={speechRecognition.stop}
             onMouseDown={speechRecognition.start}
             className={classes.button}
-            >Hold to talk</Button>
+            >Mantener pulsado para hablar</Button>
             <div>
                 {segment ? <div className="segment">{segment.words.map(w => w.value).join(' ')}</div> : null}
             </div>
@@ -126,4 +138,4 @@ const RandomPoem = ()=>{
     )
 }
 
-export default RandomPoem;
+export default Quote;

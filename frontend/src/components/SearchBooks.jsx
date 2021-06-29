@@ -1,12 +1,12 @@
 import React from 'react'
-import RandomPoem from './RandomPoem'
+import Quote from './Quote'
 
 const SearchBooks = () => {
 
     return (
         <div>
-            <p>Hola Bebe</p>
-            <RandomPoem></RandomPoem>
+            <p>Buscar Libro</p>
+            <Quote></Quote>
         </div>
     )
 }
