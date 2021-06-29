@@ -240,6 +240,50 @@ a:hover, a:focus {
   transform:scale(1.1);
 }
 
+@media screen and (max-width: 1024px)  {
+  .home-slider-welcome--title{
+    font-size: 54px;
+  }
+  .home-slider-welcome--phrase{
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 720px)  {
+  .home-slider-welcome--title{
+    font-size: 42px;
+  }
+  .home-slider-welcome--phrase{
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 600px)  {
+  .home-slider-welcome{
+    width: 75%;
+  }
+  .home-slider-welcome--title{
+    font-size: 52px;
+  }
+  .home-slider-welcome--phrase{
+    font-size: 32px;
+  }
+}
+
+@media screen and (max-width: 450px)  {
+  .home-slider-welcome{
+    width: 80%;
+  }
+  .home-slider-welcome--title{
+    font-size: 48px;
+  }
+  .home-slider-welcome--phrase{
+    font-size: 24px;
+  }
+}
+
+/* Sección de Servicios */
+
 .home-services{
   padding: 20px;
   height: calc(100vh - 64px);
