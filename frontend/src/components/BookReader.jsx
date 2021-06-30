@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { getCurrentUser } from "../services/LoginService";
 import { makeStyles } from "@material-ui/core/styles";
@@ -26,8 +26,14 @@ import Rating from "@material-ui/lab/Rating";
 import { BorderAllRounded, Height } from "@material-ui/icons";
 
 const BookContent = (props) => {
-  
-
+  useEffect(()=>{
+    let user = JSON.parse(localStorage.getItem("user"));
+    setTimeout(function(){ 
+      alert("Hello"); 
+      console.log("Time finish")
+    }, 
+      user.timer*1000);
+  },[]);
   const [starValue, setValue] = React.useState(3);
 
   const useStyles = makeStyles((theme) => ({
