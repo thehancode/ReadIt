@@ -114,7 +114,7 @@ const BookContent = (props) => {
             <Rating
               name="simple-controlled"
               size="large"
-              value={parseInt(libro.valoracion)}
+              value={starValue}
               onChange={(event, newValue) => {
                 setValue(newValue);
               }}
