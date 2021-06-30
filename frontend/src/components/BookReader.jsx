@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { getCurrentUser } from "../services/LoginService";
 import { makeStyles } from "@material-ui/core/styles";
@@ -26,8 +26,22 @@ import Rating from "@material-ui/lab/Rating";
 import { BorderAllRounded, Height } from "@material-ui/icons";
 
 const BookContent = (props) => {
-  
-
+  useEffect(()=>{
+    //localStorage.setItem('timerState',1);
+    let user = JSON.parse(localStorage.getItem("user"));
+    let timerState = JSON.parse(localStorage.getItem("timerState"));
+    //console.log("timer",timerState);
+    if(timerState===null){
+      localStorage.setItem('timerState',user.timer);
+      setTimeout(function(){
+        localStorage.removeItem('timerState'); 
+        alert("Recuerda tomar un descanso"); 
+        console.log("Time finish")
+      }, 
+        user.timer*1000);
+    }
+    
+  },[]);
   const [starValue, setValue] = React.useState(3);
 
   const useStyles = makeStyles((theme) => ({

@@ -27,6 +27,9 @@ function Microphone(props) {
       "&:active": {
         backgroundImage:
           "url(https://cdn.pixabay.com/photo/2018/05/15/20/47/microphone-3404243_960_720.png)"
+      },
+      "&:hover":{
+        cursor: "pointer",
       }
     },
     transciption: {
