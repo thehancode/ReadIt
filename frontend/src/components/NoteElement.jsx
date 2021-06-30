@@ -17,7 +17,7 @@ const NoteElement = (props) => {
   const classes = useStyles();
 
   const note = props.noteInfo;
-  return <div className={classes.note}>{" Hola como estas" + note.title}</div>;
+  return <div className={classes.note}>{"Nota en: " + note.title}</div>;
 };
 
 export default NoteElement;
