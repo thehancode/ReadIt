@@ -28,7 +28,6 @@ import { BorderAllRounded, Height } from "@material-ui/icons";
 const BookContent = (props) => {
   
 
-
   const [starValue, setValue] = React.useState(3);
 
   const useStyles = makeStyles((theme) => ({
