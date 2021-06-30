@@ -90,7 +90,7 @@ const Account = () => {
   };
 
   const [user, setUser] = useState(initialState);
-  const [userTimer, setUserTimer] = useState({segundos:0 });
+  const [userTimer, setUserTimer] = useState(0);
   const handleInputChange = (e) => {
     //console.log("handle Input")
     //console.log(userTimer)
@@ -99,9 +99,9 @@ const Account = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    //console.log("handle submit");
-    //console.log(user);
-    update.updateUser({...user,timer:1200}).then(
+    console.log("handle update");
+    console.log(user);
+    update.updateUser({...user,timer:userTimer}).then(
       (response) => {
         //history.push("/home");
         //console.log(response)
@@ -120,7 +120,7 @@ const Account = () => {
       (response) => {
         console.log("user ",response)
         setUser({...response});
-        setUserTimer({...userTimer,segundos:response.timer})
+        setUserTimer(response.timer)
       },
       (error) => {
         console.log(error)

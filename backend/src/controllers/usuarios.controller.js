@@ -21,7 +21,6 @@ const login = async (req, res) => {
     username: usuarioFound.username,
     password: usuarioFound.password,
     accessToken: token,
-    timer: usuarioFound.timer,
   });
 };
 

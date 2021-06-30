@@ -63,14 +63,10 @@ const Clock = (props)=>{
       alert(`Save time ${time.segundos}`)
     } */
     const handleAddTime = (event)=>{
-        setTimer({
-          segundos: time.segundos + 60,
-        })
+        setTimer(time + 60)
     }
     const handleSubTime = (event)=>{
-      setTimer({
-        segundos: time.segundos - 60,
-      })
+      setTimer(time - 60)
     }
     /* useEffect(()=>{
       console.log(props.timer);
@@ -80,7 +76,7 @@ const Clock = (props)=>{
         <label className={classes['timer-label']}>{"Recordatorio de descanso"}</label>
         <div className={classes['times-content']}>
           
-          <span className={classes['time-left']}>{formatTime(time.segundos)}</span>
+          <span className={classes['time-left']}>{formatTime(time)}</span>
           <label className={classes['timer-label']}>{"minutos"}</label>
         </div>
         <div className={classes.panelControl}>
