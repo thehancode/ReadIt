@@ -38,6 +38,7 @@ function Microphone(props) {
       fontFamily: "sans-serif",
       lineHeight: "1.48",
       quotes: "inherit",
+      margin: "20px",
       "&:before": {
         content: "open-quote"
       },
@@ -49,6 +50,8 @@ function Microphone(props) {
   const classes = useStyles();
 
   const [transciption, setTranscription] = useState("");
+  const [showTranscrip, setShow] = useState(false);
+
   //const { segment } = useSpeechContext();
   const handleResult = ({ results }) => {
     console.log("results: ", results);
@@ -60,13 +63,12 @@ function Microphone(props) {
   };
   useEffect(() => {
     speechRecognition.onresult = handleResult;
+
   }, []);
   
   return (
     <div className={classes.container}>
-      {/* <br></br>
-      <span className={classes.transciption}>{transciption}</span>
-      <br></br> */}
+
       <button
         className={classes.button}
         onTouchStart={speechRecognition.start}
@@ -74,6 +76,12 @@ function Microphone(props) {
         onMouseUp={speechRecognition.stop}
         onMouseDown={speechRecognition.start}
       ></button>
+      {
+        (props.show)?
+        <span className={classes.transciption}>{transciption}</span>
+        :
+        <div/>
+      }
     </div>
   );
 }
