@@ -27,12 +27,20 @@ import { BorderAllRounded, Height } from "@material-ui/icons";
 
 const BookContent = (props) => {
   useEffect(()=>{
+    //localStorage.setItem('timerState',1);
     let user = JSON.parse(localStorage.getItem("user"));
-    setTimeout(function(){ 
-      alert("Hello"); 
-      console.log("Time finish")
-    }, 
-      user.timer*1000);
+    let timerState = JSON.parse(localStorage.getItem("timerState"));
+    //console.log("timer",timerState);
+    if(timerState===null){
+      localStorage.setItem('timerState',user.timer);
+      setTimeout(function(){
+        localStorage.removeItem('timerState'); 
+        alert("Recuerda tomar un descanso"); 
+        console.log("Time finish")
+      }, 
+        user.timer*1000);
+    }
+    
   },[]);
   const [starValue, setValue] = React.useState(3);
 
