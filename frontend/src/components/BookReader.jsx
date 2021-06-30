@@ -20,7 +20,7 @@ import {
   Container,
 } from "@material-ui/core";
 import { useParams } from "react-router-dom";
-
+import Microphone from "./Microphone"; 
 import Rating from "@material-ui/lab/Rating";
 
 import { BorderAllRounded, Height } from "@material-ui/icons";
@@ -89,10 +89,10 @@ const BookContent = (props) => {
     <div>
         <div className={classes.offset}></div>
         <div style={{height:"100vh"}} >
-        <iframe  src={"https://www.gutenberg.org/files/"+ bookID+ "/" + bookID+ "-h/" +bookID+"-h.htm"} width="100%" height="100%">
+        <iframe  src={"https://www.gutenberg.org/files/"+ bookID+ "/" + bookID+ "-h/" +bookID+"-h.htm"} width="100%" height="80%">
             <p>Your browser does not support iframes.</p>
         </iframe>
-
+      | <Microphone show/>
         </div>
     </div>
   );
