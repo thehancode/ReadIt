@@ -13,12 +13,8 @@ const libroSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    urlLibro: {
-      type: String,
-      required: true,
-    },
-    urlImagen: {
-      type: String,
+    idLibro: {
+      type: Number,
       required: true,
     },
     valoracion: {
