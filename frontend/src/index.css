@@ -240,45 +240,35 @@ a:hover, a:focus {
   transform:scale(1.1);
 }
 
-@media screen and (max-width: 1024px)  {
-  .home-slider-welcome--title{
-    font-size: 54px;
+@media screen and (max-width: 720px)  {
+  .home-what-is-readit{
+    padding: 20px;
+    height: calc(100vh - 64px);
+    display: flex;
+    flex-direction: column;
   }
-  .home-slider-welcome--phrase{
+  .home-what-is-readit-image{
+    height: 40%;
+    width: 90%;
+  }
+  .home-what-is-readit-text{
+    width: 90%;
+    height: 60%;
+  }
+
+  .home-what-is-readit-text h2{
     font-size: 28px;
   }
-}
-
-@media screen and (max-width: 720px)  {
-  .home-slider-welcome--title{
-    font-size: 42px;
-  }
-  .home-slider-welcome--phrase{
-    font-size: 24px;
+  .home-what-is-readit-text p{
+    font-size: 20px;
   }
 }
 
-@media screen and (max-width: 600px)  {
-  .home-slider-welcome{
-    width: 75%;
-  }
-  .home-slider-welcome--title{
-    font-size: 52px;
-  }
-  .home-slider-welcome--phrase{
-    font-size: 32px;
-  }
-}
 
 @media screen and (max-width: 450px)  {
-  .home-slider-welcome{
-    width: 80%;
-  }
-  .home-slider-welcome--title{
-    font-size: 48px;
-  }
-  .home-slider-welcome--phrase{
-    font-size: 24px;
+  .home-what-is-readit-text{
+    width: 90%;
+    height: 70%;
   }
 }
 
@@ -306,6 +296,13 @@ a:hover, a:focus {
   margin: 0 0 20px 0;
 }
 
+@media screen and (max-width: 1280px)  {
+  .home-services{
+    height: auto;
+  }
+}
+
+/* Footer */
 .footer{
   display: flex;
   flex-direction: column;
