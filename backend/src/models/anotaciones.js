@@ -10,10 +10,10 @@ const anotacionSchema = new mongoose.Schema(
       type: Number,
     },
     fecha: {
-      type: Date,
+      type: String,
     },
     descripcion: {
-      type: Number,
+      type: String,
     },
   },
   {
@@ -22,4 +22,4 @@ const anotacionSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("Anotacion", libroSchema);
+module.exports = mongoose.model("Anotaciones", anotacionSchema);

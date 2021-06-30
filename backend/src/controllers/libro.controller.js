@@ -1,5 +1,4 @@
 const Libro = require("../models/libros");
-const config = require("../config");
 
 const createLibro = async (req, res) => {
   const libro = new Libro(req.body);
