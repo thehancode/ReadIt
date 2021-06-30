@@ -1,5 +1,5 @@
-const Anotacion = require("../models/anotaciones");
-const config = require("../config");
+const Anotaciones = require("../models/anotaciones");
+const UsuarioLibro = require("../models/usuariolibros");
 
 const createAnotacion = async (req, res) => {
   const anotacion = new Anotacion(req.body);
@@ -7,41 +7,26 @@ const createAnotacion = async (req, res) => {
   res.json(savedAnotacion);
 };
 
-const getLibros = async (req, res) => {
-  Libro.find({
-    nombreLibro: { $regex: `.*${req.body.nombreLibro}.*` },
-    descripcion: { $regex: `.*${req.body.descripcion}.*` },
-  })
-    .limit(9)
-    .exec((err, list_libros) => {
-      res.status(200).send(list_libros);
+const getAnotaciones = async (req, res) => {
+  // retorna una lista de todos los libros que ha leido el usuario
+  UsuarioLibro.find({ idUsuario: req.params.id }).exec((err, libroUsuario) => {
+    libroUsuario.forEach((element) => {
+      console.log(element);
+      // Anotaciones.find({ idUsuarioLibro: element._id })
+      //   .limit(10)
+      //   .exec((err, anotaciones) => {
+      //     res.status(200).send(anotaciones);
+      //   });
     });
-};
-
-const getLibro = async (req, res) => {
-  const libroFound = await Libro.findById(req.params.id);
-  if (!libroFound) return res.status(204).json();
-  return res.json(libroFound);
-};
-
-const deleteLibro = async (req, res) => {
-  const libroFound = await Libro.findByIdAndDelete(req.params.id);
-  if (!libroFound) return res.status(204).json();
-  return res.json(libroFound);
-};
-
-const updateLibro = async (req, res) => {
-  const libroUpdated = await Libro.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
   });
-  if (!libroUpdated) return res.status(204).json();
-  return res.json(libroUpdated);
+  // ;
+
+  // console.log("daddadadsadsa", usuarioLibro);
+  // // el id de cada uno de ellos lo usamos para buscar las anotaciones
+  // let anotaciones = [{}];
 };
 
 module.exports = {
   createAnotacion,
-  getLibros,
-  getLibro,
-  deleteLibro,
-  updateLibro,
+  getAnotaciones,
 };

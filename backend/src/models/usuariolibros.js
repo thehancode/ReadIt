@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
-const libroSchema = new mongoose.Schema(
+const usuarioLibrochema = new mongoose.Schema(
   {
-    idUser: {
+    idUsuario: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Usuario",
     },
@@ -20,4 +20,4 @@ const libroSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("UsuarioLibro", libroSchema);
+module.exports = mongoose.model("UsuarioLibro", usuarioLibrochema);
