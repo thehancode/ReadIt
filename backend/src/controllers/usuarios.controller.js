@@ -4,7 +4,7 @@ const config = require("../config");
 
 const login = async (req, res) => {
   const usuarioFound = await Usuario.findOne({
-    usuarioname: req.body.usuarioname,
+    username: req.body.username,
     password: req.body.password,
   });
 
@@ -18,14 +18,14 @@ const login = async (req, res) => {
 
   res.status(200).send({
     id: usuarioFound._id,
-    usuarioname: usuarioFound.usuarioname,
+    username: usuarioFound.username,
     password: usuarioFound.password,
     accessToken: token,
   });
 };
 
 const createUsuario = async (req, res) => {
-  const usuarioFound = await Usuario.findOne({ usuarioname: req.body.usuarioname });
+  const usuarioFound = await Usuario.findOne({ username: req.body.username });
   if (usuarioFound)
     return res.status(404).json({ message: "El usuario ya existe" });
 
