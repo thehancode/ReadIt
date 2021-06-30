@@ -30,6 +30,15 @@ const useStyles = makeStyles((theme) => ({
     height: 28,
     margin: 4,
   },
+  containerResults: {
+    display:"flex",
+    flexWrap: "wrap",
+    justifyContent: "center",
+
+    flexDirection:"row",
+    marginLeft:  "120px",
+    marginRight:  "120px",
+  },
 }));
 
 const SearchBooks = () => {
@@ -63,8 +72,13 @@ const SearchBooks = () => {
             <MicIcon />
           </IconButton> */}
         </Paper>
-      </FormControl>
-      <div style={{ marginLeft: 120 + "px", marginRight: 120 + "px" }}>
+      </FormControl>  
+      <div className={classes.containerResults}>
+        <MediaCard />
+        <MediaCard />
+        <MediaCard />
+        <MediaCard />
+        <MediaCard />
         <MediaCard />
         <MediaCard />
       </div>

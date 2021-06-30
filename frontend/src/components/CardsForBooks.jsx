@@ -12,11 +12,12 @@ const useStyles = makeStyles({
   root: {
     color: "#C0B3A0",
     backgroundColor: "#22252c",
-    maxWidth: 200,
-    margin: [40 + "px"]
+    maxWidth: 250,
+    margin: [40 + "px"],
+    "border-radius": "50px",
   },
   media: {
-    height: 140,
+    height: 180,
   },
   bodyCard: {
     color: "white",
@@ -47,8 +48,8 @@ export default function MediaCard() {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
+      <CardActions >
+        <Button size="small" fullWidth style={{ color: "#ffdda3"}} >
           Ver más
         </Button>
       </CardActions>

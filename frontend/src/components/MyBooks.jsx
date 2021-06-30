@@ -12,10 +12,7 @@ import {
   ListItemText,
   Link,
 } from "@material-ui/core";
-import {
-  Typography,
-  Container
-} from "@material-ui/core";
+import { Typography, Container } from "@material-ui/core";
 
 import SettingsIcon from "@material-ui/icons/Settings";
 import CreateIcon from "@material-ui/icons/Create";
@@ -95,6 +92,15 @@ export const MyBooks = (props) => {
       fontWeight: "300",
       margin: "10px",
     },
+    containerResults: {
+      display:"flex",
+      flexWrap: "wrap",
+      justifyContent: "center",
+  
+      flexDirection:"row",
+      marginLeft:  "120px",
+      marginRight:  "120px",
+    },  
   }));
 
   const classes = useStyles();
@@ -205,8 +211,19 @@ export const MyBooks = (props) => {
               Mis Libros
             </Typography>
 
-            <MediaCard />
-            <MediaCard />
+            <div className={classes.containerResults}>
+              <MediaCard />
+              <MediaCard />
+              <MediaCard />
+              <MediaCard />
+              <MediaCard />
+              <MediaCard />
+              <MediaCard />
+              <MediaCard />
+              <MediaCard />
+              <MediaCard />
+              <MediaCard />
+            </div>
             <Footer />
           </main>
         </div>

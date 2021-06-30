@@ -69,7 +69,6 @@ const NotesPage = (props) => {
     },
   }));
 
-  const [constructorHasRun, setConstructorHasRun] = useState(false);
   const [bookTitle, setTitle] = useState("NOT FOUND");
   const [bookItem, setItem] = useState({
     id: "65676",

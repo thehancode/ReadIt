@@ -118,7 +118,7 @@ const Account = () => {
     let userID = JSON.parse(localStorage.getItem('user')).id;
     getUserInfo.getUserInfo(userID).then(
       (response) => {
-        //console.log("user ",response)
+        console.log("user ",response)
         setUser({...response});
         setUserTimer({...userTimer,segundos:response.timer})
       },
