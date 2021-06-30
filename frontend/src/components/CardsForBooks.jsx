@@ -12,11 +12,11 @@ const useStyles = makeStyles({
   root: {
     color: "#C0B3A0",
     backgroundColor: "#22252c",
-    maxWidth: 200,
+    maxWidth: 250,
     margin: [40 + "px"]
   },
   media: {
-    height: 140,
+    height: 180,
   },
   bodyCard: {
     color: "white",
