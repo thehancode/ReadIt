@@ -202,8 +202,8 @@ a:hover, a:focus {
 
 .home-what-is-readit-text{
   width: 60%;
-  height: 60%;
-  padding: 20px;
+  margin: auto;
+  padding: 10px 20px;
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -212,18 +212,19 @@ a:hover, a:focus {
 
 .home-what-is-readit-text h2{
   font-size: 32px;
-  line-height: 0.5em;
+  line-height: 0;
   color: hsl(266, 23%, 25%);
 }
 
 .home-what-is-readit-text p{
   font-size: 24px;
+  margin: 10px 0;
 }
 
-.home-what-is-readit-image{
-  height: 80%;
+.home-what-is-readit-image{  
   width: 40%;
-  padding: 20px;
+  margin: auto;
+  padding: 0 20px;
   display: flex;
   align-items: center;
 	justify-content: center;
@@ -236,49 +237,40 @@ a:hover, a:focus {
   transition:all .5s ease-in-out;
 }
 .home-what-is-readit-image__img:hover {
-  -webkit-transform:scale(1.1);
-  transform:scale(1.1);
-}
-
-@media screen and (max-width: 1024px)  {
-  .home-slider-welcome--title{
-    font-size: 54px;
-  }
-  .home-slider-welcome--phrase{
-    font-size: 28px;
-  }
+  filter: opacity(.7);
 }
 
 @media screen and (max-width: 720px)  {
-  .home-slider-welcome--title{
-    font-size: 42px;
+  .home-what-is-readit{
+    padding: 20px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
   }
-  .home-slider-welcome--phrase{
-    font-size: 24px;
+  .home-what-is-readit-image{
+    height: 40%;
+    width: 90%;
+    margin: 20px 0;
+  }
+  .home-what-is-readit-text{
+    width: 90%;
+    height: 60%;
+  }
+
+  .home-what-is-readit-text h2{
+    font-size: 28px;
+  }
+  .home-what-is-readit-text p{
+    font-size: 20px;
+    margin: 18px 0;
   }
 }
 
-@media screen and (max-width: 600px)  {
-  .home-slider-welcome{
-    width: 75%;
-  }
-  .home-slider-welcome--title{
-    font-size: 52px;
-  }
-  .home-slider-welcome--phrase{
-    font-size: 32px;
-  }
-}
 
 @media screen and (max-width: 450px)  {
-  .home-slider-welcome{
-    width: 80%;
-  }
-  .home-slider-welcome--title{
-    font-size: 48px;
-  }
-  .home-slider-welcome--phrase{
-    font-size: 24px;
+  .home-what-is-readit-text{
+    width: 90%;
+    height: auto;
   }
 }
 
@@ -306,6 +298,24 @@ a:hover, a:focus {
   margin: 0 0 20px 0;
 }
 
+@media screen and (max-width: 1280px)  {
+  .home-services{
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 770px)  {
+  .home-services__text h2{
+    font-size: 28px;
+    margin: 15px 0;
+  }
+  .home-services__text p{
+    font-size: 20px;
+    margin: 0 0;
+  }
+}
+
+/* Footer */
 .footer{
   display: flex;
   flex-direction: column;

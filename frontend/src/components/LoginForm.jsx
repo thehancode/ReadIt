@@ -68,9 +68,6 @@ export const LoginForm = () => {
     },
     formLogin__element: {
       margin: ".5em 0",
-      [theme.breakpoints.down("xs")]: {
-        margin: "0.2em",
-      },
     },
     labelForm: {
       borderBottom: "2px solid #3f51b5",
