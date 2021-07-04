@@ -1,0 +1,5 @@
+@api = http://localhost:5000/anotaciones
+
+###
+GET {{api}}/60c96e20d58cca1298b4d656
+ 

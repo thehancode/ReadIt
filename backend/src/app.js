@@ -6,6 +6,7 @@ const cors = require('cors');
 const config = require('./config');
 const usuarioRoutes = require('./routers/usuario.routes');
 const libroRoutes = require('./routers/libro.routes');
+const anotacionRoutes = require('./routers/anotacion.routes');
 
 const app = express();
 
@@ -20,5 +21,6 @@ app.use(express.urlencoded({extended: false}));
 
 app.use(usuarioRoutes);
 app.use(libroRoutes);
+app.use(anotacionRoutes);
 
 module.exports = app;
