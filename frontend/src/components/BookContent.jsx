@@ -10,7 +10,7 @@ import { Typography, Container } from "@material-ui/core";
 import { Link as LinkRef } from "react-router-dom";
 import Rating from "@material-ui/lab/Rating";
 
-const BookContent = (props) => {
+const BookContent = () => {
   let { bookID } = useParams();
 
   const [libro, setLibro] = useState({});

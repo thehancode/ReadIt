@@ -40,6 +40,9 @@ export const RegistroForm = () => {
       margin: "2em 2em 1em 2em",
       backgroundImage: "none",
       textTransform: "none",
+      [theme.breakpoints.down("xs")]: {
+        margin: "1em 1em 0 1em",
+      },
     },
     tituloForm: {
       fontSize: "36px",
@@ -51,9 +54,6 @@ export const RegistroForm = () => {
     },
     formLogin__element: {
       margin: ".5em 0",
-      [theme.breakpoints.down("xs")]: {
-        margin: "0.2em",
-      },
     },
     labelForm: {
       borderBottom: "2px solid #3f51b5",

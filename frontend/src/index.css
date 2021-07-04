@@ -202,8 +202,8 @@ a:hover, a:focus {
 
 .home-what-is-readit-text{
   width: 60%;
-  height: 60%;
-  padding: 20px;
+  margin: auto;
+  padding: 10px 20px;
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -212,18 +212,19 @@ a:hover, a:focus {
 
 .home-what-is-readit-text h2{
   font-size: 32px;
-  line-height: 0.5em;
+  line-height: 0;
   color: hsl(266, 23%, 25%);
 }
 
 .home-what-is-readit-text p{
   font-size: 24px;
+  margin: 10px 0;
 }
 
-.home-what-is-readit-image{
-  height: 80%;
+.home-what-is-readit-image{  
   width: 40%;
-  padding: 20px;
+  margin: auto;
+  padding: 0 20px;
   display: flex;
   align-items: center;
 	justify-content: center;
@@ -236,20 +237,20 @@ a:hover, a:focus {
   transition:all .5s ease-in-out;
 }
 .home-what-is-readit-image__img:hover {
-  -webkit-transform:scale(1.1);
-  transform:scale(1.1);
+  filter: opacity(.7);
 }
 
 @media screen and (max-width: 720px)  {
   .home-what-is-readit{
     padding: 20px;
-    height: calc(100vh - 64px);
+    height: auto;
     display: flex;
     flex-direction: column;
   }
   .home-what-is-readit-image{
     height: 40%;
     width: 90%;
+    margin: 20px 0;
   }
   .home-what-is-readit-text{
     width: 90%;
@@ -261,6 +262,7 @@ a:hover, a:focus {
   }
   .home-what-is-readit-text p{
     font-size: 20px;
+    margin: 18px 0;
   }
 }
 
@@ -268,7 +270,7 @@ a:hover, a:focus {
 @media screen and (max-width: 450px)  {
   .home-what-is-readit-text{
     width: 90%;
-    height: 70%;
+    height: auto;
   }
 }
 
@@ -299,6 +301,17 @@ a:hover, a:focus {
 @media screen and (max-width: 1280px)  {
   .home-services{
     height: auto;
+  }
+}
+
+@media screen and (max-width: 770px)  {
+  .home-services__text h2{
+    font-size: 28px;
+    margin: 15px 0;
+  }
+  .home-services__text p{
+    font-size: 20px;
+    margin: 0 0;
   }
 }
 

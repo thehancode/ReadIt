@@ -72,7 +72,7 @@ export const HomePage = (props) => {
       flexGrow: 1,
     },
     submenu: {
-      margin: "0 1.5em",
+      padding: "8px 40px",
       "&:active": {
         color: "#C0B3A0",
       },
@@ -103,9 +103,26 @@ export const HomePage = (props) => {
     console.log(mobileOpen);
   };
 
+  const handleClose = () => {
+    localStorage.removeItem("user");
+    history.push("/");
+  };
+
+  const handleMenu = (event)=> {
+    if (event.target.textContent === " Biblioteca") {
+      history.push("/home");
+    } else if (event.target.textContent === " Mis libros") {
+      history.push("/books");
+    } else if (event.target.textContent === " Mis Notas") {
+      history.push("/notes");
+    } else if (event.target.textContent === " Configuración") {
+      history.push("/account");
+    }
+  }
+
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
-  // En caso currentUser sea nulo quiere decir que no hay usuario logaedo por lo tanto no debe mostrar home sino redireccionar a login
+  // En caso currentUser sea nulo quiere decir que no hay usuario logeado por lo tanto no debe mostrar home sino redireccionar a login
   return (
     <>
       {currentUser ? (
@@ -123,64 +140,29 @@ export const HomePage = (props) => {
               <div className={classes.offset}></div>
               <Divider></Divider>
               <List component="nav">
-                <ListItem button>
+                <ListItem button onClick={handleMenu} className={classes.submenu}>
                   <ListItemText>
-                    <Link
-                      href="/home"
-                      color="inherit"
-                      underline="none"
-                      className={classes.submenu}
-                    >
-                      <CollectionsBookmarkIcon/><span  className={classes.submenu_text}> Biblioteca</span>
-                    </Link>
+                    <CollectionsBookmarkIcon/><span  className={classes.submenu_text}> Biblioteca</span>
                   </ListItemText>
                 </ListItem>
-                <ListItem button>
+                <ListItem button onClick={handleMenu} className={classes.submenu}>
                   <ListItemText>
-                    <Link
-                      href="/books"
-                      color="inherit"
-                      underline="none"
-                      className={classes.submenu}
-                    >
-                      <MenuBookIcon/><span  className={classes.submenu_text}> Mis libros</span>
-                    </Link>
+                    <MenuBookIcon/><span  className={classes.submenu_text}> Mis libros</span>
                   </ListItemText>
                 </ListItem>
-                <ListItem button>
+                <ListItem button onClick={handleMenu} className={classes.submenu}>
                   <ListItemText>
-                    <Link
-                      href="/notes"
-                      color="inherit"
-                      underline="none"
-                      className={classes.submenu}
-                    >
-                      <CreateIcon/><span  className={classes.submenu_text}> Mis Notas</span>
-                    </Link>
+                    <CreateIcon/><span  className={classes.submenu_text}> Mis Notas</span>
                   </ListItemText>
                 </ListItem>
-                <ListItem button>
+                <ListItem button onClick={handleMenu} className={classes.submenu}>
                   <ListItemText>
-                    <Link
-                      href="/account"
-                      color="inherit"
-                      underline="none"
-                      className={classes.submenu}
-                    >
-                      <SettingsIcon/><span  className={classes.submenu_text}> Configuración</span>
-                    </Link>
+                    <SettingsIcon/><span  className={classes.submenu_text}> Configuración</span>
                   </ListItemText>
                 </ListItem>
-                <ListItem button>
+                <ListItem button onClick={handleClose} className={classes.submenu}>
                   <ListItemText>
-                    <Link
-                      href="/"
-                      color="inherit" 
-                      underline="none"
-                      className={classes.submenu}
-                    >
-                      <ExitToAppIcon/><span  className={classes.submenu_text}> Salir</span>
-                    </Link>
+                    <ExitToAppIcon/><span  className={classes.submenu_text}> Salir</span>
                   </ListItemText>
                 </ListItem>
               </List>
@@ -189,10 +171,9 @@ export const HomePage = (props) => {
           {/* Cuerpo de la página */}
           <main className={classes.content}>
             {(props.component==="HOME")?<HomeContent/> : <div></div>}
-            {(props.component==="BOOK")? <BookContent name="La odisea"/>:<div></div>}
-              {(props.component==="ACCOUNT")? <Account/>:<div></div>}
-              {(props.component==="READ")? <BookReader/>:<div></div>}
-              
+            {(props.component==="BOOK")? <BookContent/> : <div></div>}
+            {(props.component==="ACCOUNT")? <Account/>  : <div></div>}
+            {(props.component==="READ")? <BookReader/> : <div></div>}
             <Footer />
           </main>
         </div>

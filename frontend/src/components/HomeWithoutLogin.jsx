@@ -2,6 +2,7 @@ import React from "react";
 import { getCurrentUser } from "../services/LoginService";
 import { useHistory } from "react-router-dom";
 import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
+
 import {
   Button,
   Container,
@@ -13,10 +14,8 @@ import {
   ListItemText,
   Box,
   Grid,
-  Link,
 } from "@material-ui/core";
 
-import { Link as LinkS } from "react-scroll";
 import Fade from "react-reveal/Fade";
 
 // Importamos imagenes
@@ -68,7 +67,7 @@ export const HomeWithoutLogin = () => {
       flexGrow: 1,
     },
     submenu: {
-      margin: "0 1.5em",
+      padding: "8px 40px",
       "&:active": {
         color: "#C0B3A0",
       },
@@ -82,6 +81,45 @@ export const HomeWithoutLogin = () => {
     setMobileOpen(!mobileOpen);
     console.log(mobileOpen);
   };
+
+  // Menu resposive
+  const handleMenu = (event)=> {
+    if (event.target.textContent === "¿Qué es readIt?") {
+      whatis();
+    } else if (event.target.textContent === "Servicios") {
+      services();
+    } else if (event.target.textContent === "Ingresar") {
+      history.push("/login");
+    }
+  }
+  
+  var Scroll = require('react-scroll');
+  var scroll    = Scroll.animateScroll;
+
+  const scrollToTop = () => {
+    scroll.scrollToTop();
+  };
+
+  var Element  = Scroll.Element;
+  var scroller = Scroll.scroller;
+
+  const whatis = ()=>{
+    scroller.scrollTo('hwir', {
+      spy: true,
+      smooth: true,
+      offset: -56,
+      duration: 1000,
+    })
+  }
+
+  const services = ()=>{
+    scroller.scrollTo('hs', {
+      spy: true,
+      smooth: true,
+      offset: -56,
+      duration: 1000,
+    })
+  }
 
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -102,58 +140,24 @@ export const HomeWithoutLogin = () => {
               <div className={classes.offset}></div>
               <Divider></Divider>
               <List component="nav">
-                <ListItem button>
+                <ListItem button onClick={scrollToTop} className={classes.submenu}>
                   <ListItemText>
-                    <LinkS
-                      className={classes.submenu}
-                      to="home-slider"
-                      spy={true}
-                      smooth={true}
-                      offset={-56}
-                      duration={1000}
-                    >
-                      Inicio
-                    </LinkS>
+                    Inicio
                   </ListItemText>
                 </ListItem>
-                <ListItem button>
+                <ListItem button onClick={handleMenu} className={classes.submenu}>
                   <ListItemText>
-                    <LinkS
-                      className={classes.submenu}
-                      to="home-what-is-readit"
-                      spy={true}
-                      smooth={true}
-                      offset={-56}
-                      duration={1000}
-                    >
-                      ¿Qué es readIt?
-                    </LinkS>
+                    ¿Qué es readIt?
                   </ListItemText>
                 </ListItem>
-                <ListItem button>
+                <ListItem button onClick={handleMenu} className={classes.submenu}>
                   <ListItemText>
-                    <LinkS
-                      className={classes.submenu}
-                      to="home-services"
-                      spy={true}
-                      smooth={true}
-                      offset={-56}
-                      duration={1000}
-                    >
-                      Servicios
-                    </LinkS>
+                    Servicios
                   </ListItemText>
                 </ListItem>
-                <ListItem button>
+                <ListItem button onClick={handleMenu} className={classes.submenu}>
                   <ListItemText>
-                    <Link
-                      href="/login"
-                      color="inherit"
-                      underline="none"
-                      className={classes.submenu}
-                    >
                       Ingresar
-                    </Link>
                   </ListItemText>
                 </ListItem>
               </List>
@@ -179,7 +183,6 @@ export const HomeWithoutLogin = () => {
                       variant="contained"
                       color="secondary"
                       href="/register"
-                      type="submit"
                       size="large"
                       className={classes.botonPersonalizado}
                     >
@@ -203,41 +206,46 @@ export const HomeWithoutLogin = () => {
               component="section"
               id="home-what-is-readit"
             >
-              <div className="home-what-is-readit">
-                <Fade cascade>
-                  <div className="home-what-is-readit-text">
-                    <h2>¿Qué es ReadIt?</h2>
-                    <p>
-                      ReadIt es un aplicativo web que tiene la finalidad de
-                      mejorar tu experiencia a la hora de sumergiste en el mundo
-                      de la lectura mediante las diferentes herramientas
-                      disponibles que ofrecemos.
-                    </p>
-                  </div>
-                </Fade>
-                <Fade cascade>
-                  <div className="home-what-is-readit-image">
-                    <img
-                      className="home-what-is-readit-image__img"
-                      src={lector}
-                      alt="Tablet"
-                    />
-                  </div>
-                </Fade>
-              </div>
+              <Element name="hwir">
+                <div className="home-what-is-readit">
+                  <Fade cascade>
+                    <div className="home-what-is-readit-text">
+                      <h2>¿Qué es ReadIt?</h2>
+                      <p>
+                        ReadIt es un aplicativo web que tiene la finalidad de
+                        mejorar tu experiencia a la hora de sumergiste en el mundo
+                        de la lectura mediante las diferentes herramientas
+                        disponibles que ofrecemos.
+                      </p>
+                    </div>
+                  </Fade>
+                  <Fade cascade>
+                    <div className="home-what-is-readit-image">
+                      <img
+                        className="home-what-is-readit-image__img"
+                        src={lector}
+                        alt="Tablet"
+                      />
+                    </div>
+                  </Fade>
+                </div>
+              </Element>
             </Container>
+            <Element name="hs">
               <Container maxWidth="xl" component="section" id="home-services">
                 <div className="home-services">
                   <div className="home-services__text">
                     <h2>
                       <Fade cascade>Servicios</Fade>
                     </h2>
-                    <p>
-                      <Fade cascade>
-                        ReadIt cuenta con diferentes servicios, entre los
-                        principales tenemos:
-                      </Fade>
-                    </p>
+                    <Fade cascade>
+                      <div>
+                        <p>
+                          ReadIt cuenta con diferentes servicios, entre los
+                          principales tenemos:
+                        </p>
+                      </div>
+                    </Fade>
                   </div>
                   <div className="home-services__containers">
                     <Grid container direction="row" justify="space-around">
@@ -310,6 +318,7 @@ export const HomeWithoutLogin = () => {
                   </div>
                 </div>
               </Container>
+            </Element>
             <Footer />
           </main>
         </div>
