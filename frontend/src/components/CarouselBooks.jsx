@@ -12,6 +12,7 @@ const CarouselBooks = () => {
   const loadLibros = async () => {
     const res = await libroService.getLibros();
   
+    console.log("back-ibros",res);
     // Pasar al tipo de dato (arreglo inicialmente vacio)
     const sortedLibros = res.data
       .map((video) => {

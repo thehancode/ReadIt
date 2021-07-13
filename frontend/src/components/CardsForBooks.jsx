@@ -7,6 +7,8 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import { Link } from "react-router-dom";
+
 
 const useStyles = makeStyles({
   root: {
@@ -22,9 +24,13 @@ const useStyles = makeStyles({
   bodyCard: {
     color: "white",
   },
+  link: {
+    backgroundImage: "none",
+    textTransform: "none",
+  },
 });
 
-export default function MediaCard() {
+export default function MediaCard(props) {
   const classes = useStyles();
 
   return (
@@ -32,25 +38,29 @@ export default function MediaCard() {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="https://www.gutenberg.org/cache/epub/65676/pg65676.cover.medium.jpg"
+          image={props.image}//"https://www.gutenberg.org/cache/epub/65676/pg65676.cover.medium.jpg"
           title="Contemplative Reptile"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            The Thing in the Truck
+            {props.title}
           </Typography>
           <Typography
             variant="body2"
             className={classes.bodyCard}
             component="p"
           >
-            Homero
+            {props.author}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions >
         <Button size="small" fullWidth style={{ color: "#ffdda3"}} >
-          Ver más
+          <Link
+            style={{ display: "inherit", "text-decoration": "none" }}
+            className={classes.link}
+            to={"/read/" + props.id}
+          >Ver más</Link>
         </Button>
       </CardActions>
     </Card>
