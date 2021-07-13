@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Carousel from "react-elastic-carousel";
 import CBooks from "./CBooks";
-import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
+import { makeStyles} from "@material-ui/core/styles";
 import * as libroService from "../services/LibroService";
 
 import { Link } from "react-router-dom";
@@ -11,7 +11,8 @@ const CarouselBooks = () => {
 
   const loadLibros = async () => {
     const res = await libroService.getLibros();
-    // se lo paso al tipo de dato (arreglo inicialmente vacio)
+  
+    // Pasar al tipo de dato (arreglo inicialmente vacio)
     const sortedLibros = res.data
       .map((video) => {
         return {
@@ -29,7 +30,7 @@ const CarouselBooks = () => {
     loadLibros();
   }, []);
 
-  const useStyles = makeStyles((theme) => ({
+  const useStyles = makeStyles(() => ({
     link: {
       backgroundImage: "none",
       textTransform: "none",
@@ -37,58 +38,6 @@ const CarouselBooks = () => {
   }));
 
   const classes = useStyles();
-
-  //   // Funciones encargadas para el carrusel de libros
-  //   const [items] = React.useState([
-  //     {
-  //       id: "65676",
-  //       img: "https://www.gutenberg.org/cache/epub/65676/pg65676.cover.medium.jpg",
-  //     },
-  //     {
-  //       id: "65677",
-  //       img: "https://www.gutenberg.org/cache/epub/65677/pg65677.cover.medium.jpg",
-  //     },
-  //     {
-  //       id: "65682",
-  //       img: "https://www.gutenberg.org/cache/epub/65682/pg65682.cover.medium.jpg",
-  //     },
-  //     {
-  //       id: "65680",
-  //       img: "https://www.gutenberg.org/cache/epub/65680/pg65680.cover.medium.jpg",
-  //     },
-  //     {
-  //       id: "65683",
-  //       img: "https://www.gutenberg.org/cache/epub/65683/pg65683.cover.medium.jpg",
-  //     },
-  //     {
-  //       id: "65673",
-  //       img: "https://www.gutenberg.org/cache/epub/65673/pg65673.cover.medium.jpg",
-  //     },
-  //     {
-  //       id: "58221",
-  //       img: "https://www.gutenberg.org/cache/epub/58221/pg58221.cover.medium.jpg",
-  //     },
-  //     {
-  //       id: "57448",
-  //       img: "https://www.gutenberg.org/cache/epub/57448/pg57448.cover.medium.jpg",
-  //     },
-  //     {
-  //       id: "54",
-  //       img: "https://www.gutenberg.org/cache/epub/54/pg54.cover.medium.jpg",
-  //     },
-  //     {
-  //       id: "65433",
-  //       img: "https://www.gutenberg.org/cache/epub/65433/pg65433.cover.medium.jpg",
-  //     },
-  //     {
-  //       id: "56682",
-  //       img: "https://www.gutenberg.org/cache/epub/56682/pg56682.cover.medium.jpg",
-  //     },
-  //     {
-  //       id: "2701",
-  //       img: "https://www.gutenberg.org/cache/epub/2701/pg2701.cover.medium.jpg",
-  //     },
-  //   ]);
 
   const breakPoints = [
     { width: 240, itemsToShow: 1 },
