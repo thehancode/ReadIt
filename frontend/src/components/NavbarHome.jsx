@@ -78,6 +78,7 @@ const useStyles = makeStyles((theme) => ({
   },
   submenu: {
     margin: "0 1.5em",
+    color: "#FFFFFF",
     "&:hover": {
       color: "#C0B3A0",
       cursor: "pointer",
@@ -140,7 +141,6 @@ const NavbarHome = (props) => {
                 to="/home"
                 color="inherit"
                 underline="none"
-                style={{ color: "white" }}
                 className={classes.submenu}
               >
                 Biblioteca
@@ -149,7 +149,6 @@ const NavbarHome = (props) => {
                 to="/books"
                 color="inherit"
                 underline="none"
-                style={{ color: "white" }}
                 className={classes.submenu}
               >
                 Mis Libros
@@ -157,7 +156,6 @@ const NavbarHome = (props) => {
               <Link
                 to="/notes"
                 color="inherit"
-                style={{ color: "white" }}
                 underline="none"
                 className={classes.submenu}
               >

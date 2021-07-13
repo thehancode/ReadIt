@@ -10,7 +10,6 @@ import {
   Drawer,
   Divider,
   ListItemText,
-  Link,
 } from "@material-ui/core";
 
 import SettingsIcon from '@material-ui/icons/Settings';
@@ -19,10 +18,6 @@ import CollectionsBookmarkIcon from '@material-ui/icons/CollectionsBookmark';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
 
-import { Link as LinkS } from "react-scroll";
-import HomeContent from "./HomeContent";
-import BookContent from "./BookContent";
-import Account from "./Account";
 import NotesPage from "./NotesPage";
 
 //import Fade from "react-reveal/Fade";
@@ -74,7 +69,7 @@ export const MyNotes = (props) => {
       flexGrow: 1,
     },
     submenu: {
-      margin: "0 1.5em",
+      padding: "8px 40px",
       "&:active": {
         color: "#C0B3A0",
       },
@@ -105,6 +100,24 @@ export const MyNotes = (props) => {
     console.log(mobileOpen);
   };
 
+  // Acciones para los botones del menú responsive
+  const handleClose = () => {
+    localStorage.removeItem("user");
+    history.push("/");
+  };
+  
+  const handleMenu = (event)=> {
+    if (event.target.textContent === " Biblioteca") {
+      history.push("/home");
+    } else if (event.target.textContent === " Mis libros") {
+      history.push("/books");
+    } else if (event.target.textContent === " Mis Notas") {
+      history.push("/notes");
+    } else if (event.target.textContent === " Configuración") {
+      history.push("/account");
+    }
+  }
+
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   // En caso currentUser sea nulo quiere decir que no hay usuario logaedo por lo tanto no debe mostrar home sino redireccionar a login
@@ -112,82 +125,47 @@ export const MyNotes = (props) => {
     <>
     {currentUser ? (
       <div className={classes.root}>
-        <NavbarHome openDrawer={handleDrawerToggle} />
-        {/* Esta parte es del menu responsive */}
-        <Hidden smUp>
-          <Drawer
-            className={classes.drawer}
-            variant="temporary"
-            classes={{ paper: classes.drawerPaper }}
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
-          >
-            <div className={classes.offset}></div>
-            <Divider></Divider>
-            <List component="nav">
-              <ListItem button>
-                <ListItemText>
-                  <Link
-                    href="/home"
-                    color="inherit"
-                    underline="none"
-                    className={classes.submenu}
-                  >
+          <NavbarHome openDrawer={handleDrawerToggle} />
+          {/* Esta parte es del menu responsive */}
+          <Hidden smUp>
+            <Drawer
+              className={classes.drawer}
+              variant="temporary"
+              classes={{ paper: classes.drawerPaper }}
+              open={mobileOpen}
+              onClose={handleDrawerToggle}
+            >
+              <div className={classes.offset}></div>
+              <Divider></Divider>
+              <List component="nav">
+                <ListItem button onClick={handleMenu} className={classes.submenu}>
+                  <ListItemText>
                     <CollectionsBookmarkIcon/><span  className={classes.submenu_text}> Biblioteca</span>
-                  </Link>
-                </ListItemText>
-              </ListItem>
-              <ListItem button>
-                <ListItemText>
-                  <Link
-                    href="/books"
-                    color="inherit"
-                    underline="none"
-                    className={classes.submenu}
-                  >
+                  </ListItemText>
+                </ListItem>
+                <ListItem button onClick={handleMenu} className={classes.submenu}>
+                  <ListItemText>
                     <MenuBookIcon/><span  className={classes.submenu_text}> Mis libros</span>
-                  </Link>
-                </ListItemText>
-              </ListItem>
-              <ListItem button>
-                <ListItemText>
-                  <Link
-                    href="/notes"
-                    color="inherit"
-                    underline="none"
-                    className={classes.submenu}
-                  >
+                  </ListItemText>
+                </ListItem>
+                <ListItem button onClick={handleMenu} className={classes.submenu}>
+                  <ListItemText>
                     <CreateIcon/><span  className={classes.submenu_text}> Mis Notas</span>
-                  </Link>
-                </ListItemText>
-              </ListItem>
-              <ListItem button>
-                <ListItemText>
-                  <Link
-                    href="/account"
-                    color="inherit"
-                    underline="none"
-                    className={classes.submenu}
-                  >
+                  </ListItemText>
+                </ListItem>
+                <ListItem button onClick={handleMenu} className={classes.submenu}>
+                  <ListItemText>
                     <SettingsIcon/><span  className={classes.submenu_text}> Configuración</span>
-                  </Link>
-                </ListItemText>
-              </ListItem>
-              <ListItem button>
-                <ListItemText>
-                  <Link
-                    href="/"
-                    color="inherit" 
-                    underline="none"
-                    className={classes.submenu}
-                  >
+                  </ListItemText>
+                </ListItem>
+                <ListItem button onClick={handleClose} className={classes.submenu}>
+                  <ListItemText>
                     <ExitToAppIcon/><span  className={classes.submenu_text}> Salir</span>
-                  </Link>
-                </ListItemText>
-              </ListItem>
-            </List>
-          </Drawer>
-        </Hidden>
+                  </ListItemText>
+                </ListItem>
+              </List>
+            </Drawer>
+          </Hidden>
           {/* Cuerpo de la página */}
           <main className={classes.content}>
             <NotesPage/>

@@ -7,17 +7,21 @@ const useStyles = makeStyles((theme) => ({
   note: {
     backgroundColor: "#21242b",
     color: "white",
-    borderRadius: "25px",
-    margin: "10px",
+    borderRadius: "15px",
+    margin: "12px",
     padding: "20px",
+    boxShadow: "0px 2px 2px 2px hsla(266, 23%, 20%, 0.3)",
   },
 }));
 
 const NoteElement = (props) => {
   const classes = useStyles();
-
   const note = props.noteInfo;
-  return <div className={classes.note}>{"Nota en: " + note.title}</div>;
+  return (
+    <div className={classes.note}>
+      {"Nota en: " + note.title}
+    </div>
+  );
 };
 
 export default NoteElement;

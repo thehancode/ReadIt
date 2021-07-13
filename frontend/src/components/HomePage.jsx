@@ -10,7 +10,6 @@ import {
   Drawer,
   Divider,
   ListItemText,
-  Link,
 } from "@material-ui/core";
 
 import SettingsIcon from '@material-ui/icons/Settings';
@@ -103,6 +102,7 @@ export const HomePage = (props) => {
     console.log(mobileOpen);
   };
 
+  // Acciones para los botones del menú responsive
   const handleClose = () => {
     localStorage.removeItem("user");
     history.push("/");
