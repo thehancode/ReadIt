@@ -332,7 +332,7 @@ a:hover, a:focus {
 }
 
 .footer-social-icons__icon:hover{
-  color: #C0B3A0;
+  color: hsl(36, 20%, 69%);
   transform: scale(1.2);
 }
 
