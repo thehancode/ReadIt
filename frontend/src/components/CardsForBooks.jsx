@@ -9,7 +9,6 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { Link } from "react-router-dom";
 
-
 const useStyles = makeStyles({
   root: {
     color: "#C0B3A0",
@@ -20,9 +19,11 @@ const useStyles = makeStyles({
   },
   media: {
     height: 180,
+    minWidth: "230px",
+    maxWidth: "250px",
   },
   bodyCard: {
-    color: "white"
+    color: "white",
   },
   link: {
     backgroundImage: "none",
@@ -32,8 +33,7 @@ const useStyles = makeStyles({
     maxHeight: "100px",
     overflow: "hidden",
     textOverflow: "ellipsis",
-    
-  }
+  },
 });
 
 export default function MediaCard(props) {
@@ -44,14 +44,20 @@ export default function MediaCard(props) {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image={props.bookInfo.imagen === undefined? 
-            `https://www.gutenberg.org/cache/epub/${props.bookInfo.idLibro}/pg${props.bookInfo.idLibro}.cover.medium.jpg`:
-            props.bookInfo.imagen
+          image={
+            props.bookInfo.imagen === undefined
+              ? `https://www.gutenberg.org/cache/epub/${props.bookInfo.idLibro}/pg${props.bookInfo.idLibro}.cover.medium.jpg`
+              : props.bookInfo.imagen
           }
           title="Contemplative Reptile"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2" className={classes.title}>
+          <Typography
+            gutterBottom
+            variant="h5"
+            component="h2"
+            className={classes.title}
+          >
             {props.bookInfo.nombreLibro}
           </Typography>
           <Typography
@@ -63,17 +69,16 @@ export default function MediaCard(props) {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions style={{justifyContent:"center"}}>
-      <Link
-        style={{ display: "inherit", "text-decoration": "none" }}
-        className={classes.link}
-        to={"/read/" + props.bookInfo.idLibro}
-      >
-        <Button size="small" fullWidth style={{ color: "#ffdda3"}} >
-          
-          Ver más
-        </Button>
-      </Link>
+      <CardActions style={{ justifyContent: "center" }}>
+        <Link
+          style={{ display: "inherit", "text-decoration": "none" }}
+          className={classes.link}
+          to={"/read/" + props.bookInfo.idLibro + "/" + props.bookInfo._id}
+        >
+          <Button size="small" fullWidth style={{ color: "#ffdda3" }}>
+            Ver más
+          </Button>
+        </Link>
       </CardActions>
     </Card>
   );

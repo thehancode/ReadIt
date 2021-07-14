@@ -134,7 +134,7 @@ const BookContent = () => {
             <button className={classes.buttons}>
               <LinkRef
                 style={{ color: "white", "text-decoration": "none" }}
-                to={"/read/" + libro.idLibro}
+                to={"/read/" + libro.idLibro+ "/" + libro._id}
               >
                 Leer
               </LinkRef>

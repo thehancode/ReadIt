@@ -60,12 +60,12 @@ const NoteElement = (props) => {
   const [mensaje, setMensaje] = useState("");
   const [tipo, setTipo] = useState("");
 
-  const handleDelete = async (id) => {
-    await libroService.deleteAnotacion(id, book._id, getCurrentUser().id);
-    //alert("Anotación eliminada");
-    setMensaje("Anotación eliminada");
+  const handleDelete = async (idAnotacion) => {
+    libroService.deleteAnotacion(idAnotacion, book._id, getCurrentUser().id);
+    //setMensaje("Anotación eliminada");
     setTipo("success");
     setOpen(true);
+    alert("Anotación eliminada");
     window.location.reload();
   };
 
@@ -88,7 +88,7 @@ const NoteElement = (props) => {
           data-tip=""
           data-for="location"
           delay-show="500"
-          href={"/read/" + book.idLibro}
+          href={"/read/" + book.idLibro + "/" + book._id}
         >
           <RoomIcon fontSize="large" />
         </IconButton>
@@ -110,6 +110,8 @@ const NoteElement = (props) => {
         >
           <Speech
             textAsButton={true}
+            lang="en-US"
+            voice="Google UK English Male"
             displayText={
               <PlayCircleOutlineIcon
                 className="noteButtons__icon--positicon"
