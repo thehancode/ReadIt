@@ -44,11 +44,14 @@ export default function MediaCard(props) {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image={`https://www.gutenberg.org/cache/epub/${props.bookInfo.idLibro}/pg${props.bookInfo.idLibro}.cover.medium.jpg`}
+          image={props.bookInfo.imagen === undefined? 
+            `https://www.gutenberg.org/cache/epub/${props.bookInfo.idLibro}/pg${props.bookInfo.idLibro}.cover.medium.jpg`:
+            props.bookInfo.imagen
+          }
           title="Contemplative Reptile"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography gutterBottom variant="h5" component="h2" className={classes.title}>
             {props.bookInfo.nombreLibro}
           </Typography>
           <Typography
@@ -56,7 +59,7 @@ export default function MediaCard(props) {
             className={classes.bodyCard}
             component="p"
           >
-            {props.author}
+            {props.bookInfo.author}
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -64,14 +67,11 @@ export default function MediaCard(props) {
       <Link
         style={{ display: "inherit", "text-decoration": "none" }}
         className={classes.link}
-        to={"/read/" + props.id}
+        to={"/read/" + props.bookInfo.idLibro}
       >
         <Button size="small" fullWidth style={{ color: "#ffdda3"}} >
-          <Link
-            style={{ display: "inherit", "text-decoration": "none" }}
-            className={classes.link}
-            to={"/read/" + props.bookInfo.idLibro}
-          >Ver más</Link>
+          
+          Ver más
         </Button>
       </Link>
       </CardActions>

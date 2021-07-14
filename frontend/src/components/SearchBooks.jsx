@@ -61,16 +61,23 @@ const SearchBooks = () => {
   }
 
   function BookList(){
+
     const booksItems = Books.map((book,i)=>
       <MediaCard
+      bookInfo = {{
+        nombreLibro: book.title,
+        author: book.author,
+        idLibro: book.id,
+        imagen: book.formats["image/jpeg"]!==undefined?book.formats["image/jpeg"]:"https://compellingreads.co.uk/wp-content/uploads/unknown-book-263x300.jpg",
+      }}
       key = {i} 
-      image={book.formats["image/jpeg"]!==undefined?book.formats["image/jpeg"]:"https://compellingreads.co.uk/wp-content/uploads/unknown-book-263x300.jpg"} 
-      title={book.title} 
-      author={ book.authors[0]!==undefined?book.authors[0].name:"Anonymous"}
-      url={book["text/html"]}
-      type={"text/html"}
-      category={book.bookshelves[0]}
-      id={book.id}
+      //image={book.formats["image/jpeg"]!==undefined?book.formats["image/jpeg"]:"https://compellingreads.co.uk/wp-content/uploads/unknown-book-263x300.jpg"} 
+      //title={book.title} 
+      //author={ book.authors[0]!==undefined?book.authors[0].name:"Anonymous"}
+      //url={book["text/html"]}
+      //type={"text/html"}
+      //category={book.bookshelves[0]}
+      //id={book.id}
       >
       </MediaCard>
       );
