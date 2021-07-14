@@ -44,6 +44,8 @@ const BookContent = (props) => {
   },[]);
   const [starValue, setValue] = React.useState(3);
 
+  const [note, setNote]=useState("");
+
   const useStyles = makeStyles((theme) => ({
     offset: theme.mixins.toolbar,
     root: {
@@ -62,6 +64,7 @@ const BookContent = (props) => {
     },
     container: {
       display: "flex",
+      "justify-content": "center",
     },
 
     containerv: {
@@ -94,6 +97,43 @@ const BookContent = (props) => {
       padding: "5%",
       "font-size": "1.2em",
     },
+    transciption: {
+      "backgroundColor":"#22252C" ,
+      fontFamily: "Prata,serif",                      
+      color: "rgb(255, 221, 163)",
+    
+      fontSize: "1.3rem",
+      fontWeight: "600",
+      fontFamily: "sans-serif",
+      lineHeight: "1.48",
+      quotes: "inherit",
+      margin: "20px",
+      "&:before": {
+        content: "open-quote"
+      },
+      "&:after": {
+        content: "close-quote"
+      }
+    },
+    containerNotes: {
+      display: "flex", 
+      "flex-direction": "row",
+    },
+
+    buttons: {
+      margin: "10px",
+      padding: "5px 10px",
+      border: "none",
+      backgroundColor: "#E14658",
+      "border-radius": "1.2em",
+      color: "#fff",
+      "font-size": "1.3em",
+      "&:hover": {
+        background: "#a3001b",
+      },
+    },
+
+
   }));
 
   const classes = useStyles();
@@ -110,7 +150,13 @@ const BookContent = (props) => {
             <p>Your browser does not support iframes.</p>
         </iframe>
        <div style={{"backgroundColor":"#22252C" ,height:"200px" }}>
-       <Microphone show/>
+      <div className={classes.container} >
+       <Microphone setResult={setNote}/>
+       <div className={classes.transciption}>{note}</div>3
+       <button className={classes.buttons} onClick={({note})=>{ alert("Cliead" + {note})}}> Guardar </button>
+      </div>
+
+       
        </div>
         </div>
     </div>

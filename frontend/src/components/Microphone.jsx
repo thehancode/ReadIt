@@ -16,7 +16,9 @@ function Microphone(props) {
       color: "rgb(255, 221, 163)",
       marginLeft: "10px", 
       paddingTop: "30px",
-      marginRight: "10px"
+      marginRight: "10px",
+
+
     },
     button: {
       width: "40px",
