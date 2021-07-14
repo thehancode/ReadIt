@@ -22,12 +22,18 @@ const useStyles = makeStyles({
     height: 180,
   },
   bodyCard: {
-    color: "white",
+    color: "white"
   },
   link: {
     backgroundImage: "none",
     textTransform: "none",
   },
+  title: {
+    maxHeight: "100px",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    
+  }
 });
 
 export default function MediaCard(props) {
@@ -42,7 +48,7 @@ export default function MediaCard(props) {
           title="Contemplative Reptile"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography gutterBottom variant="h5" component="h2" className={classes.title}>
             {props.title}
           </Typography>
           <Typography
@@ -54,14 +60,17 @@ export default function MediaCard(props) {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions >
+      <CardActions style={{justifyContent:"center"}}>
+      <Link
+        style={{ display: "inherit", "text-decoration": "none" }}
+        className={classes.link}
+        to={"/read/" + props.id}
+      >
         <Button size="small" fullWidth style={{ color: "#ffdda3"}} >
-          <Link
-            style={{ display: "inherit", "text-decoration": "none" }}
-            className={classes.link}
-            to={"/read/" + props.id}
-          >Ver más</Link>
-        </Button>
+        Ver más
+        </Button>          
+      </Link>
+
       </CardActions>
     </Card>
   );

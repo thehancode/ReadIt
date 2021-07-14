@@ -64,16 +64,16 @@ const SearchBooks = () => {
     const booksItems = Books.map((book,i)=>
       <MediaCard
       key = {i} 
-      image={book.formats["image/jpeg"]} 
+      image={book.formats["image/jpeg"]!==undefined?book.formats["image/jpeg"]:"https://compellingreads.co.uk/wp-content/uploads/unknown-book-263x300.jpg"} 
       title={book.title} 
-      author={book.authors[0].name}
+      author={ book.authors[0]!==undefined?book.authors[0].name:"Anonymous"}
       url={book["text/html"]}
       type={"text/html"}
       category={book.bookshelves[0]}
       id={book.id}
       >
       </MediaCard>
-    );
+      );
     return(
       <ul className={classes.containerResults}>
       {booksItems}
