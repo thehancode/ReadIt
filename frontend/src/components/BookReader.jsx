@@ -49,6 +49,7 @@ const BookContent = (props) => {
     root: {
       display: "flex",
     },
+  
     botonPersonalizado: {
       margin: theme.spacing(1),
       backgroundImage: "none",
@@ -102,13 +103,15 @@ const BookContent = (props) => {
     console.log("Searching for",bookID);
   },[bookID])
   return (
-    <div>
+    <div className={classes.readerB}>
         <div className={classes.offset}></div>
-        <div style={{height:"100vh"}} >
+        <div style={{height:"100vh" , margin:"none"}} >
         <iframe  src={"https://www.gutenberg.org/files/"+ bookID+ "/" + bookID+ "-h/" +bookID+"-h.htm"} width="100%" height="80%">
             <p>Your browser does not support iframes.</p>
         </iframe>
-      | <Microphone show/>
+       <div style={{"backgroundColor":"#22252C" ,height:"200px" }}>
+       <Microphone show/>
+       </div>
         </div>
     </div>
   );
