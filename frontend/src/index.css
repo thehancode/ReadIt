@@ -347,7 +347,7 @@ a:hover, a:focus {
   min-width: 200px;
   max-width: 250px;
   margin: 15px;
-  box-shadow: 0px 2px 4px 2.5px hsla(266, 23%, 20%, 0.3);;
+  box-shadow: 0px 2px 4px 2.5px hsla(266, 23%, 20%, 0.3);
   transition:all 0.3s ease-in-out;
 }
 .carousel__card:hover {
