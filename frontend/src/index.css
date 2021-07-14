@@ -368,3 +368,31 @@ a:hover, a:focus {
 .rec.rec-arrow:disabled {
   visibility: hidden;
 }
+
+/* Tooltip y Speech */
+
+.tooltip{
+  color: #21242b !important;
+}
+
+.rs-container{
+  width: 41px !important;
+}
+.rs-play{
+  background-color: transparent !important;
+  border-radius: 20px !important;
+  width: 41px;
+  height: 41px;
+  padding: 0;
+  border: none !important;
+}
+
+.noteButtons__icon--positicon{
+  position: relative;
+  top: 1.8px;   
+}
+
+.noteButtons__icon--size{
+  width: 41px;
+  height: 41px;
+}
