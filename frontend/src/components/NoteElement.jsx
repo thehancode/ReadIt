@@ -101,6 +101,8 @@ const NoteElement = (props) => {
         >
           <Speech
             textAsButton={true}
+            lang="en-US"
+            voice="Google UK English Male"
             displayText={
               <PlayCircleOutlineIcon
                 className="noteButtons__icon--positicon"
