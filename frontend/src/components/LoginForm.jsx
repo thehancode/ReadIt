@@ -25,6 +25,8 @@ import NavbarLogin from "./NavbarLogin";
 // Importamos los estilos de color del boton
 import theme from "../ThemeConfig";
 
+import Notification from "./Notification";
+
 export const LoginForm = () => {
   // Sección para personalizar componentes UI
 
@@ -101,6 +103,9 @@ export const LoginForm = () => {
   };
 
   const [user, setLogin] = useState(initialState);
+  const [open, setOpen] = useState(false);
+  const [mensaje, setMensaje] = useState("");
+  const [tipo, setTipo] = useState("");
   const handleInputChange = (e) => {
     setLogin({ ...user, [e.target.name]: e.target.value });
   };
@@ -112,7 +117,10 @@ export const LoginForm = () => {
         history.push("/home");
       },
       (error) => {
-        alert("Usuario incorrecto");
+        //alert("Usuario incorrecto");
+        setMensaje("Usuario o contraseña incorrecta");
+        setTipo("error");
+        setOpen(true);
       }
     );
   };
@@ -126,6 +134,7 @@ export const LoginForm = () => {
       {!currentUser ? (
         <div>
           <NavbarLogin />
+          <Notification setOpen = {setOpen} mensaje= {mensaje} open={open} tipo = {tipo}></Notification>
           <ThemeProvider theme={theme}>
             <div className={classes.offset}></div>
             <Container maxWidth="xl" component="div" className={classes.root}>

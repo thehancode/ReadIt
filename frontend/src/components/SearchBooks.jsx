@@ -10,6 +10,7 @@ import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
 import MicIcon from "@material-ui/icons/Mic";
 import MediaCard from "./CardsForBooks.jsx";
+import Notification from "./Notification";
 
 import * as BookService from "../services/SearchBookService";
 
@@ -49,6 +50,7 @@ const SearchBooks = () => {
   const classes = useStyles();
   const [result, setResult]=useState("");
   const [Books, setBooks] = useState([]);
+  const [open, setOpen] = useState(false);
 
   const handleSubmit = (event)=>{
     event.preventDefault();
@@ -60,6 +62,7 @@ const SearchBooks = () => {
         console.error("no se encontro el libro ",error);
       } 
     );
+    setOpen(true);
   }
 
   function BookList(){
@@ -93,6 +96,7 @@ const SearchBooks = () => {
   return (
     <div>
       {/* <FormControl style={{ width: 100 + "%" }}> */}
+      <Notification mensaje="tiempo de descanso" open={open} setOpen = {setOpen} tipo = "success"></Notification>
       <FormControl onSubmit={handleSubmit}>
         <Paper
           component="form"
