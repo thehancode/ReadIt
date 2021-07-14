@@ -22,7 +22,7 @@ const updateAnotacion = async (req, res) => {
   const libroUpdated = await UsuarioLibro.update(
     { idUsuario: req.body.idUsuario, idLibro: req.body.idLibro },
     { $pull: { anotaciones: { idAnotacion: req.params.id } } },
-    { new: true }
+    { new: true, upsert: true }
   );
   return res.json(libroUpdated);
 };

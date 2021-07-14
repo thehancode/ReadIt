@@ -29,7 +29,7 @@ function App() {
             children={<HomePage component="BOOK" />}
           />
           <Route
-            path="/read/:bookID"
+            path="/read/:bookID/:bookIDMongo"
             children={<HomePage component="READ" />}
           />
           <Route
