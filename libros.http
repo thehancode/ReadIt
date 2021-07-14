@@ -5,6 +5,14 @@ GET {{api}}
 ###
 GET {{api}}/60dba4521b13471f80ce1755
 
+### Marcar a libro leido
+POST {{api}}
+Content-Type: application/json
+
+{
+    
+}
+
 ### Create a libro
 POST {{api}}
 Content-Type: application/json

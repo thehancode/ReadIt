@@ -54,7 +54,11 @@ const NotesPage = () => {
         </Typography>
         {anotaciones.map((noteItem, index) =>
           noteItem.anotaciones.map((note, i) => (
-            <NoteElement key={i} noteInfo={note} bookInfo={noteItem.idLibro} />
+            <NoteElement
+              key={i}
+              noteInfo={note}
+              bookInfo={noteItem.idLibro}
+            />
           ))
         )}
       </Container>

@@ -1,13 +1,16 @@
 import React from "react";
-import Speech from 'react-speech';
-import ReactTooltip from 'react-tooltip';
+import Speech from "react-speech";
+import ReactTooltip from "react-tooltip";
+import { getCurrentUser } from "../services/LoginService";
 
 import { makeStyles } from "@material-ui/core/styles";
-import IconButton from '@material-ui/core/IconButton';
+import IconButton from "@material-ui/core/IconButton";
 
-import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
-import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
-import RoomIcon from '@material-ui/icons/Room';
+import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
+import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
+import RoomIcon from "@material-ui/icons/Room";
+
+import * as libroService from "../services/LibroService";
 
 const useStyles = makeStyles((theme) => ({
   offset: theme.mixins.toolbar,
@@ -25,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   noteTitle: {
     width: "calc(40% - 110px)",
   },
-  noteTitle__p:{
+  noteTitle__p: {
     margin: "2px",
   },
   noteMessage: {
@@ -44,14 +47,19 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       backgroundColor: "hsl(36, 20%, 59%)",
     },
-  }
+  },
 }));
 
 const NoteElement = (props) => {
-
   const classes = useStyles();
   const note = props.noteInfo;
   const book = props.bookInfo;
+
+  const handleDelete = async (id) => {
+    await libroService.deleteAnotacion(id, book._id, getCurrentUser().id);
+    alert("Anotación eliminada");
+    window.location.reload();
+  };
 
   return (
     <div className={classes.note}>
@@ -64,37 +72,72 @@ const NoteElement = (props) => {
         <p className={classes.noteTitle__p}>{note.descripcion}</p>
       </div>
       <div className={classes.noteButtons}>
-        <IconButton className={classes.noteButtons__icon} 
-          size="small" 
-          aria-label="here in the book" 
-          data-tip='' data-for='location' 
-          delay-show='500'          
-          href={"/read/"+book.idLibro}
+        <IconButton
+          className={classes.noteButtons__icon}
+          size="small"
+          aria-label="here in the book"
+          data-tip=""
+          data-for="location"
+          delay-show="500"
+          href={"/read/" + book.idLibro}
         >
-          <RoomIcon fontSize="large"/>
+          <RoomIcon fontSize="large" />
         </IconButton>
-        <ReactTooltip id="location" delayShow={500} backgroundColor="#C0B3A0" className="tooltip">
+        <ReactTooltip
+          id="location"
+          delayShow={500}
+          backgroundColor="#C0B3A0"
+          className="tooltip"
+        >
           Redirigirte al libro
         </ReactTooltip>
-        <IconButton className={classes.noteButtons__icon + " noteButtons__icon--size"} size="small" aria-label="listen to message" data-tip='' data-for='play' delay-show='500'>
+        <IconButton
+          className={classes.noteButtons__icon + " noteButtons__icon--size"}
+          size="small"
+          aria-label="listen to message"
+          data-tip=""
+          data-for="play"
+          delay-show="500"
+        >
           <Speech
-            textAsButton={true}    
+            textAsButton={true}
             displayText={
-              <PlayCircleOutlineIcon className="noteButtons__icon--positicon" fontSize="large"/>
+              <PlayCircleOutlineIcon
+                className="noteButtons__icon--positicon"
+                fontSize="large"
+              />
             }
             text={note.descripcion}
           />
-        </IconButton >
-        <ReactTooltip id="play" delayShow={500} backgroundColor="#C0B3A0" className="tooltip">
+        </IconButton>
+        <ReactTooltip
+          id="play"
+          delayShow={500}
+          backgroundColor="#C0B3A0"
+          className="tooltip"
+        >
           Reproducir Mensaje
         </ReactTooltip>
-        <IconButton className={classes.noteButtons__icon} size="small" aria-label="delete note" data-tip='' data-for='delete' delay-show='500'>
-          <DeleteOutlineIcon fontSize="large"/>
+        <IconButton
+          className={classes.noteButtons__icon}
+          size="small"
+          aria-label="delete note"
+          data-tip=""
+          data-for="delete"
+          delay-show="500"
+          onClick={() => handleDelete(note.idAnotacion)}
+        >
+          <DeleteOutlineIcon fontSize="large" />
         </IconButton>
-        <ReactTooltip id="delete" delayShow={500} backgroundColor="#C0B3A0" className="tooltip">
+        <ReactTooltip
+          id="delete"
+          delayShow={500}
+          backgroundColor="#C0B3A0"
+          className="tooltip"
+        >
           Eliminar Nota
         </ReactTooltip>
-      </div>      
+      </div>
     </div>
   );
 };

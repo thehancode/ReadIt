@@ -3,3 +3,11 @@
 ###
 GET {{api}}/60c96e20d58cca1298b4d656
  
+###
+PUT {{api}}/ANOTACION009
+Content-Type: application/json
+
+{
+    "idUsuario": "60c96e20d58cca1298b4d656",
+    "idLibro": "60dbb12c8b62f60f880bd519"
+} 
