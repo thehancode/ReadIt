@@ -60,12 +60,12 @@ const NoteElement = (props) => {
   const [mensaje, setMensaje] = useState("");
   const [tipo, setTipo] = useState("");
 
-  const handleDelete = async (id) => {
-    await libroService.deleteAnotacion(id, book._id, getCurrentUser().id);
-    //alert("Anotación eliminada");
-    setMensaje("Anotación eliminada");
+  const handleDelete = async (idAnotacion) => {
+    libroService.deleteAnotacion(idAnotacion, book._id, getCurrentUser().id);
+    //setMensaje("Anotación eliminada");
     setTipo("success");
     setOpen(true);
+    alert("Anotación eliminada");
     window.location.reload();
   };
 

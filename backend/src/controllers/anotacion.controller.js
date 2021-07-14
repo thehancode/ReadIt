@@ -27,8 +27,18 @@ const updateAnotacion = async (req, res) => {
   return res.json(libroUpdated);
 };
 
+const deleteAnotacion = async (req, res) => {
+  const anotacionDelete = await UsuarioLibro.update(
+    { idUsuario: req.body.idUsuario, idLibro: req.body.idLibro },
+    { $pull: { anotaciones: { idAnotacion: req.params.id } } },
+    { new: true }
+  );
+  return res.json(anotacionDelete);
+};
+
 module.exports = {
   createAnotacion,
   getAnotaciones,
   updateAnotacion,
+  deleteAnotacion,
 };

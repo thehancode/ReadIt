@@ -11,7 +11,8 @@ export const getLibro = async (id) => {
 };
 
 export const deleteAnotacion = async (idAnotacion, idLibro, idUsuario) => {
-  return await axios.put(`${API}/anotaciones/${idAnotacion}`, {
+  console.log(idAnotacion, idLibro, idUsuario);
+  return await axios.put(`${API}/anotaciones/delete/${idAnotacion}`, {
     idLibro: idLibro,
     idUsuario: idUsuario,
   });
@@ -21,7 +22,6 @@ export const marcarLibroLeido = async (idLibro, idUsuario) => {
   return await axios.put(`${API}/anotaciones/`, {
     idLibro: idLibro,
     idUsuario: idUsuario,
-    
   });
 };
 

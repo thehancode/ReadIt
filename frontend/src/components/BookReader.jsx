@@ -18,7 +18,6 @@ const BookContent = (props) => {
       bookIDMongo,
       getCurrentUser().id
     );
-    console.log("asdsdadasdsa", res.data);
     setMarcado(res.data);
   };
 

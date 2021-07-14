@@ -11,3 +11,12 @@ Content-Type: application/json
     "idUsuario": "60d95c338719db2920e28b81",
     "idLibro": "60dbb1398b62f60f880bd523"
 } 
+
+###
+DELETE  {{api}}/ANOTACION006
+Content-Type: application/json
+
+{
+    "idUsuario": "60c96e20d58cca1298b4d656",
+    "idLibro": "60dbb1278b62f60f880bd518"
+} 
