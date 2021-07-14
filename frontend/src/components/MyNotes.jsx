@@ -20,8 +20,6 @@ import MenuBookIcon from '@material-ui/icons/MenuBook';
 
 import NotesPage from "./NotesPage";
 
-//import Fade from "react-reveal/Fade";
-
 // Importamos los principales componentes
 import NavbarHome from "./NavbarHome";
 import Footer from "./Footer";
