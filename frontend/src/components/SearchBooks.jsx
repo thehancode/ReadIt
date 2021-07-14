@@ -105,7 +105,7 @@ const SearchBooks = () => {
         >
           < InputBase
             className={classes.input}
-            placeholder="Ingrese libro o presione en el microfono y diga 'search'"
+            placeholder="Ingrese libro o presione en el microfono"
             inputProps={{ "aria-label": "search google maps" }}
             value = {result}
             onChange = {(event)=>{setResult(event.target.value)

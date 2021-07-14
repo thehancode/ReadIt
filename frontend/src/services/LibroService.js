@@ -17,6 +17,14 @@ export const deleteAnotacion = async (idAnotacion, idLibro, idUsuario) => {
   });
 };
 
+export const marcarLibroLeido = async (idLibro, idUsuario) => {
+  return await axios.put(`${API}/anotaciones/`, {
+    idLibro: idLibro,
+    idUsuario: idUsuario,
+    
+  });
+};
+
 export const getAnotaciones = async (userId) => {
   return await axios.get(`${API}/anotaciones/${userId}`);
 };

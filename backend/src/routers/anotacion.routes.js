@@ -5,6 +5,6 @@ const anotacionCtrl = require("../controllers/anotacion.controller");
 
 router.post("/anotaciones", anotacionCtrl.createAnotacion);
 router.get("/anotaciones/:id", anotacionCtrl.getAnotaciones);
-router.put("/anotaciones/:id", anotacionCtrl.updateAnotacion);
+router.put("/anotaciones/", anotacionCtrl.updateAnotacion);
 
 module.exports = router;
