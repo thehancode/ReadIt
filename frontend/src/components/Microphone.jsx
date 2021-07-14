@@ -13,9 +13,12 @@ function Microphone(props) {
   const useStyles = makeStyles(() => ({
     container: {
       fontFamily: "Prata,serif",
-      color: "#3F3250",
-      marginLeft: "10px",
-      marginRight: "10px"
+      color: "rgb(255, 221, 163)",
+      marginLeft: "10px", 
+      paddingTop: "30px",
+      marginRight: "10px",
+
+
     },
     button: {
       width: "40px",
@@ -72,7 +75,7 @@ function Microphone(props) {
       <button
         className={classes.button}
         onTouchStart={speechRecognition.start}
-        onTouchEnd={speechRecognition.stop}
+        onTouchEnd={ (params)=>{ speechRecognition.stop(params) ; alert ("")} }
         onMouseUp={speechRecognition.stop}
         onMouseDown={speechRecognition.start}
       ></button>
