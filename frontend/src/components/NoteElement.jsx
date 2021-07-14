@@ -88,7 +88,7 @@ const NoteElement = (props) => {
           data-tip=""
           data-for="location"
           delay-show="500"
-          href={"/read/" + book.idLibro}
+          href={"/read/" + book.idLibro + "/" + book._id}
         >
           <RoomIcon fontSize="large" />
         </IconButton>
