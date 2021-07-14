@@ -20,6 +20,8 @@ const useStyles = makeStyles({
   },
   media: {
     height: 180,
+    minWidth: "230px",
+    maxWidth: "250px",
   },
   bodyCard: {
     color: "white"

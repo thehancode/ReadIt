@@ -86,7 +86,7 @@ export const MyBooks = (props) => {
       flexGrow: 1,
     },
     submenu: {
-      margin: "0 1.5em",
+      padding: "8px 40px",
       "&:active": {
         color: "#C0B3A0",
       },
@@ -111,7 +111,6 @@ export const MyBooks = (props) => {
       display: "flex",
       flexWrap: "wrap",
       justifyContent: "center",
-
       flexDirection: "row",
       marginLeft: "120px",
       marginRight: "120px",
@@ -126,97 +125,72 @@ export const MyBooks = (props) => {
     console.log(mobileOpen);
   };
 
+  // Acciones para los botones del menú responsive
+  const handleClose = () => {
+    localStorage.removeItem("user");
+    history.push("/");
+  };
+  
+  const handleMenu = (event)=> {
+    if (event.target.textContent === " Biblioteca") {
+      history.push("/home");
+    } else if (event.target.textContent === " Mis libros") {
+      history.push("/books");
+    } else if (event.target.textContent === " Mis Notas") {
+      history.push("/notes");
+    } else if (event.target.textContent === " Configuración") {
+      history.push("/account");
+    }
+  }
+
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   // En caso currentUser sea nulo quiere decir que no hay usuario logaedo por lo tanto no debe mostrar home sino redireccionar a login
   return (
     <>
       {currentUser ? (
-        <div className={classes.root}>
-          <NavbarHome openDrawer={handleDrawerToggle} />
-          {/* Esta parte es del menu responsive */}
-          <Hidden smUp>
-            <Drawer
-              className={classes.drawer}
-              variant="temporary"
-              classes={{ paper: classes.drawerPaper }}
-              open={mobileOpen}
-              onClose={handleDrawerToggle}
-            >
-              <div className={classes.offset}></div>
-              <Divider></Divider>
-              <List component="nav">
-                <ListItem button>
-                  <ListItemText>
-                    <Link
-                      href="/home"
-                      color="inherit"
-                      underline="none"
-                      className={classes.submenu}
-                    >
-                      <CollectionsBookmarkIcon />
-                      <span className={classes.submenu_text}> Biblioteca</span>
-                    </Link>
-                  </ListItemText>
-                </ListItem>
-                <ListItem button>
-                  <ListItemText>
-                    <Link
-                      href="/books"
-                      color="inherit"
-                      underline="none"
-                      className={classes.submenu}
-                    >
-                      <MenuBookIcon />
-                      <span className={classes.submenu_text}> Mis libros</span>
-                    </Link>
-                  </ListItemText>
-                </ListItem>
-                <ListItem button>
-                  <ListItemText>
-                    <Link
-                      href="/notes"
-                      color="inherit"
-                      underline="none"
-                      className={classes.submenu}
-                    >
-                      <CreateIcon />
-                      <span className={classes.submenu_text}> Mis Notas</span>
-                    </Link>
-                  </ListItemText>
-                </ListItem>
-                <ListItem button>
-                  <ListItemText>
-                    <Link
-                      href="/account"
-                      color="inherit"
-                      underline="none"
-                      className={classes.submenu}
-                    >
-                      <SettingsIcon />
-                      <span className={classes.submenu_text}>
-                        {" "}
-                        Configuración
-                      </span>
-                    </Link>
-                  </ListItemText>
-                </ListItem>
-                <ListItem button>
-                  <ListItemText>
-                    <Link
-                      href="/"
-                      color="inherit"
-                      underline="none"
-                      className={classes.submenu}
-                    >
-                      <ExitToAppIcon />
-                      <span className={classes.submenu_text}> Salir</span>
-                    </Link>
-                  </ListItemText>
-                </ListItem>
-              </List>
-            </Drawer>
-          </Hidden>
+      <div className={classes.root}>
+        <NavbarHome openDrawer={handleDrawerToggle} />
+        {/* Esta parte es del menu responsive */}
+        <Hidden smUp>
+          <Drawer
+            className={classes.drawer}
+            variant="temporary"
+            classes={{ paper: classes.drawerPaper }}
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
+          >
+            <div className={classes.offset}></div>
+            <Divider></Divider>
+            <List component="nav">
+              <ListItem button onClick={handleMenu} className={classes.submenu}>
+                <ListItemText>
+                  <CollectionsBookmarkIcon/><span  className={classes.submenu_text}> Biblioteca</span>
+                </ListItemText>
+              </ListItem>
+              <ListItem button onClick={handleMenu} className={classes.submenu}>
+                <ListItemText>
+                  <MenuBookIcon/><span  className={classes.submenu_text}> Mis libros</span>
+                </ListItemText>
+              </ListItem>
+              <ListItem button onClick={handleMenu} className={classes.submenu}>
+                <ListItemText>
+                  <CreateIcon/><span  className={classes.submenu_text}> Mis Notas</span>
+                </ListItemText>
+              </ListItem>
+              <ListItem button onClick={handleMenu} className={classes.submenu}>
+                <ListItemText>
+                  <SettingsIcon/><span  className={classes.submenu_text}> Configuración</span>
+                </ListItemText>
+              </ListItem>
+              <ListItem button onClick={handleClose} className={classes.submenu}>
+                <ListItemText>
+                  <ExitToAppIcon/><span  className={classes.submenu_text}> Salir</span>
+                </ListItemText>
+              </ListItem>
+            </List>
+          </Drawer>
+        </Hidden>
           {/* Cuerpo de la página */}
           <main className={classes.content}>
             <br />
@@ -228,7 +202,7 @@ export const MyBooks = (props) => {
 
             <div className={classes.containerResults}>
               {libros.map((noteItem, index) => (
-                <MediaCard key={index} bookInfo={noteItem.idLibro} />
+                <MediaCard key={index} bookInfo={noteItem.idLibro}/>
               ))}
             </div>
             <Footer />
