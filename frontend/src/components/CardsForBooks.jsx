@@ -38,12 +38,12 @@ export default function MediaCard(props) {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image={props.image}//"https://www.gutenberg.org/cache/epub/65676/pg65676.cover.medium.jpg"
+          image={`https://www.gutenberg.org/cache/epub/${props.bookInfo.idLibro}/pg${props.bookInfo.idLibro}.cover.medium.jpg`}
           title="Contemplative Reptile"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            {props.title}
+            {props.bookInfo.nombreLibro}
           </Typography>
           <Typography
             variant="body2"
@@ -59,7 +59,7 @@ export default function MediaCard(props) {
           <Link
             style={{ display: "inherit", "text-decoration": "none" }}
             className={classes.link}
-            to={"/read/" + props.id}
+            to={"/read/" + props.bookInfo.idLibro}
           >Ver más</Link>
         </Button>
       </CardActions>

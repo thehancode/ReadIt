@@ -10,3 +10,8 @@ export const getLibros = async (user) => {
 export const getLibro = async (id) => {
   return await axios.get(`${API}/libros/${id}`);
 };
+
+
+export const getAnotaciones = async (userId) => {
+  return await axios.get(`${API}/anotaciones/${userId}`);
+};

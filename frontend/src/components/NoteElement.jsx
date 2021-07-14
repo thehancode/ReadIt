@@ -51,16 +51,17 @@ const NoteElement = (props) => {
 
   const classes = useStyles();
   const note = props.noteInfo;
+  const book = props.bookInfo;
 
   return (
     <div className={classes.note}>
       <div className={classes.noteTitle}>
         <p className={classes.noteTitle__p}>Titulo</p>
-        <p className={classes.noteTitle__p}>{note.title}</p>
+        <p className={classes.noteTitle__p}>{book.nombreLibro}</p>
       </div>
       <div className={classes.noteMessage}>
         <p className={classes.noteTitle__p}>Mensaje</p>
-        <p className={classes.noteTitle__p}>{note.comment}</p>
+        <p className={classes.noteTitle__p}>{note.descripcion}</p>
       </div>
       <div className={classes.noteButtons}>
         <IconButton className={classes.noteButtons__icon} 
@@ -68,7 +69,7 @@ const NoteElement = (props) => {
           aria-label="here in the book" 
           data-tip='' data-for='location' 
           delay-show='500'          
-          href={"/read/"+note.id}
+          href={"/read/"+book.idLibro}
         >
           <RoomIcon fontSize="large"/>
         </IconButton>
@@ -81,7 +82,7 @@ const NoteElement = (props) => {
             displayText={
               <PlayCircleOutlineIcon className="noteButtons__icon--positicon" fontSize="large"/>
             }
-            text={note.comment}
+            text={note.descripcion}
           />
         </IconButton >
         <ReactTooltip id="play" delayShow={500} backgroundColor="#C0B3A0" className="tooltip">

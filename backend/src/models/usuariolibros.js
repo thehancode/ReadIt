@@ -13,6 +13,9 @@ const usuarioLibrochema = new mongoose.Schema(
     ultimaPagina: {
       type: Number,
     },
+    anotaciones:{
+      type: [Object]
+    }
   },
   {
     versionKey: false,

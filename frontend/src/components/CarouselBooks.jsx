@@ -15,11 +15,11 @@ const CarouselBooks = () => {
     console.log("back-ibros",res);
     // Pasar al tipo de dato (arreglo inicialmente vacio)
     const sortedLibros = res.data
-      .map((video) => {
+      .map((libro) => {
         return {
-          ...video,
-          createAt: video.createAt ? new Date(video.createAt) : new Date(),
-          updateAt: video.updateAt ? new Date(video.updateAt) : new Date(),
+          ...libro,
+          createAt: libro.createAt ? new Date(libro.createAt) : new Date(),
+          updateAt: libro.updateAt ? new Date(libro.updateAt) : new Date(),
         };
       })
       .sort((a, b) => b.createAt.getTime() - a.createAt.getTime());

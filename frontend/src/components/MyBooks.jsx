@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { getCurrentUser } from "../services/LoginService";
+import * as libroService from "../services/LibroService";
 import { makeStyles } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
 import {
@@ -12,7 +13,7 @@ import {
   ListItemText,
   Link,
 } from "@material-ui/core";
-import { Typography, Container } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 
 import SettingsIcon from "@material-ui/icons/Settings";
 import CreateIcon from "@material-ui/icons/Create";
@@ -21,7 +22,6 @@ import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import MenuBookIcon from "@material-ui/icons/MenuBook";
 import MediaCard from "./CardsForBooks.jsx";
 
-import { Link as LinkS } from "react-scroll";
 //import Fade from "react-reveal/Fade";
 
 // Importamos los principales componentes
@@ -32,6 +32,21 @@ import Footer from "./Footer";
 // import theme from "../ThemeConfig";
 
 export const MyBooks = (props) => {
+  const [libros, setAnotaciones] = useState([]);
+
+  const loadAnotaciones = async () => {
+    const anotacionesRes = await libroService.getAnotaciones(
+      getCurrentUser().id
+    );
+    console.log("back-anotaciones", anotacionesRes.data);
+    console.log(getCurrentUser().id);
+    setAnotaciones(anotacionesRes.data);
+  };
+
+  useEffect(() => {
+    loadAnotaciones();
+  }, []);
+
   const history = useHistory();
 
   // El usuario que se logea que da guardado aqui
@@ -93,14 +108,14 @@ export const MyBooks = (props) => {
       margin: "10px",
     },
     containerResults: {
-      display:"flex",
+      display: "flex",
       flexWrap: "wrap",
       justifyContent: "center",
-  
-      flexDirection:"row",
-      marginLeft:  "120px",
-      marginRight:  "120px",
-    },  
+
+      flexDirection: "row",
+      marginLeft: "120px",
+      marginRight: "120px",
+    },
   }));
 
   const classes = useStyles();
@@ -212,17 +227,9 @@ export const MyBooks = (props) => {
             </Typography>
 
             <div className={classes.containerResults}>
-              <MediaCard />
-              <MediaCard />
-              <MediaCard />
-              <MediaCard />
-              <MediaCard />
-              <MediaCard />
-              <MediaCard />
-              <MediaCard />
-              <MediaCard />
-              <MediaCard />
-              <MediaCard />
+              {libros.map((noteItem, index) => (
+                <MediaCard key={index} bookInfo={noteItem.idLibro} />
+              ))}
             </div>
             <Footer />
           </main>
