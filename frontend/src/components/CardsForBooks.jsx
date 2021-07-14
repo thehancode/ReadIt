@@ -22,12 +22,18 @@ const useStyles = makeStyles({
     height: 180,
   },
   bodyCard: {
-    color: "white",
+    color: "white"
   },
   link: {
     backgroundImage: "none",
     textTransform: "none",
   },
+  title: {
+    maxHeight: "100px",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    
+  }
 });
 
 export default function MediaCard(props) {
@@ -54,7 +60,12 @@ export default function MediaCard(props) {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions >
+      <CardActions style={{justifyContent:"center"}}>
+      <Link
+        style={{ display: "inherit", "text-decoration": "none" }}
+        className={classes.link}
+        to={"/read/" + props.id}
+      >
         <Button size="small" fullWidth style={{ color: "#ffdda3"}} >
           <Link
             style={{ display: "inherit", "text-decoration": "none" }}
@@ -62,6 +73,7 @@ export default function MediaCard(props) {
             to={"/read/" + props.bookInfo.idLibro}
           >Ver más</Link>
         </Button>
+      </Link>
       </CardActions>
     </Card>
   );
