@@ -161,7 +161,7 @@ const BookContent = (props) => {
        <div style={{"backgroundColor":"#22252C" ,height:"200px" }}>
       <div className={classes.container} >
        <Microphone setResult={setNote}/>
-       <div className={classes.transciption}>{note}</div>
+       <div className={classes.transciption}>{note}</div>3
        <button className={classes.buttons} onClick={({note})=>{ alert("Cliead" + {note})}}> Guardar </button>
       </div>
 

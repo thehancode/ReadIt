@@ -20,9 +20,7 @@ const useStyles = makeStyles((theme) => ({
     padding: "2px 4px",
     display: "flex",
     alignItems: "center",
-    width:"80vw",
-    height:"80px",
-    borderRadius:"20px"
+    width: 400,
   },
   input: {
     marginLeft: theme.spacing(1),
@@ -62,7 +60,6 @@ const SearchBooks = () => {
         console.error("no se encontro el libro ",error);
       } 
     );
-    setOpen(true);
   }
 
   function BookList(){
@@ -96,7 +93,7 @@ const SearchBooks = () => {
   return (
     <div>
       {/* <FormControl style={{ width: 100 + "%" }}> */}
-      <Notification mensaje="tiempo de descanso" open={open} setOpen = {setOpen} tipo = "success"></Notification>
+      {/*<Notification mensaje="tiempo de descanso" open={open} setOpen = {setOpen} tipo = "success"></Notification>*/}
       <FormControl onSubmit={handleSubmit}>
         <Paper
           component="form"
