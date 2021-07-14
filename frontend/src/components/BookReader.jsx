@@ -8,6 +8,8 @@ import CarouselBooks from "./CarouselBooks";
 import SearchBooks from "./SearchBooks";
 import CBooks from "./CBooks";
 
+import Notification from "./Notification";
+
 import {
   Hidden,
   List,
@@ -26,6 +28,9 @@ import Rating from "@material-ui/lab/Rating";
 import { BorderAllRounded, Height } from "@material-ui/icons";
 
 const BookContent = (props) => {
+  const [open, setOpen] = useState(false);
+  const [mensaje, setMensaje] = useState("");
+  const [tipo, setTipo] = useState("");
   useEffect(()=>{
     //localStorage.setItem('timerState',1);
     let user = JSON.parse(localStorage.getItem("user"));
@@ -35,8 +40,11 @@ const BookContent = (props) => {
       localStorage.setItem('timerState',user.timer);
       setTimeout(function(){
         localStorage.removeItem('timerState'); 
-        alert("Recuerda tomar un descanso"); 
-        console.log("Time finish")
+        //alert("Recuerda tomar un descanso"); 
+        //console.log("Time finish");
+        setMensaje("Recuerda tomar un descanso");
+        setTipo("info");
+        setOpen(true);
       }, 
         user.timer*1000);
     }
@@ -103,6 +111,7 @@ const BookContent = (props) => {
   },[bookID])
   return (
     <div>
+      <Notification setOpen = {setOpen} mensaje= {mensaje} open={open} tipo = {tipo}></Notification>
         <div className={classes.offset}></div>
         <div style={{height:"100vh"}} >
         <iframe  src={"https://www.gutenberg.org/files/"+ bookID+ "/" + bookID+ "-h/" +bookID+"-h.htm"} width="100%" height="80%">

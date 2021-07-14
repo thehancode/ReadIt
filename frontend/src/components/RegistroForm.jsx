@@ -88,21 +88,33 @@ export const RegistroForm = () => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
+  const [open, setOpen] = useState(false);
+  const [mensaje, setMensaje] = useState("");
+  const [tipo, setTipo] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (user.password === user.passwordValidate) {
       userService.createUser({...user,timer:1500}).then(
         (value) => {
           setUser(initialState);
-          alert("Usuario registrado");
+          //alert("Usuario registrado");
+          setMensaje("Usuario registrado");
+          setTipo("success");
         },
         (error) => {
-          alert("El usuario ya existe");
+          //alert("El usuario ya existe");
+          setMensaje("El usuario ya existe");
+          setTipo("warning");
         }
       );
     } else {
-      alert("Las contraseñas no coinciden");
+      //alert("Las contraseñas no coinciden");
+      setMensaje("Las contraseñas no coinciden");
+      setTipo("error");
     }
+
+    setOpen(true);
   };
 
   return (

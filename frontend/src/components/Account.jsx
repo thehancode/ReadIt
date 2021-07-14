@@ -4,6 +4,7 @@ import * as update from "../services/UserUpdateService";
 //import { useHistory } from "react-router-dom";
 import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
 import Clock from "./Clock";
+import Notification from "./Notification";
 
 import {
   Container,
@@ -96,7 +97,9 @@ const Account = () => {
     //console.log(userTimer)
     setUser({ ...user, [e.target.name]: e.target.value });
   };
-
+  const [open, setOpen] = useState(false);
+  const [mensaje, setMensaje] = useState("");
+  const [tipo, setTipo] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("handle update");
@@ -105,13 +108,18 @@ const Account = () => {
       (response) => {
         //history.push("/home");
         //console.log(response)
-        alert("usuario actualizado");
+        //alert("usuario actualizado");
+        setMensaje("Usuario actualizado");
+        setTipo("success");
       },
       (error) => {
         console.log("error al actualizar",error)
-        alert("Usuario incorrecto");
+        //alert("Usuario incorrecto");
+        setMensaje("Usuario incorrecto");
+        setTipo("error")
       }
     );
+    setOpen(true);
   };
 
   useEffect(()=>{
@@ -124,12 +132,17 @@ const Account = () => {
       },
       (error) => {
         console.log(error)
-        alert("Usuario ID incorrecto");
+        //alert("Usuario ID incorrecto");
+        setMensaje("Usuario ID incorrecto");
+        setTipo("error");
+        setOpen(true);
       }
+      
     );
   },[])
   return (
     <ThemeProvider theme={theme}>
+      <Notification setOpen = {setOpen} mensaje= {mensaje} open={open} tipo = {tipo}></Notification>
       <div className={classes.offset}></div>
       <Container maxWidth="xl" component="div" className={classes.root}>
         <form onSubmit={handleSubmit} className={classes.formLogin}>
