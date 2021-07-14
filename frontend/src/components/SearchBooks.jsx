@@ -1,6 +1,6 @@
 import Quote from "./Quote";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FormControl } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
@@ -10,6 +10,8 @@ import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
 import MicIcon from "@material-ui/icons/Mic";
 import MediaCard from "./CardsForBooks.jsx";
+
+import * as BookService from "../services/SearchBookService";
 
 import Microphone from "./Microphone";
 const useStyles = makeStyles((theme) => ({
@@ -44,9 +46,41 @@ const useStyles = makeStyles((theme) => ({
 const SearchBooks = () => {
   const classes = useStyles();
   const [result, setResult]=useState("");
+  const [Books, setBooks] = useState([]);
+
   const handleSubmit = (event)=>{
-    event.prevenDefault();
+    event.preventDefault();
+    BookService.searchBook(result).then(
+      response => {
+        setBooks(response.slice(0,10));
+      },
+      error => {
+        console.error("no se encontro el libro ",error);
+      } 
+    );
   }
+
+  function BookList(){
+    const booksItems = Books.map((book,i)=>
+      <MediaCard
+      key = {i} 
+      image={book.formats["image/jpeg"]} 
+      title={book.title} 
+      author={book.authors[0].name}
+      url={book["text/html"]}
+      type={"text/html"}
+      category={book.bookshelves[0]}
+      id={book.id}
+      >
+      </MediaCard>
+    );
+    return(
+      <ul className={classes.containerResults}>
+      {booksItems}
+      </ul>
+    )
+  }
+
   return (
     <div>
       {/* <FormControl style={{ width: 100 + "%" }}> */}
@@ -58,9 +92,11 @@ const SearchBooks = () => {
         >
           < InputBase
             className={classes.input}
-            placeholder="Ingrese libro o presione en el microfono y diga buscar"
+            placeholder="Ingrese libro o presione en el microfono y diga 'search'"
             inputProps={{ "aria-label": "search google maps" }}
             value = {result}
+            onChange = {(event)=>{setResult(event.target.value)
+                        console.log("ONCHANGE", result)}}
           />
           <Divider className={classes.divider} orientation="vertical" />
           <Microphone setResult={setResult}></Microphone>
@@ -73,14 +109,8 @@ const SearchBooks = () => {
           </IconButton> */}
         </Paper>
       </FormControl>  
-      <div className={classes.containerResults}>
-        <MediaCard />
-        <MediaCard />
-        <MediaCard />
-        <MediaCard />
-        <MediaCard />
-        <MediaCard />
-        <MediaCard />
+      <div>
+        <BookList></BookList>
       </div>
       <Quote></Quote>
     </div>

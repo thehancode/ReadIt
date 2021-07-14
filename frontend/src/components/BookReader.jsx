@@ -98,7 +98,9 @@ const BookContent = (props) => {
   const classes = useStyles();
   let { bookID } = useParams();
 
-
+  useEffect(()=>{
+    console.log("Searching for",bookID);
+  },[bookID])
   return (
     <div>
         <div className={classes.offset}></div>
