@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
 import * as libroService from "../services/LibroService";
 import CBooks from "./CBooks";
 import "react-responsive-modal/styles.css";
 import { Modal } from "react-responsive-modal";
 import { FacebookIcon, TwitterIcon, WhatsappIcon } from "react-share";
 import { useParams } from "react-router-dom";
-import { Typography, Container } from "@material-ui/core";
-import { Link as LinkRef } from "react-router-dom";
+import { Button, Typography, Container } from "@material-ui/core";
 import Rating from "@material-ui/lab/Rating";
+
+// Importamos los estilos de color del boton
+import theme from "../ThemeConfig";
 
 const BookContent = () => {
   let { bookID } = useParams();
@@ -30,6 +32,10 @@ const BookContent = () => {
       margin: theme.spacing(1),
       backgroundImage: "none",
       textTransform: "none",
+      flex: 1,
+      margin: "10%",
+      height: "50px",
+      border: "none",
     },
     title: {
       color: "#3F3250",
@@ -64,25 +70,6 @@ const BookContent = () => {
       border: "none",
       backgroundColor: "#FFFFFF",
     },
-    buttons: {
-      flex: 1,
-      margin: "10%",
-      height: "50px",
-      border: "none",
-      backgroundColor: "#E14658",
-      "border-radius": "1.2em",
-      color: "#fff",
-      "font-size": "1.3em",
-
-      "&:hover": {
-        background: "#a3001b",
-      },
-      "&:active": {
-        position: "relative",
-        top: "2px",
-      },
-    },
-
     descripcion: {
       padding: "5%",
       "font-size": "1.2em",
@@ -131,16 +118,23 @@ const BookContent = () => {
             {libro.descripcion}
           </div>
           <div id="buttons-div" className={classes.container}>
-            <button className={classes.buttons}>
-              <LinkRef
-                style={{ color: "white", "text-decoration": "none" }}
-                to={"/read/" + libro.idLibro+ "/" + libro._id}
+            <ThemeProvider theme={theme}>
+              <Button
+                variant="contained"
+                color="primary"
+                href={"/read/" + libro.idLibro+ "/" + libro._id}
+                size="large"
+                className={classes.botonPersonalizado}
               >
                 Leer
-              </LinkRef>
-            </button>
-
-            <button className={classes.buttons} onClick={onOpenModal}>
+              </Button>
+            </ThemeProvider>
+            <Button                 
+              variant="contained"
+              color="secondary"
+              size="large"
+              className={classes.botonPersonalizado} 
+              onClick={onOpenModal}>
               Compartir
               <Modal open={openModal} onClose={onCloseModal} center>
                 <h2> {"Comparte " + libro.nombreLibro}</h2>
@@ -156,7 +150,7 @@ const BookContent = () => {
                   </button>
                 </div>
               </Modal>
-            </button>
+            </Button>
           </div>
         </div>
       </div>

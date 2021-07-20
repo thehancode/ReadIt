@@ -6,11 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import InputBase from "@material-ui/core/InputBase";
 import Divider from "@material-ui/core/Divider";
-import IconButton from "@material-ui/core/IconButton";
-import SearchIcon from "@material-ui/icons/Search";
-import MicIcon from "@material-ui/icons/Mic";
 import MediaCard from "./CardsForBooks.jsx";
-import Notification from "./Notification";
 
 import * as BookService from "../services/SearchBookService";
 
@@ -52,7 +48,6 @@ const SearchBooks = () => {
   const classes = useStyles();
   const [result, setResult]=useState("");
   const [Books, setBooks] = useState([]);
-  const [open, setOpen] = useState(false);
 
   const handleSubmit = (event)=>{
     event.preventDefault();
