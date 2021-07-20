@@ -1,22 +1,33 @@
 @api = http://localhost:5000/anotaciones
 
-###
-GET {{api}}/60c96e20d58cca1298b4d656
- 
-###
-PUT {{api}}/
-Content-Type: application/json
-
-{
-    "idUsuario": "60d95c338719db2920e28b81",
-    "idLibro": "60dbb1398b62f60f880bd523"
-} 
-
-###
-DELETE  {{api}}/ANOTACION006
+POST  {{api}}/
 Content-Type: application/json
 
 {
     "idUsuario": "60c96e20d58cca1298b4d656",
-    "idLibro": "60dbb1278b62f60f880bd518"
+    "idLibro": "60dbb1278b62f60f880bd518",
+    "ultimaPagina": 45,
+    "pagina": 44,
+    "fecha":"2012/12/12",
+    "descripcion": "Este libro esta buenisimo"
+} 
+###
+GET {{api}}/60c96e20d58cca1298b4d656
+ 
+### Marca el libro la primera vez que lo abre 
+PUT {{api}}
+Content-Type: application/json
+
+{
+    "idUsuario": "60dcd376b93dff27d167380e",
+    "idLibro": "60dbb1388b62f60f880bd522"
+} 
+
+### Elimina el libro
+PUT  {{api}}/delete/ANOTACION005
+Content-Type: application/json
+
+{
+    "idUsuario": "60dcd376b93dff27d167380e",
+    "idLibro": "60dbb1388b62f60f880bd522"
 } 

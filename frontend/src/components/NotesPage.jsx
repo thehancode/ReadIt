@@ -4,19 +4,29 @@ import * as libroService from "../services/LibroService";
 
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Container } from "@material-ui/core";
+import Notification from "./Notification";
 
 import NoteElement from "./NoteElement";
 
 const NotesPage = () => {
   const [anotaciones, setAnotaciones] = useState([]);
+  const [open, setOpen] = useState(false);
+  const [mensaje, setMensaje] = useState("");
+  const [tipo, setTipo] = useState("");
 
   const loadAnotaciones = async () => {
-    const anotacionesRes = await libroService.getAnotaciones(
+    const misAnotaciones = await libroService.getAnotaciones(
       getCurrentUser().id
     );
-    console.log("back-anotaciones", anotacionesRes.data);
-    console.log(getCurrentUser().id);
-    setAnotaciones(anotacionesRes.data);
+    setAnotaciones(misAnotaciones.data);
+  };
+
+  const handleDelete = async (idAnotacion, idBook) => {
+    libroService.deleteAnotacion(idAnotacion, idBook, getCurrentUser().id);
+    loadAnotaciones();
+    setMensaje("Anotación eliminada");
+    setTipo("success");
+    setOpen(true);
   };
 
   useEffect(() => {
@@ -47,6 +57,13 @@ const NotesPage = () => {
 
   return (
     <div>
+      <Notification
+        setOpen={setOpen}
+        mensaje={mensaje}
+        open={open}
+        tipo={tipo}
+      ></Notification>
+
       <Container maxWidth="md">
         <div className={classes.offset}></div>
         <Typography variant="h2" component="h1" className={classes.title}>
@@ -55,6 +72,7 @@ const NotesPage = () => {
         {anotaciones.map((noteItem, index) =>
           noteItem.anotaciones.map((note, i) => (
             <NoteElement
+              delete={handleDelete}
               key={i}
               noteInfo={note}
               bookInfo={noteItem.idLibro}

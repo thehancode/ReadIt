@@ -1,9 +1,33 @@
 const UsuarioLibro = require("../models/usuariolibros");
 
+const ObjectId = (
+  m = Math,
+  d = Date,
+  h = 16,
+  s = (s) => m.floor(s).toString(h)
+) => s(d.now() / 1000) + " ".repeat(h).replace(/./g, () => s(m.random() * h));
+
 const createAnotacion = async (req, res) => {
-  const anotacion = new Anotacion(req.body);
-  const savedAnotacion = await anotacion.save();
-  res.json(savedAnotacion);
+  const libroAdded = await UsuarioLibro.update(
+    { idUsuario: req.body.idUsuario, idLibro: req.body.idLibro },
+    {
+      $push: {
+        anotaciones: {
+          $each: [
+            {
+              idAnotacion: ObjectId(),
+              pagina: req.body.pagina,
+              fecha: req.body.fecha,
+              descripcion: req.body.descripcion,
+            },
+          ],
+        },
+      },
+      ultimaPagina: req.body.ultimaPagina,
+    },
+    { upsert: true }
+  );
+  return res.json(libroAdded);
 };
 
 const getAnotaciones = async (req, res) => {
@@ -18,13 +42,13 @@ const getAnotaciones = async (req, res) => {
     });
 };
 
-const updateAnotacion = async (req, res) => {
-  const libroUpdated = await UsuarioLibro.update(
+const marcarLibro = async (req, res) => {
+  const libroMarked = await UsuarioLibro.update(
     { idUsuario: req.body.idUsuario, idLibro: req.body.idLibro },
-    { $pull: { anotaciones: { idAnotacion: req.params.id } } },
-    { new: true, upsert: true }
+    { ultimaPagina: req.body.ultimaPagina },
+    { upsert: true }
   );
-  return res.json(libroUpdated);
+  return res.json(libroMarked);
 };
 
 const deleteAnotacion = async (req, res) => {
@@ -39,6 +63,6 @@ const deleteAnotacion = async (req, res) => {
 module.exports = {
   createAnotacion,
   getAnotaciones,
-  updateAnotacion,
+  marcarLibro,
   deleteAnotacion,
 };

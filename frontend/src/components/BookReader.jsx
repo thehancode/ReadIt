@@ -8,7 +8,7 @@ import Notification from "./Notification";
 
 import { useParams } from "react-router-dom";
 import Microphone from "./Microphone";
-
+import { Input } from "@material-ui/core";
 const BookContent = (props) => {
   let { bookID, bookIDMongo } = useParams();
   const [libro, setMarcado] = useState({});
@@ -47,6 +47,21 @@ const BookContent = (props) => {
 
   const [note, setNote] = useState("");
 
+  // guardar la anotacion
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    libroService.crearAnotacion(
+      bookIDMongo,
+      getCurrentUser().id,
+      26,
+      new Date(),
+      note
+    );
+    setMensaje("Anotación guardada");
+    setTipo("success");
+    setOpen(true);
+  };
   const useStyles = makeStyles((theme) => ({
     offset: theme.mixins.toolbar,
     root: {
@@ -164,20 +179,16 @@ const BookContent = (props) => {
         </iframe>
         <div style={{ backgroundColor: "#22252C", height: "200px" }}>
           <div className={classes.container}>
-            <Microphone setResult={setNote} />
-            <div className={classes.transciption}>{note}</div>
-            <button
-              className={classes.buttons}
-              onClick={({ note }) => {
-                alert("Cliead" + { note });
-              }}
-            >
-              {" "}
-              Guardar{" "}
-            </button>
+            <form onSubmit={handleSubmit} className="formLogin">
+              <Microphone setResult={setNote} />
+              <div className={classes.transciption}>{note}</div>
+              {/* <button className={classes.buttons} type="submit">
+                Guardar
+              </button> */}
+            </form>
           </div>
         </div>
-      </div>
+      </div>  
     </div>
   );
 };

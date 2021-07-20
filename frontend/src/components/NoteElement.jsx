@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Speech from "react-speech";
 import ReactTooltip from "react-tooltip";
 import { getCurrentUser } from "../services/LoginService";
@@ -9,10 +9,6 @@ import IconButton from "@material-ui/core/IconButton";
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
 import RoomIcon from "@material-ui/icons/Room";
-
-import Notification from "./Notification";
-
-import * as libroService from "../services/LibroService";
 
 const useStyles = makeStyles((theme) => ({
   offset: theme.mixins.toolbar,
@@ -56,22 +52,9 @@ const NoteElement = (props) => {
   const classes = useStyles();
   const note = props.noteInfo;
   const book = props.bookInfo;
-  const [open, setOpen] = useState(false);
-  const [mensaje, setMensaje] = useState("");
-  const [tipo, setTipo] = useState("");
-
-  const handleDelete = async (idAnotacion) => {
-    libroService.deleteAnotacion(idAnotacion, book._id, getCurrentUser().id);
-    //setMensaje("Anotación eliminada");
-    setTipo("success");
-    setOpen(true);
-    alert("Anotación eliminada");
-    window.location.reload();
-  };
 
   return (
     <div className={classes.note}>
-      <Notification setOpen = {setOpen} mensaje= {mensaje} open={open} tipo = {tipo}></Notification>
       <div className={classes.noteTitle}>
         <p className={classes.noteTitle__p}>Titulo</p>
         <p className={classes.noteTitle__p}>{book.nombreLibro}</p>
@@ -136,7 +119,7 @@ const NoteElement = (props) => {
           data-tip=""
           data-for="delete"
           delay-show="500"
-          onClick={() => handleDelete(note.idAnotacion)}
+          onClick={() => props.delete(note.idAnotacion, book._id)}
         >
           <DeleteOutlineIcon fontSize="large" />
         </IconButton>
