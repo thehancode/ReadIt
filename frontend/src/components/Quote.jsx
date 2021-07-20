@@ -74,10 +74,18 @@ const Quote = ()=>{
         QuoteService.quoteOfDay().then(
             (response) => {
                 console.log(response)
+
                 let newQuote = {
-                    title: response.title,
-                    author: response.author,
-                    content: response.quote,
+                    title: "Frase del Día",
+                    author: "Mahatma Gandhi",
+                    content: "You must be the change you wish to see in the world.",
+                }
+                if (response){
+                    newQuote = {
+                        title: response.title,
+                        author: response.author,
+                        content: response.quote,
+                    }
                 }
                 setQuote(newQuote)
             },
