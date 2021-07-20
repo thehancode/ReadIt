@@ -81,6 +81,7 @@ const BookContent = (props) => {
     container: {
       display: "flex",
       "justify-content": "center",
+      
     },
 
     containerv: {
@@ -135,6 +136,14 @@ const BookContent = (props) => {
       display: "flex",
       "flex-direction": "row",
     },
+    recive:{
+      "display": "flex",
+      "flex-direction": "row",
+      "width": "40%",
+      "margin": "0px auto",
+      "padding": "10px",
+      "background-color": "#21242B",
+    },
 
     buttons: {
       margin: "10px",
@@ -161,7 +170,7 @@ const BookContent = (props) => {
         tipo={tipo}
       ></Notification>
       <div className={classes.offset}></div>
-      <div style={{ height: "100vh", margin: "none" }}>
+      <div style={{ height: "90vh", margin: "none" }}>
         <iframe
           src={
             "https://www.gutenberg.org/files/" +
@@ -173,13 +182,13 @@ const BookContent = (props) => {
             "-h.htm"
           }
           width="100%"
-          height="80%"
+          height="90%"
         >
           <p>Your browser does not support iframes.</p>
         </iframe>
-        <div style={{ backgroundColor: "#22252C", height: "200px" }}>
+        <div style={{  backgroundColor: "#22252C" }}>
           <div className={classes.container}>
-            <form onSubmit={handleSubmit} className="formLogin">
+            <form onSubmit={handleSubmit} className={classes.recive}>
               <Microphone setResult={setNote} />
               <div className={classes.transciption}>{note}</div>
               {/* <button className={classes.buttons} type="submit">
@@ -188,6 +197,8 @@ const BookContent = (props) => {
             </form>
           </div>
         </div>
+
+
       </div>  
     </div>
   );
