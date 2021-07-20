@@ -14,8 +14,11 @@ function Microphone(props) {
     container: {
       fontFamily: "Prata,serif",
       color: "rgb(255, 221, 163)",
-      marginLeft: "10px", 
-      paddingTop: "30px",
+      display:"flex",
+      "flex-direction":"column",
+      "justify-content":"center",
+
+      marginLeft: "10px",   
       marginRight: "10px",
 
 

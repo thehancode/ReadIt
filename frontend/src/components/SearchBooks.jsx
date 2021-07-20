@@ -20,10 +20,14 @@ const useStyles = makeStyles((theme) => ({
     padding: "2px 4px",
     display: "flex",
     alignItems: "center",
-    width: 400,
+    width:"80vw",
+    height:"80px",
+    borderRadius:"20px"
   },
   input: {
     marginLeft: theme.spacing(1),
+    paddingLeft: "20px",
+    fontSize: "1.5em",
     flex: 1,
   },
   iconButton: {
