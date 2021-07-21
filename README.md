@@ -1,4 +1,4 @@
-# LectorIHC
+# ReadIt
 ## Instrucciones de instalación
 
 1. Clonar el repositorio.
