@@ -76,13 +76,25 @@ const deleteUsuario = async (req, res) => {
 };
 
 const updateUsuario = async (req, res) => {
+  const usuario = new Usuario({
+    _id: req.params.id,
+    nombre: req.body.nombre,
+    apellido: req.body.apellido,
+    correo: req.body.correo,
+    username: req.body.username,
+    password: bcrypt.hashSync(req.body.password, 8),
+    timer: req.body.timer,
+  });
+  console.log(usuario);
+
   const usuarioUpdated = await Usuario.findByIdAndUpdate(
     req.params.id,
-    req.body,
+    usuario,
     {
       new: true,
     }
   );
+
   if (!usuarioUpdated) return res.status(204).json();
   return res.json(usuarioUpdated);
 };
