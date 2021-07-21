@@ -1,5 +1,5 @@
 # LectorIHC
-## Instrucciones de instalacion
+## Instrucciones de instalación
 
 1. Clonar el repositorio.
  	`git clone https://github.com/gestorHan/LectorIHC.git`
@@ -14,6 +14,7 @@
   
 2. En otra consola inciar el fronend.
 
+  - `cd LectorIHC/frontend/`
   
   - `npm install`
   
