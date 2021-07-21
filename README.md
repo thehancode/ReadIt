@@ -8,7 +8,7 @@
 
  	- `cd LectorIHC/backend/`
   
-  -`npm install`
+  - `npm install`
   
   - `npm start`
   
