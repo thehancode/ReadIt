@@ -6,19 +6,19 @@
 
 2. En una consola iniciar el backend.
 
- 	`cd LectorIHC/backend/`
+ 	- `cd LectorIHC/backend/`
   
-  `npm install`
+  -`npm install`
   
-  `npm start`
+  - `npm start`
   
 2. En otra consola inciar el fronend.
 
-  `cd LectorIHC/frontend/`
+  - `cd LectorIHC/frontend/`
   
-  `npm install`
+  - `npm install`
   
-  `npm start`
+  - `npm start`
 
 
 
