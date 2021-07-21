@@ -39,7 +39,7 @@ const BookContent = (props) => {
         setMensaje("Recuerda tomar un descanso");
         setTipo("info");
         setOpen(true);
-      }, user.timer * 1000);
+      }, user.timer * 100);
     }
     marcarLibro();
   }, []);
@@ -81,7 +81,6 @@ const BookContent = (props) => {
     container: {
       display: "flex",
       "justify-content": "center",
-      
     },
 
     containerv: {
@@ -136,12 +135,12 @@ const BookContent = (props) => {
       display: "flex",
       "flex-direction": "row",
     },
-    recive:{
-      "display": "flex",
+    recive: {
+      display: "flex",
       "flex-direction": "row",
-      "width": "40%",
-      "margin": "0px auto",
-      "padding": "10px",
+      width: "40%",
+      margin: "0px auto",
+      padding: "10px",
       "background-color": "#21242B",
     },
 
@@ -172,6 +171,7 @@ const BookContent = (props) => {
       <div className={classes.offset}></div>
       <div style={{ height: "90vh", margin: "none" }}>
         <iframe
+          id="myIFrame"
           src={
             "https://www.gutenberg.org/files/" +
             bookID +
@@ -186,20 +186,16 @@ const BookContent = (props) => {
         >
           <p>Your browser does not support iframes.</p>
         </iframe>
-        <div style={{  backgroundColor: "#22252C" }}>
+
+        <div style={{ backgroundColor: "#22252C" }}>
           <div className={classes.container}>
             <form onSubmit={handleSubmit} className={classes.recive}>
               <Microphone setResult={setNote} />
               <div className={classes.transciption}>{note}</div>
-              {/* <button className={classes.buttons} type="submit">
-                Guardar
-              </button> */}
             </form>
           </div>
         </div>
-
-
-      </div>  
+      </div>
     </div>
   );
 };

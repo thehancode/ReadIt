@@ -3,6 +3,7 @@ import * as userService from "../services/RegistroService";
 import { getCurrentUser } from "../services/LoginService";
 import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
+import Notification from "./Notification";
 
 import {
   Container,
@@ -32,7 +33,7 @@ export const RegistroForm = () => {
       height: "calc(100vh - 64px)",
       padding: "1em",
       [theme.breakpoints.down("xs")]: {
-        padding: "0.8em",        
+        padding: "0.8em",
         height: "auto",
       },
     },
@@ -95,8 +96,9 @@ export const RegistroForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (user.password === user.passwordValidate) {
-      userService.createUser({...user,timer:1500}).then(
+      userService.createUser({ ...user, timer: 1500 }).then(
         (value) => {
+          console.log(value);
           setUser(initialState);
           //alert("Usuario registrado");
           setMensaje("Usuario registrado");
@@ -113,7 +115,6 @@ export const RegistroForm = () => {
       setMensaje("Las contraseñas no coinciden");
       setTipo("error");
     }
-
     setOpen(true);
   };
 
@@ -122,6 +123,12 @@ export const RegistroForm = () => {
       {!currentUser ? (
         <>
           <NavbarLogin />
+          <Notification
+            setOpen={setOpen}
+            mensaje={mensaje}
+            open={open}
+            tipo={tipo}
+          ></Notification>
           <ThemeProvider theme={theme}>
             <div className={classes.offset}></div>
             <Container maxWidth="xl" component="div" className={classes.root}>

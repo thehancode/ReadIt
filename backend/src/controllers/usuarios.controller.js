@@ -1,16 +1,29 @@
 const Usuario = require("../models/usuarios");
 const jwt = require("jsonwebtoken");
 const config = require("../config");
+var bcrypt = require("bcryptjs");
 
 const login = async (req, res) => {
   const usuarioFound = await Usuario.findOne({
     username: req.body.username,
-    password: req.body.password,
   });
-
+  console.log(usuarioFound);
   if (!usuarioFound) {
     return res.status(404).send({ message: "Usuario no encontrado." });
   }
+
+  var passwordIsValid = bcrypt.compareSync(
+    req.body.password,
+    usuarioFound.password
+  );
+
+  if (!passwordIsValid) {
+    return res.status(401).send({
+      accessToken: null,
+      message: "Contraseña inválida!",
+    });
+  }
+
   console.log(usuarioFound.id);
   var token = jwt.sign({ id: usuarioFound.id }, config.SECRET, {
     expiresIn: 86400, // 24 hours
@@ -28,8 +41,15 @@ const createUsuario = async (req, res) => {
   const usuarioFound = await Usuario.findOne({ username: req.body.username });
   if (usuarioFound)
     return res.status(404).json({ message: "El usuario ya existe" });
+  const usuario = new Usuario({
+    nombre: req.body.nombre,
+    apellido: req.body.apellido,
+    correo: req.body.correo,
+    username: req.body.username,
+    password: bcrypt.hashSync(req.body.password, 8),
+    timer: 1500,
+  });
 
-  const usuario = new Usuario(req.body);
   const savedUsuario = await usuario.save();
   res.json(savedUsuario);
 };
@@ -56,9 +76,13 @@ const deleteUsuario = async (req, res) => {
 };
 
 const updateUsuario = async (req, res) => {
-  const usuarioUpdated = await Usuario.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-  });
+  const usuarioUpdated = await Usuario.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    {
+      new: true,
+    }
+  );
   if (!usuarioUpdated) return res.status(204).json();
   return res.json(usuarioUpdated);
 };
