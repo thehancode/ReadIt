@@ -1,4 +1,9 @@
 # LectorIHC
+## Instrucciones de instalacion
+
+
+
+
 ## Descripcion del problema
 Aplicativo que permite leer libros online y guardar notas de voz mientras se lee. 
 
