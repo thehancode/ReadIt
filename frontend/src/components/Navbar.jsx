@@ -63,7 +63,7 @@ const Navbar = (props) => {
             >
               <MenuIcon />
           </IconButton>          
-          <div className={classes.navLogo}><span>Read<b>It</b></span></div>
+          <div className={classes.navLogo}> <a href="/"> <span>Read<b>It</b></span> </a></div>
           </Hidden>
           <Hidden xsDown>              
             <div className={classes.navMenu}>

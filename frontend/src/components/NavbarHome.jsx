@@ -126,17 +126,23 @@ const NavbarHome = (props) => {
             <MenuIcon />
           </IconButton>
           <div className={classes.navLogo}>
+            <a href="/">
+
             <span>
               Read<b>It</b>
             </span>
+            </a>
           </div>
         </Hidden>
         <Hidden xsDown>
           <div className={classes.navMenu}>
             <div className={classes.navMenuLeft}>
+              <a href="/">
+                
               <span className={classes.navMenuLeft__Logo}>
                 Read<b>It</b>
               </span>
+              </a>
               <Link
                 to="/home"
                 color="inherit"

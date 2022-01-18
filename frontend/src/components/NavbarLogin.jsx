@@ -52,7 +52,7 @@ const NavbarLogin = () => {
     <div>
       <AppBar>
         <Toolbar className={classes.navbar}>
-            <div className={classes.navLogo}><span>Read<b>It</b></span></div>
+            <div className={classes.navLogo}><a href="/"><span>Read<b>It</b></span> </a></div>
             <div className={classes.navMenu}>
             <Link href="/" color="inherit"  underline="none" className={classes.submenu}>Inicio</Link>          
             <Link href="/login" color="inherit"  underline="none" className={classes.submenu}>Ingresar</Link>   
