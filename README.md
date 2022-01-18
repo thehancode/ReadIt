@@ -42,3 +42,11 @@ Team:
 * Freider Wilmer Achic Cuenca
 * Jordi Joel Bardales Rojas
 * Jesus Andres Torrejon Leon
+
+
+
+## Troubleshooting 
+
+In newer versions of nodeJs might be required to set:
+
+`export NODE_OPTIONS=--openssl-legacy-provider`
