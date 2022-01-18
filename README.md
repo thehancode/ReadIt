@@ -18,11 +18,11 @@ App that allows users to read online books and save voice notes while reading.
 ## Install & run
 
 1. Clone repo
- 	`git clone https://github.com/gestorHan/LectorIHC.git`
+ 	`git clone https://github.com/gestorHan/ReadIt.git`
 
 2. Start backend in one terminal.
 
-  - `cd LectorIHC/backend/`
+  - `cd ReadIt/backend/`
   
   - `npm install`
   
@@ -30,7 +30,7 @@ App that allows users to read online books and save voice notes while reading.
   
 2. Start backend in other terminal.
 
-  - `cd LectorIHC/frontend/`
+  - `cd ReadIt/frontend/`
   
   - `npm install`
   
