@@ -112,17 +112,7 @@ export const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    userService.login(user).then(
-      () => {
-        history.push("/home");
-      },
-      (error) => {
-        //alert("Usuario incorrecto");
-        setMensaje("Usuario o contraseña incorrecta");
-        setTipo("error");
-        setOpen(true);
-      }
-    );
+    history.push("/home");
   };
 
   const responseGoogle = (response) => {

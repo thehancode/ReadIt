@@ -125,7 +125,7 @@ export const HomePage = (props) => {
   // En caso currentUser sea nulo quiere decir que no hay usuario logeado por lo tanto no debe mostrar home sino redireccionar a login
   return (
     <>
-      {currentUser ? (
+
         <div className={classes.root}>
           <NavbarHome openDrawer={handleDrawerToggle} />
           {/* Esta parte es del menu responsive */}
@@ -177,9 +177,7 @@ export const HomePage = (props) => {
             <Footer />
           </main>
         </div>
-      ) : (
-        history.push("/login")
-      )}
+
     </>
   );
 };

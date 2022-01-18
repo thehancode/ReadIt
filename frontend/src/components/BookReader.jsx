@@ -7,7 +7,6 @@ import * as libroService from "../services/LibroService";
 import Notification from "./Notification";
 
 import { useParams } from "react-router-dom";
-import Microphone from "./Microphone";
 import { Input } from "@material-ui/core";
 const BookContent = (props) => {
   let { bookID, bookIDMongo } = useParams();
@@ -187,14 +186,6 @@ const BookContent = (props) => {
           <p>Your browser does not support iframes.</p>
         </iframe>
 
-        <div style={{ backgroundColor: "#22252C" }}>
-          <div className={classes.container}>
-            <form onSubmit={handleSubmit} className={classes.recive}>
-              <Microphone setResult={setNote} />
-              <div className={classes.transciption}>{note}</div>
-            </form>
-          </div>
-        </div>
       </div>
     </div>
   );

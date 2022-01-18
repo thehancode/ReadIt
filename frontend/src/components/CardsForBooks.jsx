@@ -44,11 +44,7 @@ export default function MediaCard(props) {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image={
-            props.bookInfo.imagen === undefined
-              ? `https://www.gutenberg.org/cache/epub/${props.bookInfo.idLibro}/pg${props.bookInfo.idLibro}.cover.medium.jpg`
-              : props.bookInfo.imagen
-          }
+          image={`https://www.gutenberg.org/cache/epub/${props.bookInfo.idLibro}/pg${props.bookInfo.idLibro}.cover.medium.jpg`}
           title="Contemplative Reptile"
         />
         <CardContent>

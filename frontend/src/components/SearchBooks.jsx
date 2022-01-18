@@ -1,16 +1,15 @@
-import Quote from "./Quote";
 
 import React, { useEffect, useState } from "react";
-import { FormControl } from "@material-ui/core";
+import { Button, FormControl } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import InputBase from "@material-ui/core/InputBase";
 import Divider from "@material-ui/core/Divider";
+import SearchIcon from '@material-ui/icons/Search';
 import MediaCard from "./CardsForBooks.jsx";
 
 import * as BookService from "../services/SearchBookService";
 
-import Microphone from "./Microphone";
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: "2px 4px",
@@ -97,7 +96,6 @@ const SearchBooks = () => {
         <Paper
           component="form"
           className={classes.root}
-          //   style={{ width: 80 + "%", margin: "auto" }}
         >
           < InputBase
             className={classes.input}
@@ -108,20 +106,17 @@ const SearchBooks = () => {
                         console.log("ONCHANGE", result)}}
           />
           <Divider className={classes.divider} orientation="vertical" />
-          <Microphone setResult={setResult}></Microphone>
-          {/* <IconButton
-            color="primary"
-            className={classes.iconButton}
-            aria-label="directions"
-          >
-            <MicIcon />
-          </IconButton> */}
+            
+          <Button  type="submit">
+          <SearchIcon></SearchIcon>
+          </Button>
         </Paper>
       </FormControl>  
       <div>
         <BookList></BookList>
       </div>
-      <Quote></Quote>
+      {//<Quote></Quote>
+      }
     </div>
   );
 };
