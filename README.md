@@ -37,7 +37,7 @@ App that allows users to read online books and save voice notes while reading.
   - `npm start`
 
 
-Team:
+## Team
 * Israel Danilo Blas Salas
 * Freider Wilmer Achic Cuenca
 * Jordi Joel Bardales Rojas
